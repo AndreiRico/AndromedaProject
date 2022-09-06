@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 namespace Proyecto.App.Dominio
 {
     public class APELLIDOS
-    //HolaMundo
     {
         [Key]
         [MaxLength(5)]
