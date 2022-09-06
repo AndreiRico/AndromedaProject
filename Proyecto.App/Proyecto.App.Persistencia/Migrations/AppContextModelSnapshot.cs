@@ -109,9 +109,14 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int?>("PaisTIdPais")
+                        .HasColumnType("int");
+
                     b.HasKey("IdDepartamento");
 
-                    b.ToTable("Departamento");
+                    b.HasIndex("PaisTIdPais");
+
+                    b.ToTable("Departamentoss");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.DepartamentoPais", b =>
@@ -236,7 +241,7 @@ namespace Proyecto.App.Persistencia.Migrations
                     b.ToTable("Operador");
                 });
 
-            modelBuilder.Entity("Proyecto.App.Dominio.Pais", b =>
+            modelBuilder.Entity("Proyecto.App.Dominio.PaisT", b =>
                 {
                     b.Property<int>("IdPais")
                         .ValueGeneratedOnAdd()
@@ -250,7 +255,7 @@ namespace Proyecto.App.Persistencia.Migrations
 
                     b.HasKey("IdPais");
 
-                    b.ToTable("Pais");
+                    b.ToTable("Paicess");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.RH", b =>
@@ -503,6 +508,18 @@ namespace Proyecto.App.Persistencia.Migrations
                     b.HasKey("Contador");
 
                     b.ToTable("UsuariosNOmbres");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.Departamento", b =>
+                {
+                    b.HasOne("Proyecto.App.Dominio.PaisT", null)
+                        .WithMany("PaisCodigoPk")
+                        .HasForeignKey("PaisTIdPais");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.PaisT", b =>
+                {
+                    b.Navigation("PaisCodigoPk");
                 });
 #pragma warning restore 612, 618
         }

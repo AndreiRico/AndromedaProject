@@ -5,8 +5,8 @@ namespace Proyecto.App.Persistencia
 {
     public class AppContext : DbContext
     {
-        public DbSet<Pais> Pais {get;set;}
-        public DbSet<Departamento> Departamento {get;set;}
+        public DbSet<PaisT> Paicess {get;set;}
+        public DbSet<Departamento> Departamentoss {get;set;}
         public DbSet<Ciudad> NombreCiudad {get;set;}
         public DbSet<DepartamentoPais> DepartamentoPais {get;set;}
         public DbSet<APELLIDOS> Apellidos {get; set;}
@@ -32,6 +32,7 @@ namespace Proyecto.App.Persistencia
         {
             optionsBuilder
             .UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = BD_PROYECTO02");
+            //.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = LunesTest");
         }
     }
 }

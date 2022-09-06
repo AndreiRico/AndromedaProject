@@ -10,6 +10,7 @@ namespace Proyecto.App.Dominio
         [MaxLength(50)]
         //public string? NombreDepartamento { get; set; }
         public string NombreDepartamento { get; set; }
+        
 
     }
 }
