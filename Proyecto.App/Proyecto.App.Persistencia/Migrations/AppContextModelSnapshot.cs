@@ -81,7 +81,10 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("PaisIdPais")
+                    b.Property<int>("IdPais")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PaisIdPais")
                         .HasColumnType("int");
 
                     b.Property<string>("nombreDepartamento")
@@ -514,9 +517,13 @@ namespace Proyecto.App.Persistencia.Migrations
 
             modelBuilder.Entity("Proyecto.App.Dominio.Departamento", b =>
                 {
-                    b.HasOne("Proyecto.App.Dominio.Pais", null)
+                    b.HasOne("Proyecto.App.Dominio.Pais", "Pais")
                         .WithMany("PaisCodigoPk")
-                        .HasForeignKey("PaisIdPais");
+                        .HasForeignKey("PaisIdPais")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pais");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.Pais", b =>

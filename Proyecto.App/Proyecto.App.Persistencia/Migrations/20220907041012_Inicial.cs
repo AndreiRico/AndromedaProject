@@ -321,7 +321,8 @@ namespace Proyecto.App.Persistencia.Migrations
                     IdDepartamento = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     nombreDepartamento = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    PaisIdPais = table.Column<int>(type: "int", nullable: true)
+                    IdPais = table.Column<int>(type: "int", nullable: false),
+                    PaisIdPais = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -331,7 +332,7 @@ namespace Proyecto.App.Persistencia.Migrations
                         column: x => x.PaisIdPais,
                         principalTable: "pais",
                         principalColumn: "IdPais",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

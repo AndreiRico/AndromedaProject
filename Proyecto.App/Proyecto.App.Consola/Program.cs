@@ -6,22 +6,35 @@ namespace Proyecto.App.Consola
     class Program
     {
         private static IRepositorioUsuario _repoUser = new RepositorioUser(new Persistencia.AppContext());
+        private static IRepositorioNombre _repoNombre = new RepositorioNombre(new Persistencia.AppContext());
         static void Main(String[] args)
         {
             Console.WriteLine("Hola Mundo");
-            AddUser();
+            //AddUserx();
+            AddUnNombre();
+
         }
-         private static void AddUser()
+         private static void AddUserx()
          {
             Usuarios usuariosadd = new Usuarios
             {
                 TipoDocumento = 2,
                 Rh = 2,
-                Nacimiento = new DateTime(2022, 10, 20),//YY,MM,DD
+                Nacimiento = new DateTime(2028, 10, 20),//YY,MM,DD
                 Genero = 3
 
             };
             _repoUser.AddUser(usuariosadd);
+
+         }
+         private static void AddUnNombre()
+         {
+            Nombres nombreadd = new Nombres
+            {
+                nombre = "Pepito"
+
+            };
+            _repoNombre.AddNombre(nombreadd);
 
          }
     }
