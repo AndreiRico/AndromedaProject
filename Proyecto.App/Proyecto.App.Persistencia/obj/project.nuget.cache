@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gKNiwZZ/+h+bF07H3MGNvT6+4ihJJR3Umpe10n20rOkI+d6rMROl1cwpM17QrZNRu1g0SGgUJRBoujrOI/aPkQ==",
+  "dgSpecHash": "q/kxA8UhzdRRMwaNADqSyBvgf/o24HZzHcJu77XRu6tR1f5coDxWQtk9/d5QtG5PmwmfdFnv8gaYnx5HBcaqEQ==",
   "success": true,
-  "projectFilePath": "C:\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj",
+  "projectFilePath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Leaf\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Leaf\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

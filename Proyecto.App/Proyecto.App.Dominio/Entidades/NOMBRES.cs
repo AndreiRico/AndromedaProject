@@ -8,7 +8,7 @@ namespace Proyecto.App.Dominio
         [MaxLength(5)]
         public int IdNombre { get; set; }
         [MaxLength(25)]
-        public string Nombre {get; set; }
+        public string nombre {get; set; }
     }
 
 }

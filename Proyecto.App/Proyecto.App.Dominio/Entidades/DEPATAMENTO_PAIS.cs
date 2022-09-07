@@ -12,7 +12,7 @@ namespace Proyecto.App.Dominio
         [MaxLength(50)]
         public int IdPais { get; set; }
         [MaxLength(50)]
-        public string? NombreDepartamento { get; set; }
+        public string nombreDepartamento { get; set; }
 
     }
 }

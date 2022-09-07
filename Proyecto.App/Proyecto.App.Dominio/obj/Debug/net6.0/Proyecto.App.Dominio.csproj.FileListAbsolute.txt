@@ -34,3 +34,15 @@ C:\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\Proyecto.A
 C:\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\refint\Proyecto.App.Dominio.dll
 C:\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\Proyecto.App.Dominio.pdb
 C:\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\ref\Proyecto.App.Dominio.dll
+C:\g\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\bin\Debug\net6.0\Proyecto.App.Dominio.deps.json
+C:\g\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\bin\Debug\net6.0\Proyecto.App.Dominio.dll
+C:\g\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\bin\Debug\net6.0\Proyecto.App.Dominio.pdb
+C:\g\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\Proyecto.App.Dominio.csproj.AssemblyReference.cache
+C:\g\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\Proyecto.App.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\g\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\Proyecto.App.Dominio.AssemblyInfoInputs.cache
+C:\g\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\Proyecto.App.Dominio.AssemblyInfo.cs
+C:\g\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\Proyecto.App.Dominio.csproj.CoreCompileInputs.cache
+C:\g\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\Proyecto.App.Dominio.dll
+C:\g\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\refint\Proyecto.App.Dominio.dll
+C:\g\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\Proyecto.App.Dominio.pdb
+C:\g\AndromedaProyec\Proyecto.App\Proyecto.App.Dominio\obj\Debug\net6.0\ref\Proyecto.App.Dominio.dll

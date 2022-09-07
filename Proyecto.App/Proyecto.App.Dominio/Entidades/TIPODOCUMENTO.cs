@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 namespace Proyecto.App.Dominio
 {
-    public class TIPODOCUMENTO
+    public class TipoDocumento
     {
         [Key]
         [MaxLength(5)]

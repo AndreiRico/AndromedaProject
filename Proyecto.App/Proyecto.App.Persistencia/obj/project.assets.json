@@ -6063,11 +6063,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj",
+      "projectUniqueName": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj",
       "projectName": "Proyecto.App.Persistencia",
-      "projectPath": "C:\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj",
+      "projectPath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj",
       "packagesPath": "C:\\Users\\Leaf\\.nuget\\packages\\",
-      "outputPath": "C:\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Persistencia\\obj\\",
+      "outputPath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Persistencia\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Leaf\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6082,8 +6082,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Dominio\\Proyecto.App.Dominio.csproj": {
-              "projectPath": "C:\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Dominio\\Proyecto.App.Dominio.csproj"
+            "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Dominio\\Proyecto.App.Dominio.csproj": {
+              "projectPath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Dominio\\Proyecto.App.Dominio.csproj"
             }
           }
         }

@@ -8,75 +8,88 @@ namespace Proyecto.App.Persistencia.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Apellidos",
+                name: "apellidos",
                 columns: table => new
                 {
                     IdApellidos = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Apellido = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    apellido = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Apellidos", x => x.IdApellidos);
+                    table.PrimaryKey("PK_apellidos", x => x.IdApellidos);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cuenta",
+                name: "ciudad",
+                columns: table => new
+                {
+                    IdCiudad = table.Column<int>(type: "int", maxLength: 5, nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    nombreCiudad = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ciudad", x => x.IdCiudad);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "cuenta",
                 columns: table => new
                 {
                     IdCuenta = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Descripcion = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false)
+                    descripcion = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cuenta", x => x.IdCuenta);
+                    table.PrimaryKey("PK_cuenta", x => x.IdCuenta);
                 });
 
             migrationBuilder.CreateTable(
-                name: "DepartamentoPais",
+                name: "departamentoPais",
                 columns: table => new
                 {
                     IdDepartamentoPais = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IdDepartamento = table.Column<int>(type: "int", maxLength: 5, nullable: false),
                     IdPais = table.Column<int>(type: "int", maxLength: 50, nullable: false),
-                    NombreDepartamento = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
+                    nombreDepartamento = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DepartamentoPais", x => x.IdDepartamentoPais);
+                    table.PrimaryKey("PK_departamentoPais", x => x.IdDepartamentoPais);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Direccion",
+                name: "direccion",
                 columns: table => new
                 {
                     IdDireccion = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TipoVivienda = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: false),
-                    Direccion = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    direccion = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Direccion", x => x.IdDireccion);
+                    table.PrimaryKey("PK_direccion", x => x.IdDireccion);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Email",
+                name: "email",
                 columns: table => new
                 {
                     CodEmail = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    descripcion = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Email", x => x.CodEmail);
+                    table.PrimaryKey("PK_email", x => x.CodEmail);
                 });
 
             migrationBuilder.CreateTable(
-                name: "EmailOperador",
+                name: "emailOperador",
                 columns: table => new
                 {
                     IdEmaOper = table.Column<int>(type: "int", maxLength: 5, nullable: false)
@@ -87,50 +100,37 @@ namespace Proyecto.App.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmailOperador", x => x.IdEmaOper);
+                    table.PrimaryKey("PK_emailOperador", x => x.IdEmaOper);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Genero",
+                name: "genero",
                 columns: table => new
                 {
                     IdGENERO = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Genero = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
+                    descripcion = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Genero", x => x.IdGENERO);
+                    table.PrimaryKey("PK_genero", x => x.IdGENERO);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Nombre",
+                name: "nombres",
                 columns: table => new
                 {
                     IdNombre = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
+                    nombre = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Nombre", x => x.IdNombre);
+                    table.PrimaryKey("PK_nombres", x => x.IdNombre);
                 });
 
             migrationBuilder.CreateTable(
-                name: "NombreCiudad",
-                columns: table => new
-                {
-                    IdCiudad = table.Column<int>(type: "int", maxLength: 5, nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreCiudad = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_NombreCiudad", x => x.IdCiudad);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Operador",
+                name: "operador",
                 columns: table => new
                 {
                     IdCodOperador = table.Column<int>(type: "int", maxLength: 5, nullable: false)
@@ -139,51 +139,51 @@ namespace Proyecto.App.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Operador", x => x.IdCodOperador);
+                    table.PrimaryKey("PK_operador", x => x.IdCodOperador);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Paicess",
+                name: "pais",
                 columns: table => new
                 {
                     IdPais = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombrePais = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
+                    nombrePais = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Paicess", x => x.IdPais);
+                    table.PrimaryKey("PK_pais", x => x.IdPais);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Rh",
+                name: "rh",
                 columns: table => new
                 {
                     IdRh = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Descripcion = table.Column<string>(type: "nvarchar(3)", maxLength: 3, nullable: false)
+                    descripcion = table.Column<string>(type: "nvarchar(3)", maxLength: 3, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Rh", x => x.IdRh);
+                    table.PrimaryKey("PK_rh", x => x.IdRh);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Telefono",
+                name: "telefono",
                 columns: table => new
                 {
                     IdTelefon = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Telefono = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
+                    telefono = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
                     Cuenta = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Telefono", x => x.IdTelefon);
+                    table.PrimaryKey("PK_telefono", x => x.IdTelefon);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TipoDocumento",
+                name: "tipoDocumento",
                 columns: table => new
                 {
                     IdTipoDocumento = table.Column<int>(type: "int", maxLength: 5, nullable: false)
@@ -192,11 +192,11 @@ namespace Proyecto.App.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TipoDocumento", x => x.IdTipoDocumento);
+                    table.PrimaryKey("PK_tipoDocumento", x => x.IdTipoDocumento);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UsuarioDireccion",
+                name: "usuarioDireccion",
                 columns: table => new
                 {
                     IdUsuarioDireccion = table.Column<int>(type: "int", maxLength: 5, nullable: false)
@@ -207,11 +207,11 @@ namespace Proyecto.App.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UsuarioDireccion", x => x.IdUsuarioDireccion);
+                    table.PrimaryKey("PK_usuarioDireccion", x => x.IdUsuarioDireccion);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UsuarioFuncionario",
+                name: "usuarioFuncionario",
                 columns: table => new
                 {
                     IdUsuarioArea = table.Column<int>(type: "int", maxLength: 5, nullable: false)
@@ -223,11 +223,11 @@ namespace Proyecto.App.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UsuarioFuncionario", x => x.IdUsuarioArea);
+                    table.PrimaryKey("PK_usuarioFuncionario", x => x.IdUsuarioArea);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UsuarioJerarquia",
+                name: "usuarioJerarquia",
                 columns: table => new
                 {
                     IdUsuarioJerarquia = table.Column<int>(type: "int", maxLength: 5, nullable: false)
@@ -237,27 +237,27 @@ namespace Proyecto.App.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UsuarioJerarquia", x => x.IdUsuarioJerarquia);
+                    table.PrimaryKey("PK_usuarioJerarquia", x => x.IdUsuarioJerarquia);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Usuarios",
+                name: "usuarios",
                 columns: table => new
                 {
                     Documento = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TipoDocumento = table.Column<int>(type: "int", maxLength: 5, nullable: false),
                     Rh = table.Column<int>(type: "int", maxLength: 5, nullable: false),
-                    Nacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Nacimiento = table.Column<DateTime>(type: "Date", nullable: false),
                     Genero = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Usuarios", x => x.Documento);
+                    table.PrimaryKey("PK_usuarios", x => x.Documento);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UsuariosApellidos",
+                name: "usuariosApellidos",
                 columns: table => new
                 {
                     Contador = table.Column<int>(type: "int", maxLength: 5, nullable: false)
@@ -267,11 +267,11 @@ namespace Proyecto.App.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UsuariosApellidos", x => x.Contador);
+                    table.PrimaryKey("PK_usuariosApellidos", x => x.Contador);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UsuariosEmail",
+                name: "usuariosEmail",
                 columns: table => new
                 {
                     Conatdor = table.Column<int>(type: "int", maxLength: 5, nullable: false)
@@ -283,11 +283,11 @@ namespace Proyecto.App.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UsuariosEmail", x => x.Conatdor);
+                    table.PrimaryKey("PK_usuariosEmail", x => x.Conatdor);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UsuariosNOmbres",
+                name: "usuariosNOmbres",
                 columns: table => new
                 {
                     Contador = table.Column<int>(type: "int", maxLength: 5, nullable: false)
@@ -297,11 +297,11 @@ namespace Proyecto.App.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UsuariosNOmbres", x => x.Contador);
+                    table.PrimaryKey("PK_usuariosNOmbres", x => x.Contador);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UsuarioTelefono",
+                name: "usuarioTelefono",
                 columns: table => new
                 {
                     Contador = table.Column<int>(type: "int", maxLength: 5, nullable: false)
@@ -311,105 +311,105 @@ namespace Proyecto.App.Persistencia.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UsuarioTelefono", x => x.Contador);
+                    table.PrimaryKey("PK_usuarioTelefono", x => x.Contador);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Departamentoss",
+                name: "departamentos",
                 columns: table => new
                 {
                     IdDepartamento = table.Column<int>(type: "int", maxLength: 5, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreDepartamento = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    PaisTIdPais = table.Column<int>(type: "int", nullable: true)
+                    nombreDepartamento = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    PaisIdPais = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Departamentoss", x => x.IdDepartamento);
+                    table.PrimaryKey("PK_departamentos", x => x.IdDepartamento);
                     table.ForeignKey(
-                        name: "FK_Departamentoss_Paicess_PaisTIdPais",
-                        column: x => x.PaisTIdPais,
-                        principalTable: "Paicess",
+                        name: "FK_departamentos_pais_PaisIdPais",
+                        column: x => x.PaisIdPais,
+                        principalTable: "pais",
                         principalColumn: "IdPais",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Departamentoss_PaisTIdPais",
-                table: "Departamentoss",
-                column: "PaisTIdPais");
+                name: "IX_departamentos_PaisIdPais",
+                table: "departamentos",
+                column: "PaisIdPais");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Apellidos");
+                name: "apellidos");
 
             migrationBuilder.DropTable(
-                name: "Cuenta");
+                name: "ciudad");
 
             migrationBuilder.DropTable(
-                name: "DepartamentoPais");
+                name: "cuenta");
 
             migrationBuilder.DropTable(
-                name: "Departamentoss");
+                name: "departamentoPais");
 
             migrationBuilder.DropTable(
-                name: "Direccion");
+                name: "departamentos");
 
             migrationBuilder.DropTable(
-                name: "Email");
+                name: "direccion");
 
             migrationBuilder.DropTable(
-                name: "EmailOperador");
+                name: "email");
 
             migrationBuilder.DropTable(
-                name: "Genero");
+                name: "emailOperador");
 
             migrationBuilder.DropTable(
-                name: "Nombre");
+                name: "genero");
 
             migrationBuilder.DropTable(
-                name: "NombreCiudad");
+                name: "nombres");
 
             migrationBuilder.DropTable(
-                name: "Operador");
+                name: "operador");
 
             migrationBuilder.DropTable(
-                name: "Rh");
+                name: "rh");
 
             migrationBuilder.DropTable(
-                name: "Telefono");
+                name: "telefono");
 
             migrationBuilder.DropTable(
-                name: "TipoDocumento");
+                name: "tipoDocumento");
 
             migrationBuilder.DropTable(
-                name: "UsuarioDireccion");
+                name: "usuarioDireccion");
 
             migrationBuilder.DropTable(
-                name: "UsuarioFuncionario");
+                name: "usuarioFuncionario");
 
             migrationBuilder.DropTable(
-                name: "UsuarioJerarquia");
+                name: "usuarioJerarquia");
 
             migrationBuilder.DropTable(
-                name: "Usuarios");
+                name: "usuarios");
 
             migrationBuilder.DropTable(
-                name: "UsuariosApellidos");
+                name: "usuariosApellidos");
 
             migrationBuilder.DropTable(
-                name: "UsuariosEmail");
+                name: "usuariosEmail");
 
             migrationBuilder.DropTable(
-                name: "UsuariosNOmbres");
+                name: "usuariosNOmbres");
 
             migrationBuilder.DropTable(
-                name: "UsuarioTelefono");
+                name: "usuarioTelefono");
 
             migrationBuilder.DropTable(
-                name: "Paicess");
+                name: "pais");
         }
     }
 }

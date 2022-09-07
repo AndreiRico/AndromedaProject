@@ -8,8 +8,7 @@ namespace Proyecto.App.Dominio
         [MaxLength(5)]
         public int IdDepartamento { get; set; }
         [MaxLength(50)]
-        //public string? NombreDepartamento { get; set; }
-        public string NombreDepartamento { get; set; }
+        public string nombreDepartamento { get; set; }
         
 
     }

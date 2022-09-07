@@ -11,6 +11,7 @@
           "Microsoft.EntityFrameworkCore": "5.0.9",
           "Microsoft.EntityFrameworkCore.Design": "5.0.9",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.9",
+          "Proyecto.App.Dominio": "1.0.0",
           "Proyecto.App.Persistencia": "1.0.0"
         },
         "runtime": {

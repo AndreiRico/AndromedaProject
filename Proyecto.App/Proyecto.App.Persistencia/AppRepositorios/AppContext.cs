@@ -5,34 +5,37 @@ namespace Proyecto.App.Persistencia
 {
     public class AppContext : DbContext
     {
-        public DbSet<PaisT> Paicess {get;set;}
-        public DbSet<Departamento> Departamentoss {get;set;}
-        public DbSet<Ciudad> NombreCiudad {get;set;}
-        public DbSet<DepartamentoPais> DepartamentoPais {get;set;}
-        public DbSet<APELLIDOS> Apellidos {get; set;}
-        public DbSet<CUENTA> Cuenta {get; set;}
-        public DbSet<DIRECCION> Direccion {get; set;}
-        public DbSet<EMAIL> Email {get; set;}
-        public DbSet<GENERO> Genero {get; set;}
-        public DbSet<Nombres> Nombre {get; set;}
-        public DbSet<Operador> Operador {get; set;}
-        public DbSet<RH> Rh {get; set;}
-        public DbSet<TELEFONO> Telefono {get; set;}
-        public DbSet<TIPODOCUMENTO> TipoDocumento {get; set;}
-        public DbSet<UsuarioDireccion> UsuarioDireccion {get; set;}
-        public DbSet<UsuarioJerarquia> UsuarioJerarquia {get; set;}
-        public DbSet<UsuarioTelefono> UsuarioTelefono {get; set;}
-        public DbSet<UsuariosApellidos> UsuariosApellidos {get; set;}
-        public DbSet<UsuariosEmail> UsuariosEmail {get; set;}
-        public DbSet<UsuarioFuncionario> UsuarioFuncionario {get; set;}
-        public DbSet<UsuariosNombres> UsuariosNOmbres {get; set;}
-        public DbSet<Usuarios> Usuarios {get; set;}
-        public DbSet<EmailOperador> EmailOperador {get; set;}
+        public DbSet<Pais> pais { get; set; }
+        public DbSet<Departamento> departamentos { get; set; }
+        public DbSet<Ciudad> ciudad { get; set; }
+        public DbSet<DepartamentoPais> departamentoPais { get; set; }
+        public DbSet<Apellidos> apellidos { get; set; }
+        public DbSet<Cuenta> cuenta { get; set; }
+        public DbSet<Direccion> direccion { get; set; }
+        public DbSet<EmailOperador> emailOperador { get; set; }
+        public DbSet<Email> email { get; set; }
+        public DbSet<Genero> genero { get; set; }
+        public DbSet<Nombres> nombres { get; set; }
+        public DbSet<Operador> operador { get; set; }
+        public DbSet<RH> rh { get; set; }
+        public DbSet<Telefono> telefono { get; set; }
+        public DbSet<TipoDocumento> tipoDocumento { get; set; }
+        public DbSet<UsuarioDireccion> usuarioDireccion { get; set; }
+        public DbSet<UsuarioJerarquia> usuarioJerarquia { get; set; }
+        public DbSet<UsuarioTelefono> usuarioTelefono { get; set; }
+        public DbSet<UsuariosApellidos> usuariosApellidos { get; set; }
+        public DbSet<UsuariosEmail> usuariosEmail { get; set; }
+        public DbSet<UsuarioFuncionario> usuarioFuncionario { get; set; }
+        public DbSet<UsuariosNombres> usuariosNOmbres { get; set; }
+        public DbSet<Usuarios> usuarios { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder
-            .UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = BD_PROYECTO02");
-            //.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = LunesTest");
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder
+                //.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = BD_PROYECTO02");
+                .UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = AndromedaDB");
+            }
         }
     }
 }

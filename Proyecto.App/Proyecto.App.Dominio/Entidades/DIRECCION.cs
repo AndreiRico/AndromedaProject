@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 namespace Proyecto.App.Dominio
 {
-    public class DIRECCION
+    public class Direccion
     {
         [Key]
         [MaxLength(5)]
@@ -10,7 +10,7 @@ namespace Proyecto.App.Dominio
         [MaxLength(5)]
         public string TipoVivienda {get; set; }
         [MaxLength(50)]
-        public string Direccion {get; set; }
+        public string direccion {get; set; } //Si error cambiarle el nombre
     }
 
 }

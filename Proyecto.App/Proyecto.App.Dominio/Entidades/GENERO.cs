@@ -2,13 +2,13 @@ using System;
 using System.ComponentModel.DataAnnotations;
 namespace Proyecto.App.Dominio
 {
-    public class GENERO
+    public class Genero
     {
         [Key]
         [MaxLength(5)]
         public int IdGENERO { get; set; }
         [MaxLength(30)]
-        public string Genero {get; set; }
+        public string descripcion {get; set; }
     }
 
 }
