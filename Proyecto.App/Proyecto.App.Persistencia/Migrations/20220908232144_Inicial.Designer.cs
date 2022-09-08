@@ -10,7 +10,7 @@ using Proyecto.App.Persistencia;
 namespace Proyecto.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20220908215921_Inicial")]
+    [Migration("20220908232144_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,24 +39,6 @@ namespace Proyecto.App.Persistencia.Migrations
                     b.ToTable("apellidos");
                 });
 
-            modelBuilder.Entity("Proyecto.App.Dominio.Ciudad", b =>
-                {
-                    b.Property<int>("IdCiudad")
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(5)
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("nombreCiudad")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.HasKey("IdCiudad");
-
-                    b.ToTable("ciudad");
-                });
-
             modelBuilder.Entity("Proyecto.App.Dominio.Cuenta", b =>
                 {
                     b.Property<int>("IdCuenta")
@@ -73,53 +55,6 @@ namespace Proyecto.App.Persistencia.Migrations
                     b.HasKey("IdCuenta");
 
                     b.ToTable("cuenta");
-                });
-
-            modelBuilder.Entity("Proyecto.App.Dominio.Departamento", b =>
-                {
-                    b.Property<int>("IdDepartamento")
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(5)
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("IdPais")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PaisIdPais")
-                        .HasColumnType("int");
-
-                    b.Property<string>("nombreDepartamento")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("IdDepartamento");
-
-                    b.HasIndex("PaisIdPais");
-
-                    b.ToTable("departamento");
-                });
-
-            modelBuilder.Entity("Proyecto.App.Dominio.DepartamentoPais", b =>
-                {
-                    b.Property<int>("IdDepartamentoPais")
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(5)
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("IdDepartamento")
-                        .HasMaxLength(5)
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdPais")
-                        .HasMaxLength(50)
-                        .HasColumnType("int");
-
-                    b.HasKey("IdDepartamentoPais");
-
-                    b.ToTable("departamentoPais");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.Direccion", b =>
@@ -243,24 +178,6 @@ namespace Proyecto.App.Persistencia.Migrations
                     b.HasKey("IdCodOperador");
 
                     b.ToTable("operador");
-                });
-
-            modelBuilder.Entity("Proyecto.App.Dominio.Pais", b =>
-                {
-                    b.Property<int>("IdPais")
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(5)
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("nombrePais")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("IdPais");
-
-                    b.ToTable("pais");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.RH", b =>
@@ -531,17 +448,6 @@ namespace Proyecto.App.Persistencia.Migrations
                     b.ToTable("usuariosNombres");
                 });
 
-            modelBuilder.Entity("Proyecto.App.Dominio.Departamento", b =>
-                {
-                    b.HasOne("Proyecto.App.Dominio.Pais", "Pais")
-                        .WithMany("PaisCodigoPk")
-                        .HasForeignKey("PaisIdPais")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Pais");
-                });
-
             modelBuilder.Entity("Proyecto.App.Dominio.EmailOperador", b =>
                 {
                     b.HasOne("Proyecto.App.Dominio.Cuenta", null)
@@ -679,11 +585,6 @@ namespace Proyecto.App.Persistencia.Migrations
             modelBuilder.Entity("Proyecto.App.Dominio.Operador", b =>
                 {
                     b.Navigation("EmailOperador");
-                });
-
-            modelBuilder.Entity("Proyecto.App.Dominio.Pais", b =>
-                {
-                    b.Navigation("PaisCodigoPk");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.RH", b =>

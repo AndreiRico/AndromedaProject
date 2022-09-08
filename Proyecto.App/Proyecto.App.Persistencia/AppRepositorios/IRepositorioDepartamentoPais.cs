@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using Proyecto.App.Dominio;
 namespace Proyecto.App.Persistencia
 {
@@ -10,4 +10,4 @@ namespace Proyecto.App.Persistencia
         void DeleteDepartamentoPais(int del);
         DepartamentoPais GetDepartamentoPais(int get);
     }
-}
+}*/

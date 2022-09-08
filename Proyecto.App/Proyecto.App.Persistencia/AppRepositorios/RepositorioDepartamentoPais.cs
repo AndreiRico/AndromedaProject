@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using Proyecto.App.Dominio;
+/*using Proyecto.App.Dominio;
 
 namespace Proyecto.App.Persistencia
 {
@@ -48,4 +48,4 @@ namespace Proyecto.App.Persistencia
         }
     }
 
-}
+}*/

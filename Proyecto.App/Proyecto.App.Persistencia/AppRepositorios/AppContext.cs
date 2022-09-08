@@ -5,10 +5,10 @@ namespace Proyecto.App.Persistencia
 {
     public class AppContext : DbContext
     {
-        public DbSet<Pais> pais { get; set; }
-        public DbSet<Departamento> departamento { get; set; }
-        public DbSet<Ciudad> ciudad { get; set; }
-        public DbSet<DepartamentoPais> departamentoPais { get; set; }
+        //public DbSet<Pais> pais { get; set; }
+        //public DbSet<Departamento> departamento { get; set; }
+        //public DbSet<Ciudad> ciudad { get; set; }
+        //public DbSet<DepartamentoPais> departamentoPais { get; set; }
         public DbSet<Apellidos> apellidos { get; set; }
         public DbSet<Cuenta> cuenta { get; set; }
         public DbSet<Direccion> direccion { get; set; }

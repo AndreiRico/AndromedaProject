@@ -21,19 +21,6 @@ namespace Proyecto.App.Persistencia.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ciudad",
-                columns: table => new
-                {
-                    IdCiudad = table.Column<int>(type: "int", maxLength: 5, nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    nombreCiudad = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ciudad", x => x.IdCiudad);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "cuenta",
                 columns: table => new
                 {
@@ -44,20 +31,6 @@ namespace Proyecto.App.Persistencia.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_cuenta", x => x.IdCuenta);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "departamentoPais",
-                columns: table => new
-                {
-                    IdDepartamentoPais = table.Column<int>(type: "int", maxLength: 5, nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IdDepartamento = table.Column<int>(type: "int", maxLength: 5, nullable: false),
-                    IdPais = table.Column<int>(type: "int", maxLength: 50, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_departamentoPais", x => x.IdDepartamentoPais);
                 });
 
             migrationBuilder.CreateTable(
@@ -124,19 +97,6 @@ namespace Proyecto.App.Persistencia.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_operador", x => x.IdCodOperador);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "pais",
-                columns: table => new
-                {
-                    IdPais = table.Column<int>(type: "int", maxLength: 5, nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    nombrePais = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_pais", x => x.IdPais);
                 });
 
             migrationBuilder.CreateTable(
@@ -216,27 +176,6 @@ namespace Proyecto.App.Persistencia.Migrations
                         principalTable: "operador",
                         principalColumn: "IdCodOperador",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "departamento",
-                columns: table => new
-                {
-                    IdDepartamento = table.Column<int>(type: "int", maxLength: 5, nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    nombreDepartamento = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    IdPais = table.Column<int>(type: "int", nullable: false),
-                    PaisIdPais = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_departamento", x => x.IdDepartamento);
-                    table.ForeignKey(
-                        name: "FK_departamento_pais_PaisIdPais",
-                        column: x => x.PaisIdPais,
-                        principalTable: "pais",
-                        principalColumn: "IdPais",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -443,11 +382,6 @@ namespace Proyecto.App.Persistencia.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_departamento_PaisIdPais",
-                table: "departamento",
-                column: "PaisIdPais");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_emailOperador_CuentaIdCuenta",
                 table: "emailOperador",
                 column: "CuentaIdCuenta");
@@ -541,15 +475,6 @@ namespace Proyecto.App.Persistencia.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ciudad");
-
-            migrationBuilder.DropTable(
-                name: "departamento");
-
-            migrationBuilder.DropTable(
-                name: "departamentoPais");
-
-            migrationBuilder.DropTable(
                 name: "emailOperador");
 
             migrationBuilder.DropTable(
@@ -572,9 +497,6 @@ namespace Proyecto.App.Persistencia.Migrations
 
             migrationBuilder.DropTable(
                 name: "usuarioTelefono");
-
-            migrationBuilder.DropTable(
-                name: "pais");
 
             migrationBuilder.DropTable(
                 name: "email");
