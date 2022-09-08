@@ -6,9 +6,10 @@ namespace Proyecto.App.Dominio
     {
         [Key]
         [MaxLength(5)]
-        public int IdGENERO { get; set; }
+        public int IdGenero { get; set; }
         [MaxLength(30)]
         public string descripcion {get; set; }
+        public List<Usuarios> idUsuarios {get;set;}
     }
 
 }

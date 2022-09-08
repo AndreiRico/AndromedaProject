@@ -6,10 +6,11 @@ namespace Proyecto.App.Dominio
     {
         [Key]
         [MaxLength(5)]
-        public int IdTelefon { get; set; }
+        public int IdTelefono { get; set; }
         [MaxLength(25)]
         public string telefono {get; set; }
-        public int Cuenta {get; set;}
+        //public int Cuenta {get; set;}
+        public List<UsuarioTelefono> IdUsuarioTelefono {get;set;}
     }
 
 }

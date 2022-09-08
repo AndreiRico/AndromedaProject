@@ -13,37 +13,37 @@ namespace Proyecto.App.Persistencia
         {
             _appContext = appContext;
         }
-        Nombres IRepositorioNombre.AddNombre(Nombres nombreadd)
+        Nombres IRepositorioNombre.AddNombre(Nombres add)
         {
-            var NombreAdicionado = _appContext.nombres.Add(nombreadd);
+            var NombreAdicionado = _appContext.nombres.Add(add);
             _appContext.SaveChanges();
             return NombreAdicionado.Entity;
         }
-        void IRepositorioNombre.DeleteNombre(int nombredel)
+        void IRepositorioNombre.DeleteNombre(int del)
         {
-            var NombreEncontrado = _appContext.nombres.FirstOrDefault(p => p.IdNombre == nombredel); //IdNombre es la pk de Nombre.cs
-            if (NombreEncontrado == null)
+            var Encontrado = _appContext.nombres.FirstOrDefault(p => p.IdNombres == del); //IdNombres es la pk de Nombre.cs
+            if (Encontrado == null)
                 return;
-                _appContext.nombres.Remove(NombreEncontrado);
+                _appContext.nombres.Remove(Encontrado);
                 _appContext.SaveChanges();
         }
         IEnumerable<Nombres> IRepositorioNombre.GetAllNombre()
         {
             return _appContext.nombres;
         }
-        Nombres IRepositorioNombre.GetNombre(int nombreget)
+        Nombres IRepositorioNombre.GetNombre(int get)
         {
-            return _appContext.nombres.FirstOrDefault(p => p.IdNombre == nombreget);// p.Priamry_key_de_la_entidad
+            return _appContext.nombres.FirstOrDefault(p => p.IdNombres == get);// p.Priamry_key_de_la_entidad
         }
-        Nombres IRepositorioNombre.UpdateNombre(Nombres nombreup)
+        Nombres IRepositorioNombre.UpdateNombre(Nombres up)
         {
-            var NombreEncontrado = _appContext.nombres.FirstOrDefault(p => p.IdNombre == nombreup.IdNombre);
-            if (NombreEncontrado != null)
+            var Encontrado = _appContext.nombres.FirstOrDefault(p => p.IdNombres == up.IdNombres);
+            if (Encontrado != null)
             {
-                NombreEncontrado.nombre = nombreup.nombre;
+                Encontrado.nombre = up.nombre;
                 _appContext.SaveChanges();
             }
-            return NombreEncontrado;
+            return Encontrado;
         }
     }
 

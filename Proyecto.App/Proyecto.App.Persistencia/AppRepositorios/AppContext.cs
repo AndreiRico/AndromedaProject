@@ -6,7 +6,7 @@ namespace Proyecto.App.Persistencia
     public class AppContext : DbContext
     {
         public DbSet<Pais> pais { get; set; }
-        public DbSet<Departamento> departamentos { get; set; }
+        public DbSet<Departamento> departamento { get; set; }
         public DbSet<Ciudad> ciudad { get; set; }
         public DbSet<DepartamentoPais> departamentoPais { get; set; }
         public DbSet<Apellidos> apellidos { get; set; }
@@ -26,7 +26,7 @@ namespace Proyecto.App.Persistencia
         public DbSet<UsuariosApellidos> usuariosApellidos { get; set; }
         public DbSet<UsuariosEmail> usuariosEmail { get; set; }
         public DbSet<UsuarioFuncionario> usuarioFuncionario { get; set; }
-        public DbSet<UsuariosNombres> usuariosNOmbres { get; set; }
+        public DbSet<UsuariosNombres> usuariosNombres { get; set; }
         public DbSet<Usuarios> usuarios { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

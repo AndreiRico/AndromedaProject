@@ -5,9 +5,9 @@ namespace Proyecto.App.Persistencia
     public interface IRepositorioUsuario
     {
         IEnumerable<Usuarios> GetAllUser();
-        Usuarios AddUser(Usuarios usuariosadd);
-        Usuarios UpdateUser(Usuarios usuariosup);
-        void DeleteUser(int usuariosdel);
-        Usuarios GetUser(int usuariosget);
+        Usuarios AddUser(Usuarios add);
+        Usuarios UpdateUser(Usuarios up);
+        void DeleteUser(int del);
+        Usuarios GetUser(int get);
     }
 }

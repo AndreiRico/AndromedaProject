@@ -5,9 +5,9 @@ namespace Proyecto.App.Persistencia
     public interface IRepositorioNombre
     {
         IEnumerable<Nombres> GetAllNombre();
-        Nombres AddNombre(Nombres nombreadd);
-        Nombres UpdateNombre(Nombres nombreup);
-        void DeleteNombre(int nombredel);
-        Nombres GetNombre(int nombreget);
+        Nombres AddNombre(Nombres add);
+        Nombres UpdateNombre(Nombres up);
+        void DeleteNombre(int del);
+        Nombres GetNombre(int get);
     }
 }

@@ -18,10 +18,10 @@ namespace Proyecto.App.Consola
          {
             Usuarios usuariosadd = new Usuarios
             {
-                TipoDocumento = 2,
-                Rh = 2,
-                Nacimiento = new DateTime(2028, 10, 20),//YY,MM,DD
-                Genero = 3
+                //TipoDocumento = 2,
+                //Rh = 2,
+                Nacimiento = new DateTime(2028, 10, 20)//YY,MM,DD
+                //Genero = 3
 
             };
             _repoUser.AddUser(usuariosadd);
@@ -35,6 +35,8 @@ namespace Proyecto.App.Consola
 
             };
             _repoNombre.AddNombre(nombreadd);
+            //Nombres pri = _repoNombre.GetNombre(1);
+            //Console.WriteLine(pri.nombre);
 
          }
     }

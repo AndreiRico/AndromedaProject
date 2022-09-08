@@ -9,6 +9,7 @@ namespace Proyecto.App.Dominio
         public int IdTipoDocumento { get; set; }
         [MaxLength(25)]
         public string Descripcion {get; set; }
+        public List<Usuarios> Usuarios {get;set;}
     }
 
 }

@@ -13,40 +13,40 @@ namespace Proyecto.App.Persistencia
         {
             _appContext = appContext;
         }
-        Usuarios IRepositorioUsuario.AddUser(Usuarios usuariosadd)
+        Usuarios IRepositorioUsuario.AddUser(Usuarios add)
         {
-            var UsuarioAdicionado = _appContext.usuarios.Add(usuariosadd);
+            var UsuarioAdicionado = _appContext.usuarios.Add(add);
             _appContext.SaveChanges();
             return UsuarioAdicionado.Entity;
         }
-        void IRepositorioUsuario.DeleteUser(int usuariosdel)
+        void IRepositorioUsuario.DeleteUser(int del)
         {
-            var UsuarioEncontrado = _appContext.usuarios.FirstOrDefault(p => p.Documento == usuariosdel); //Documento es la pk de USUARIO.cs
-            if (UsuarioEncontrado == null)
+            var Encontrado = _appContext.usuarios.FirstOrDefault(p => p.IdUsuarios == del); //Documento es la pk de USUARIO.cs
+            if (Encontrado == null)
                 return;
-                _appContext.usuarios.Remove(UsuarioEncontrado);
+                _appContext.usuarios.Remove(Encontrado);
                 _appContext.SaveChanges();
         }
         IEnumerable<Usuarios> IRepositorioUsuario.GetAllUser()
         {
             return _appContext.usuarios;
         }
-        Usuarios IRepositorioUsuario.GetUser(int usuariosget)
+        Usuarios IRepositorioUsuario.GetUser(int get)
         {
-            return _appContext.usuarios.FirstOrDefault(p => p.Documento == usuariosget);
+            return _appContext.usuarios.FirstOrDefault(p => p.IdUsuarios == get);
         }
-        Usuarios IRepositorioUsuario.UpdateUser(Usuarios usuariosup)
+        Usuarios IRepositorioUsuario.UpdateUser(Usuarios up)
         {
-            var UsuarioEncontrado = _appContext.usuarios.FirstOrDefault(p => p.Documento == usuariosup.Documento);
-            if (UsuarioEncontrado != null)
+            var Encontrado = _appContext.usuarios.FirstOrDefault(p => p.IdUsuarios == up.IdUsuarios);
+            if (Encontrado != null)
             {
-                UsuarioEncontrado.TipoDocumento = usuariosup.TipoDocumento;
-                UsuarioEncontrado.Rh = usuariosup.Rh;
-                UsuarioEncontrado.Nacimiento = usuariosup.Nacimiento;
-                UsuarioEncontrado.Genero = usuariosup.Genero;
+                //Encontrado.TipoDocumento = up.TipoDocumento;
+                //Encontrado.Rh = up.Rh;
+                Encontrado.Nacimiento = up.Nacimiento;
+                //Encontrado.Genero = up.Genero;
                 _appContext.SaveChanges();
             }
-            return UsuarioEncontrado;
+            return Encontrado;
         }
     }
 

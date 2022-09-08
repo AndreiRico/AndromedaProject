@@ -9,6 +9,7 @@ namespace Proyecto.App.Dominio
         public int IdRh { get; set; }
         [MaxLength(3)]
         public string descripcion {get; set; }
+        public List<Usuarios> Usuarios {get;set;}
     }
 
 }

@@ -9,6 +9,7 @@ namespace Proyecto.App.Dominio
         public int CodEmail { get; set; }
         [MaxLength(50)]
         public string descripcion { get; set; }
+        public List<EmailOperador> EmailOperador {get;set;}
 
     }
 }

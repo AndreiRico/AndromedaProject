@@ -7,15 +7,22 @@ namespace Proyecto.App.Dominio
     {
         [Key]
         [MaxLength(5)]
-        public int Documento { get; set; }
-        [MaxLength(5)]
-        public int TipoDocumento { get; set; }
-        [MaxLength(5)]
-        public int Rh { get; set; }
+        public int IdUsuarios { get; set; }
+        //[MaxLength(5)]
+        //public int TipoDocumento { get; set; }
+        //[MaxLength(5)]
+        //public int Rh { get; set; }
+        //[MaxLength(5)]
+        //public int Genero { get; set; }
         [Column(TypeName="Date")]//se asigna un tipo Date, para que solo guarde la fecha
         public DateTime Nacimiento { get; set; }//YY,MM,DD
-        [MaxLength(5)]
-        public int Genero { get; set; }
+        public List<UsuariosNombres> IdUsuariosNombres {get;set;}
+        public List<UsuarioDireccion> IdUsuarioDireccion {get;set;}
+        public List<UsuarioJerarquia> IdUsuarioJerarquia {get;set;}
+        public List<UsuariosApellidos> IdUsuariosApellidos {get;set;}
+        public List<UsuarioFuncionario> IdUsuarioFuncionario {get;set;}
+        public List<UsuariosEmail> IdUsuariosEmail {get;set;}
+        public List<UsuarioTelefono> IdUsuarioTelefono {get;set;}
 
     }
 }

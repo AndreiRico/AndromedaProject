@@ -96,7 +96,7 @@ namespace Proyecto.App.Persistencia.Migrations
 
                     b.HasIndex("PaisIdPais");
 
-                    b.ToTable("departamentos");
+                    b.ToTable("departamento");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.DepartamentoPais", b =>
@@ -114,11 +114,6 @@ namespace Proyecto.App.Persistencia.Migrations
                     b.Property<int>("IdPais")
                         .HasMaxLength(50)
                         .HasColumnType("int");
-
-                    b.Property<string>("nombreDepartamento")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("IdDepartamentoPais");
 
@@ -174,26 +169,29 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Cuenta")
-                        .HasMaxLength(5)
+                    b.Property<int?>("CuentaIdCuenta")
                         .HasColumnType("int");
 
-                    b.Property<int>("Email")
-                        .HasMaxLength(5)
+                    b.Property<int?>("EmailCodEmail")
                         .HasColumnType("int");
 
-                    b.Property<int>("Operador")
-                        .HasMaxLength(5)
+                    b.Property<int?>("OperadorIdCodOperador")
                         .HasColumnType("int");
 
                     b.HasKey("IdEmaOper");
+
+                    b.HasIndex("CuentaIdCuenta");
+
+                    b.HasIndex("EmailCodEmail");
+
+                    b.HasIndex("OperadorIdCodOperador");
 
                     b.ToTable("emailOperador");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.Genero", b =>
                 {
-                    b.Property<int>("IdGENERO")
+                    b.Property<int>("IdGenero")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(5)
                         .HasColumnType("int")
@@ -204,14 +202,14 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.HasKey("IdGENERO");
+                    b.HasKey("IdGenero");
 
                     b.ToTable("genero");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.Nombres", b =>
                 {
-                    b.Property<int>("IdNombre")
+                    b.Property<int>("IdNombres")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(5)
                         .HasColumnType("int")
@@ -222,7 +220,7 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
-                    b.HasKey("IdNombre");
+                    b.HasKey("IdNombres");
 
                     b.ToTable("nombres");
                 });
@@ -283,13 +281,13 @@ namespace Proyecto.App.Persistencia.Migrations
 
             modelBuilder.Entity("Proyecto.App.Dominio.Telefono", b =>
                 {
-                    b.Property<int>("IdTelefon")
+                    b.Property<int>("IdTelefono")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(5)
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Cuenta")
+                    b.Property<int?>("CuentaIdCuenta")
                         .HasColumnType("int");
 
                     b.Property<string>("telefono")
@@ -297,7 +295,9 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
-                    b.HasKey("IdTelefon");
+                    b.HasKey("IdTelefono");
+
+                    b.HasIndex("CuentaIdCuenta");
 
                     b.ToTable("telefono");
                 });
@@ -328,26 +328,28 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Direccion")
-                        .HasMaxLength(5)
+                    b.Property<int?>("DireccionIdDireccion")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Fecha")
                         .HasMaxLength(5)
-                        .HasColumnType("datetime2");
+                        .HasColumnType("Date");
 
-                    b.Property<int>("Usuario")
-                        .HasMaxLength(5)
+                    b.Property<int?>("UsuariosIdUsuarios")
                         .HasColumnType("int");
 
                     b.HasKey("IdUsuarioDireccion");
+
+                    b.HasIndex("DireccionIdDireccion");
+
+                    b.HasIndex("UsuariosIdUsuarios");
 
                     b.ToTable("usuarioDireccion");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.UsuarioFuncionario", b =>
                 {
-                    b.Property<int>("IdUsuarioArea")
+                    b.Property<int>("IdUsuarioFuncionario")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(5)
                         .HasColumnType("int")
@@ -363,13 +365,14 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Fecha")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("Date");
 
-                    b.Property<int>("Usuario")
-                        .HasMaxLength(5)
+                    b.Property<int?>("UsuariosIdUsuarios")
                         .HasColumnType("int");
 
-                    b.HasKey("IdUsuarioArea");
+                    b.HasKey("IdUsuarioFuncionario");
+
+                    b.HasIndex("UsuariosIdUsuarios");
 
                     b.ToTable("usuarioFuncionario");
                 });
@@ -386,11 +389,12 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasMaxLength(5)
                         .HasColumnType("int");
 
-                    b.Property<int>("Usuario")
-                        .HasMaxLength(5)
+                    b.Property<int?>("UsuariosIdUsuarios")
                         .HasColumnType("int");
 
                     b.HasKey("IdUsuarioJerarquia");
+
+                    b.HasIndex("UsuariosIdUsuarios");
 
                     b.ToTable("usuarioJerarquia");
                 });
@@ -403,43 +407,48 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Telefono")
-                        .HasMaxLength(5)
+                    b.Property<int?>("TelefonoIdTelefono")
                         .HasColumnType("int");
 
-                    b.Property<int>("Usuario")
-                        .HasMaxLength(5)
+                    b.Property<int?>("UsuariosIdUsuarios")
                         .HasColumnType("int");
 
                     b.HasKey("Contador");
+
+                    b.HasIndex("TelefonoIdTelefono");
+
+                    b.HasIndex("UsuariosIdUsuarios");
 
                     b.ToTable("usuarioTelefono");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.Usuarios", b =>
                 {
-                    b.Property<int>("Documento")
+                    b.Property<int>("IdUsuarios")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(5)
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Genero")
-                        .HasMaxLength(5)
+                    b.Property<int?>("GeneroIdGenero")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Nacimiento")
                         .HasColumnType("Date");
 
-                    b.Property<int>("Rh")
-                        .HasMaxLength(5)
+                    b.Property<int?>("RHIdRh")
                         .HasColumnType("int");
 
-                    b.Property<int>("TipoDocumento")
-                        .HasMaxLength(5)
+                    b.Property<int?>("TipoDocumentoIdTipoDocumento")
                         .HasColumnType("int");
 
-                    b.HasKey("Documento");
+                    b.HasKey("IdUsuarios");
+
+                    b.HasIndex("GeneroIdGenero");
+
+                    b.HasIndex("RHIdRh");
+
+                    b.HasIndex("TipoDocumentoIdTipoDocumento");
 
                     b.ToTable("usuarios");
                 });
@@ -452,22 +461,24 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Apellidos")
-                        .HasMaxLength(5)
+                    b.Property<int?>("ApellidosIdApellidos")
                         .HasColumnType("int");
 
-                    b.Property<int>("Usuario")
-                        .HasMaxLength(5)
+                    b.Property<int?>("UsuariosIdUsuarios")
                         .HasColumnType("int");
 
                     b.HasKey("Contador");
+
+                    b.HasIndex("ApellidosIdApellidos");
+
+                    b.HasIndex("UsuariosIdUsuarios");
 
                     b.ToTable("usuariosApellidos");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.UsuariosEmail", b =>
                 {
-                    b.Property<int>("Conatdor")
+                    b.Property<int>("Contador")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(5)
                         .HasColumnType("int")
@@ -485,34 +496,37 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasMaxLength(5)
                         .HasColumnType("int");
 
-                    b.Property<int>("Usuarios")
-                        .HasMaxLength(5)
+                    b.Property<int?>("UsuariosIdUsuarios")
                         .HasColumnType("int");
 
-                    b.HasKey("Conatdor");
+                    b.HasKey("Contador");
+
+                    b.HasIndex("UsuariosIdUsuarios");
 
                     b.ToTable("usuariosEmail");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.UsuariosNombres", b =>
                 {
-                    b.Property<int>("Contador")
+                    b.Property<int>("IdUsuariosNombres")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(5)
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Nombres")
-                        .HasMaxLength(5)
+                    b.Property<int?>("NombresIdNombres")
                         .HasColumnType("int");
 
-                    b.Property<int>("Usuario")
-                        .HasMaxLength(5)
+                    b.Property<int?>("UsuariosIdUsuarios")
                         .HasColumnType("int");
 
-                    b.HasKey("Contador");
+                    b.HasKey("IdUsuariosNombres");
 
-                    b.ToTable("usuariosNOmbres");
+                    b.HasIndex("NombresIdNombres");
+
+                    b.HasIndex("UsuariosIdUsuarios");
+
+                    b.ToTable("usuariosNombres");
                 });
 
             modelBuilder.Entity("Proyecto.App.Dominio.Departamento", b =>
@@ -526,9 +540,180 @@ namespace Proyecto.App.Persistencia.Migrations
                     b.Navigation("Pais");
                 });
 
+            modelBuilder.Entity("Proyecto.App.Dominio.EmailOperador", b =>
+                {
+                    b.HasOne("Proyecto.App.Dominio.Cuenta", null)
+                        .WithMany("EmailOperador")
+                        .HasForeignKey("CuentaIdCuenta");
+
+                    b.HasOne("Proyecto.App.Dominio.Email", null)
+                        .WithMany("EmailOperador")
+                        .HasForeignKey("EmailCodEmail");
+
+                    b.HasOne("Proyecto.App.Dominio.Operador", null)
+                        .WithMany("EmailOperador")
+                        .HasForeignKey("OperadorIdCodOperador");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.Telefono", b =>
+                {
+                    b.HasOne("Proyecto.App.Dominio.Cuenta", null)
+                        .WithMany("IdTelefono")
+                        .HasForeignKey("CuentaIdCuenta");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.UsuarioDireccion", b =>
+                {
+                    b.HasOne("Proyecto.App.Dominio.Direccion", null)
+                        .WithMany("IdUsuarioDireccion")
+                        .HasForeignKey("DireccionIdDireccion");
+
+                    b.HasOne("Proyecto.App.Dominio.Usuarios", null)
+                        .WithMany("IdUsuarioDireccion")
+                        .HasForeignKey("UsuariosIdUsuarios");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.UsuarioFuncionario", b =>
+                {
+                    b.HasOne("Proyecto.App.Dominio.Usuarios", null)
+                        .WithMany("IdUsuarioFuncionario")
+                        .HasForeignKey("UsuariosIdUsuarios");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.UsuarioJerarquia", b =>
+                {
+                    b.HasOne("Proyecto.App.Dominio.Usuarios", null)
+                        .WithMany("IdUsuarioJerarquia")
+                        .HasForeignKey("UsuariosIdUsuarios");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.UsuarioTelefono", b =>
+                {
+                    b.HasOne("Proyecto.App.Dominio.Telefono", null)
+                        .WithMany("IdUsuarioTelefono")
+                        .HasForeignKey("TelefonoIdTelefono");
+
+                    b.HasOne("Proyecto.App.Dominio.Usuarios", null)
+                        .WithMany("IdUsuarioTelefono")
+                        .HasForeignKey("UsuariosIdUsuarios");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.Usuarios", b =>
+                {
+                    b.HasOne("Proyecto.App.Dominio.Genero", null)
+                        .WithMany("idUsuarios")
+                        .HasForeignKey("GeneroIdGenero");
+
+                    b.HasOne("Proyecto.App.Dominio.RH", null)
+                        .WithMany("Usuarios")
+                        .HasForeignKey("RHIdRh");
+
+                    b.HasOne("Proyecto.App.Dominio.TipoDocumento", null)
+                        .WithMany("Usuarios")
+                        .HasForeignKey("TipoDocumentoIdTipoDocumento");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.UsuariosApellidos", b =>
+                {
+                    b.HasOne("Proyecto.App.Dominio.Apellidos", null)
+                        .WithMany("IdUsuariosApellidos")
+                        .HasForeignKey("ApellidosIdApellidos");
+
+                    b.HasOne("Proyecto.App.Dominio.Usuarios", null)
+                        .WithMany("IdUsuariosApellidos")
+                        .HasForeignKey("UsuariosIdUsuarios");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.UsuariosEmail", b =>
+                {
+                    b.HasOne("Proyecto.App.Dominio.Usuarios", null)
+                        .WithMany("IdUsuariosEmail")
+                        .HasForeignKey("UsuariosIdUsuarios");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.UsuariosNombres", b =>
+                {
+                    b.HasOne("Proyecto.App.Dominio.Nombres", null)
+                        .WithMany("idUsuariosNombres")
+                        .HasForeignKey("NombresIdNombres");
+
+                    b.HasOne("Proyecto.App.Dominio.Usuarios", null)
+                        .WithMany("IdUsuariosNombres")
+                        .HasForeignKey("UsuariosIdUsuarios");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.Apellidos", b =>
+                {
+                    b.Navigation("IdUsuariosApellidos");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.Cuenta", b =>
+                {
+                    b.Navigation("EmailOperador");
+
+                    b.Navigation("IdTelefono");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.Direccion", b =>
+                {
+                    b.Navigation("IdUsuarioDireccion");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.Email", b =>
+                {
+                    b.Navigation("EmailOperador");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.Genero", b =>
+                {
+                    b.Navigation("idUsuarios");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.Nombres", b =>
+                {
+                    b.Navigation("idUsuariosNombres");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.Operador", b =>
+                {
+                    b.Navigation("EmailOperador");
+                });
+
             modelBuilder.Entity("Proyecto.App.Dominio.Pais", b =>
                 {
                     b.Navigation("PaisCodigoPk");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.RH", b =>
+                {
+                    b.Navigation("Usuarios");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.Telefono", b =>
+                {
+                    b.Navigation("IdUsuarioTelefono");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.TipoDocumento", b =>
+                {
+                    b.Navigation("Usuarios");
+                });
+
+            modelBuilder.Entity("Proyecto.App.Dominio.Usuarios", b =>
+                {
+                    b.Navigation("IdUsuarioDireccion");
+
+                    b.Navigation("IdUsuarioFuncionario");
+
+                    b.Navigation("IdUsuarioJerarquia");
+
+                    b.Navigation("IdUsuariosApellidos");
+
+                    b.Navigation("IdUsuariosEmail");
+
+                    b.Navigation("IdUsuariosNombres");
+
+                    b.Navigation("IdUsuarioTelefono");
                 });
 #pragma warning restore 612, 618
         }

@@ -6,11 +6,12 @@ namespace Proyecto.App.Dominio
     {
         [Key]
         [MaxLength(5)]
-        public int Contador { get; set; }
-        [MaxLength(5)]
-        public int Usuario { get; set; }
-        [MaxLength(5)]
-        public int Nombres { get; set; }
+        public int IdUsuariosNombres { get; set; }
+        //[MaxLength(5)]
+        //public int Usuario { get; set; }
+        //[MaxLength(5)]
+        //public int NombresId { get; set; }
+        //al hacer las relaciones se crean automaticamente
 
     }
 }

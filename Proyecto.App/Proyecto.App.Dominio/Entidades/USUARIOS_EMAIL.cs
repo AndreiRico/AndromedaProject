@@ -6,9 +6,9 @@ namespace Proyecto.App.Dominio
     {
         [Key]
         [MaxLength(5)]
-        public int Conatdor { get; set; }
-        [MaxLength(5)]
-        public int Usuarios { get; set; }
+        public int Contador { get; set; }
+        //[MaxLength(5)]
+        //public int Usuarios { get; set; }
         [MaxLength(5)]
         public int Email { get; set; }
         [MaxLength(5)]

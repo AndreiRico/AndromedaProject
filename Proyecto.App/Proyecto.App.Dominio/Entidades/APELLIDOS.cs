@@ -9,6 +9,7 @@ namespace Proyecto.App.Dominio
         public int IdApellidos { get; set; }
         [MaxLength(50)]
         public string apellido { get; set; }
+        public List<UsuariosApellidos> IdUsuariosApellidos {get;set;}
     }
 
 }
