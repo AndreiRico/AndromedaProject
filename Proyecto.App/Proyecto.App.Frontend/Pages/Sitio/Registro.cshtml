@@ -1,0 +1,83 @@
+﻿@page
+@model Proyecto.App.Frontend.Pages.RegistroModel
+@{
+}
+<!DOCTYPE html>
+<!--indicador de version de html -->
+<html lang="es">
+<!--idicadores de idioma de la pagina -->
+
+<head>
+    <meta charset="utf-8">
+    @* <meta http-equiv="X-UA-Compatible" content="ie=edge"> *@
+    <!-- nos permite con el atributo (charser) y valor(utf-8) codificar de manera correcta los caracteres espciales y acentos-->
+    <meta name="veiwport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="\css\estilos.css" asp-append-version="true">
+    <link rel="stylesheet" href="\css\normalize.css" asp-append-version="true">
+    <!--rel="stylesheet" nos dice la relacion que tiene la hoja de estilos -->
+</head>
+
+<body>
+    <!--todo lo que el usuario ve y con lo que interactua-->
+    
+
+    <div class="contenedor-formulario contenedor">
+        <div class="imagen-formulario">
+        </div>
+
+        <form class="formulario">
+            <div class="texto-formulario">
+                <h2> Formulario de registro</h2>
+                <p>Ingresa tus datos aquí:</p>
+            </div>
+            <div class="input">
+                <div class="input">
+                    <label for="tipodocumento">Tipo de documento</label>
+                    <!--combobox averiguar implementacion-->
+                    <input placeholder="Selecciona el tipo de documento" type="text" id="tipodocumento">
+                </div>
+                <label for="documento">Documento</label>
+                <input placeholder="Ingresa tu documento" type="text" id="documento">
+            </div>
+            <div class="input">
+                <label for="nombre">Nombre</label>
+                <input placeholder="Ingresa tu nombre" type="text" id="nombre">
+            </div>
+            <div class="input">
+                <label for="primerapellido">Primer Apellido</label>
+                <input placeholder="Ingresa tu primer apellido" type="text" id="primerapellido">
+            </div>
+            <div class="input">
+                <label for="segundoapellido">Segundo Apellido</label>
+                <input placeholder="Ingresa tu sengundo apellido" type="text" id="segundoapellido">
+            </div>
+            <div class="input">
+                <label for="email">Email</label>
+                <input placeholder="Ingresa tu Emal" type="text" id="email">
+            </div>
+            <div class="input">
+                <label for="rh">RH</label>
+                <input placeholder="Selecciona tu RH" type="text" id="rh">
+            </div>
+            <div class="input">
+                <label for="direccion">Dirección</label>
+                <input placeholder="Ingresa tu direccion" type="text" id="direccion">
+            </div>
+            <div class="input">
+                <label for="telefono">Telefono</label>
+                <input placeholder="Ingresa tu telefono" type="text" id="telefono">
+            </div>
+            <div class="input">
+                <input type="submit" value="Agregar Usuario">
+                <input type="submit" value="Limpiar formulario">    
+            </div>
+        </form>
+
+    </div>
+</body>
+
+</html>
