@@ -12,12 +12,12 @@
     @* <meta http-equiv="X-UA-Compatible" content="ie=edge"> *@
     <!-- nos permite con el atributo (charser) y valor(utf-8) codificar de manera correcta los caracteres espciales y acentos-->
     <meta name="veiwport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario CSS</title>
+    <title>Formulario Registro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="\css\estilos.css" asp-append-version="true">
-    <link rel="stylesheet" href="\css\normalize.css" asp-append-version="true">
+    <link rel="stylesheet" href="\css\normalize.css">
+    <link rel="stylesheet" href="\css\estilos.css">
     <!--rel="stylesheet" nos dice la relacion que tiene la hoja de estilos -->
 </head>
 
@@ -29,9 +29,9 @@
         <div class="imagen-formulario">
         </div>
 
-        <form class="formulario">
+        <form class="formulario" method="post">
             <div class="texto-formulario">
-                <h2> Formulario de registro</h2>
+                <h2>Formulario de registro</h2>
                 <p>Ingresa tus datos aquí:</p>
             </div>
             <div class="input">
@@ -43,17 +43,14 @@
                 <label for="documento">Documento</label>
                 <input placeholder="Ingresa tu documento" type="text" id="documento">
             </div>
+            <input type="hidden" asp-for="Nombres.IdNombres"/>
             <div class="input">
-                <label for="nombre">Nombre</label>
+                <label for="nombre" asp-for="Nombres.nombre">Nombre</label>
                 <input placeholder="Ingresa tu nombre" type="text" id="nombre">
             </div>
             <div class="input">
-                <label for="primerapellido">Primer Apellido</label>
+                <label for="primerapellido">Apellidos</label>
                 <input placeholder="Ingresa tu primer apellido" type="text" id="primerapellido">
-            </div>
-            <div class="input">
-                <label for="segundoapellido">Segundo Apellido</label>
-                <input placeholder="Ingresa tu sengundo apellido" type="text" id="segundoapellido">
             </div>
             <div class="input">
                 <label for="email">Email</label>

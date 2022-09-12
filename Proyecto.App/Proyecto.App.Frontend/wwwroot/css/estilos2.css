@@ -1,0 +1,22 @@
+h2, .p, .input label {
+    color:black;
+}
+
+.input label{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 3px 0;
+}
+.input input{
+    width: 100%;
+    padding: 10px 16px;
+    outline: none;
+}
+.contenedor-perfil{
+    width: 50%;
+
+}
+.btn-primary {
+    margin-top: 16px;
+}

@@ -1,0 +1,91 @@
+﻿@page
+@model Proyecto.App.Frontend.Pages.PerfilModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="\css\normalize.css">
+    <link rel="stylesheet" href="\css\estilos2.css">
+    <title>Perfil</title>
+</head>
+
+<body>
+    <header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-page="/Index">Proyecto Andromeda</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Sitio/Registro">Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Sitio/Perfil">Perfil</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+    <h2>Nombre de usuario aquí</h2>
+
+    <div class="contenedor-perfil">
+    <form class="from-group" method="post">
+            <div class="input">
+                <div class="input">
+                    <label for="tipodocumento">Tipo de documento</label>
+                    <!--combobox averiguar implementacion-->
+                    <input  type="text" id="tipodocumento">
+                </div>
+                <label for="documento">Documento</label>
+                <input  type="text">
+            </div>
+            <div class="input">
+                <label for="nombre" >Nombre</label>
+                <input  type="text">
+            </div>
+            <div class="input">
+                <label for="primerapellido">Apellidos</label>
+                <input  type="text">
+
+            </div>
+            <div class="input">
+                <label for="email">Email</label>
+                <input  type="text">
+            </div>
+            <div class="input">
+                <label for="rh">RH</label>
+                <input  type="text">
+            </div>
+            <div class="input">
+                <label for="direccion">Dirección</label>
+                <input  type="text">
+            </div>
+            <div class="input">
+                <label for="telefono">Telefono</label>
+                <input  type="text">
+            </div>
+        <button type="submit" class="btn btn-primary fas fa-address-book fa-lg">  Guardar cambios</button>
+    </form>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
