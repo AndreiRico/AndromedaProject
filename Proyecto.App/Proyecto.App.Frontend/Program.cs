@@ -3,7 +3,7 @@ using Proyecto.App.Persistencia;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 // builder.Services.AddSingleton<IRepositorioNombre,RepositorioNombre>();
 builder.Services.AddDbContext<Proyecto.App.Persistencia.AppContext>();
 

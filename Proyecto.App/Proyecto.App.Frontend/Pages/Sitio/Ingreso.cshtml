@@ -2,46 +2,38 @@
 @model Proyecto.App.Frontend.Pages.IngresoModel
 @{
 }
+
 <head>
-    <meta charset="utf-8">
-    <meta name="veiwport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ingreso CSS</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    @* <link rel="stylesheet" href="\css\normalize.css"> *@
     <link rel="stylesheet" href="\css\estilosIngreso.css">
-   
 </head>
 
 <body>
-  
+
     <div class="contenedor-ingreso contenedor">
         <div class="imagen-ingreso">
+            <form class="ingreso">
+                <div class="texto-formulario">
+                    <h2> Ingreso de usuario</h2>
+                </div>
+                <div class="input">
+                    <label for="documento">Documento</label>
+                    <input placeholder="Ingresa tu documento" type="text" id="documento" name="documento">
+                </div>
+                <div class="input">
+                    <label for="nombre">Nombre</label>
+                    <input placeholder="Ingresa tus nombres" type="text" id="nombre" name="nombre">
+                </div>
+                <div class="input">
+                    <label for="segundoapellido">Apellidos</label>
+                    <input placeholder="Ingresa tus apellidos" type="text" id="segundoapellido" name="segundoapellido">
+                </div>
+                <div class="input">
+                    <input type="submit" value="Ingresar">
+
+                </div>
+            </form>
         </div>
 
-        <form class="ingreso">
-            <div class="texto-ingreso">
-                <h2> Ingreso de usuario</h2>
-                </div>
-            <div class="input">
-                <label for="documento">Documento</label>
-                <input placeholder="Ingresa tu documento" type="text" id="documento">
-            </div>
-            <div class="input">
-                <label for="nombre">Nombre</label>
-                <input placeholder="Ingresa tus nombres" type="text" id="nombre">
-            </div>
-            <div class="input">
-                <label for="segundoapellido">Apellidos</label>
-                <input placeholder="Ingresa tus apellidos" type="text" id="segundoapellido">
-            </div>
-                <div class="input">
-                <input type="submit" value="Ingresar">
-                    
-            </div>
-        </form>
 
     </div>
 </body>

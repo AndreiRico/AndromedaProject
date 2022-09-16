@@ -6,6 +6,8 @@
     --fuente: 'Quicksand', sans-serif;
 }
 
+
+
 html{
     box-sizing: border-box;
 }
@@ -16,69 +18,94 @@ html{
 
 body{
     font-family: var(--fuente);
-    background-color: var(--azulOscuro);
+    /* background-color: var(--azulOscuro); */
+    background-color: #bfdcff;
     /* display: flex; */
     align-items: center;
-    height: 100vh;
-}
-
-.contenedor{
-    margin: auto;
-    max-width: 120px;
-    min-width: 98%;
-    
-}
-
-
-.imagen-formulario{
     background-image: url('../img/bg.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: auto;   
+}
+
+
+
+.imagen-formulario{
+    /* background-image: url('../img/bg.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+    /* height: auto;   
     flex: auto;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 0.9; */
 
     
 }
-.imagen-formulario::before{
+
+
+/* .imagen-formulario::before{
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background: linear-gradient(to rigth,rgba(141,169,196,.5), rgba(19, 64, 116, .5));
-}
+} */
+@media(min-width:1200px){
+    .imagen-formulario{
+        background-position: center;
+        margin: 0 auto;
+    }
+    }
+
 @media(min-width:768){
     .imagen-formulario{
         height: auto;
         background-position: right;
+        margin: 0 auto;
     }
 }
-
-@media(min-width:1200px){
-    .imagen-formulario{
-        background-position: center;
-    }
-    }
-
 
 @media(min-width:768px){
     .contenedor-formulario {
-        display: flex;
+        /* display: flex; */
+        margin: 0 auto;
     }
 }
-.formulario{
+@media(min-width:414px){
+    .formulario, .ingreso {
+        /* display: flex; */
+        margin: 0 auto;
+        width: fit-content;
+    }
+}
+.contenedor{
+    margin: 0%;
+    
+}
+
+
+.formulario, .ingreso{
     padding: 50px;
     background-color: rgba(19, 64, 116, .5);
+    margin: 0 auto;
+    max-width: 600px;
+    min-width: 25rem;
     /* opacity: 0.9; */
-    height: 100%;
-    background-position: center center;
+    /* flex: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    margin-bottom: 50px;
 }
 
 .texto-formulario h2, .p, .input label, .texto-formulario p{
@@ -122,14 +149,14 @@ color: var(--blanco);
 /*#######################################################*/
 /**/
 
-.caja {
+/* .caja {
     margin:20px auto 40px auto;	
     border:1px solid #d9d9d9;
     height:30px;
     overflow: hidden;
     width: 230px;
     position:relative;
-  }
+  } */
   select {
     background: var(--blanco);
     border: none;
@@ -143,7 +170,7 @@ color: var(--blanco);
   }
   select:focus{ outline: none;}
   
-  .caja::after{
+  /* .caja::after{
    content:"\025be";
    display:table-cell;
    padding-top:7px;
@@ -155,4 +182,14 @@ color: var(--blanco);
    top:0;
    right:0px;	
    pointer-events: none;
-   }
+   } */
+
+/*#######################################################*/
+
+/*Limpiar estilos bootstrap*/
+.container,.pb-3{
+    margin: 0%;
+    padding: 0% !important;
+    max-width: 100% !important;
+    /* background-color: rgb(212, 57, 109) !important; */
+}
