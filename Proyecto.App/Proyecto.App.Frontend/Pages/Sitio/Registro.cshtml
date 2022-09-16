@@ -2,55 +2,36 @@
 @model Proyecto.App.Frontend.Pages.RegistroModel
 @{
 }
-<!DOCTYPE html>
-<!--indicador de version de html -->
-<html lang="es">
-<!--idicadores de idioma de la pagina -->
-
-<head>
-    <meta charset="utf-8">
-    @* <meta http-equiv="X-UA-Compatible" content="ie=edge"> *@
-    <!-- nos permite con el atributo (charser) y valor(utf-8) codificar de manera correcta los caracteres espciales y acentos-->
-    <meta name="veiwport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Registro</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="\css\normalize.css">
-    <link rel="stylesheet" href="\css\estilos.css">
-    <!--rel="stylesheet" nos dice la relacion que tiene la hoja de estilos -->
-</head>
-
-<body>
-    <!--todo lo que el usuario ve y con lo que interactua-->
-    
-
     <div class="contenedor-formulario contenedor">
         <div class="imagen-formulario">
-        </div>
-
-        <form class="formulario" method="post">
+        <form class="formulario">
             <div class="texto-formulario">
-                <h2>Formulario de registro</h2>
+                <h2> Formulario de registro</h2>
                 <p>Ingresa tus datos aquí:</p>
             </div>
             <div class="input">
                 <div class="input">
-                    <label for="tipodocumento">Tipo de documento</label>
-                    <!--combobox averiguar implementacion-->
-                    <input placeholder="Selecciona el tipo de documento" type="text" id="tipodocumento">
+                    <label for="tipodocumento">Selecciona el tipo de documento</label>
+                    <select>
+                        <option>Cédula de ciudadanía</option>
+                        <option>Cédula de extranjería</option>
+                        <option>Tarjeta de identidad</option>
+                    </select>
                 </div>
-                <label for="documento">Documento</label>
-                <input placeholder="Ingresa tu documento" type="text" id="documento">
+                <label for="documento">Numero de documento</label>
+                <input placeholder="Ingresa tu número documento" type="text" id="documento">
             </div>
-            <input type="hidden" asp-for="Nombres.IdNombres"/>
             <div class="input">
-                <label for="nombre" asp-for="Nombres.nombre">Nombre</label>
+                <label for="nombre">Nombre</label>
                 <input placeholder="Ingresa tu nombre" type="text" id="nombre">
             </div>
             <div class="input">
-                <label for="primerapellido">Apellidos</label>
+                <label for="primerapellido">Primer Apellido</label>
                 <input placeholder="Ingresa tu primer apellido" type="text" id="primerapellido">
+            </div>
+            <div class="input">
+                <label for="segundoapellido">Segundo Apellido</label>
+                <input placeholder="Ingresa tu sengundo apellido" type="text" id="segundoapellido">
             </div>
             <div class="input">
                 <label for="email">Email</label>
@@ -58,7 +39,17 @@
             </div>
             <div class="input">
                 <label for="rh">RH</label>
-                <input placeholder="Selecciona tu RH" type="text" id="rh">
+                <select>
+                    <option>A+</option>
+                    <option>O+</option>
+                    <option>B+</option>
+                    <option>AB+</option>
+                    <option>A-</option>
+                    <option>O-</option>
+                    <option>B-</option>
+                    <option>AB-</option>
+                </select>
+                <!--<input placeholder="Selecciona tu RH" type="text" id="rh">-->
             </div>
             <div class="input">
                 <label for="direccion">Dirección</label>
@@ -70,11 +61,10 @@
             </div>
             <div class="input">
                 <input type="submit" value="Agregar Usuario">
-                <input type="submit" value="Limpiar formulario">    
+                <input type="submit" value="Limpiar formulario">
             </div>
         </form>
+        </div>
+
 
     </div>
-</body>
-
-</html>

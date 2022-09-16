@@ -1,6 +1,6 @@
 :root{
     --azul:#134074;
-    --aculOscuro:#0b2545;
+    --azulOscuro:#0b2545;
     --azulGris:#8DA9C4;
     --blanco:#fff;
     --fuente: 'Quicksand', sans-serif;
@@ -17,7 +17,7 @@ html{
 body{
     font-family: var(--fuente);
     background-color: var(--azulOscuro);
-    display: flex;
+    /* display: flex; */
     align-items: center;
     height: 100vh;
 }
@@ -25,22 +25,31 @@ body{
 .contenedor{
     margin: auto;
     max-width: 120px;
-    min-width: 95%;
+    min-width: 98%;
+    
 }
+
 
 .imagen-formulario{
     background-image: url('../img/bg.jpg');
     background-position: center center;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     height: auto;   
-    flex: 0 0 calc(60%);
+    flex: auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
 }
 .imagen-formulario::before{
-    content: '';
     position: absolute;
     top: 0;
-    bottom: 0%;
+    bottom: 0;
     left: 0;
     right: 0;
     background: linear-gradient(to rigth,rgba(141,169,196,.5), rgba(19, 64, 116, .5));
@@ -66,7 +75,10 @@ body{
 }
 .formulario{
     padding: 50px;
-    background-color: var(--azul);
+    background-color: rgba(19, 64, 116, .5);
+    /* opacity: 0.9; */
+    height: 100%;
+    background-position: center center;
 }
 
 .texto-formulario h2, .p, .input label, .texto-formulario p{
@@ -77,19 +89,20 @@ color: var(--blanco);
     text-align: center;
 }
 .texto-formulario{
-    font-size: 22px;
+    font-size: 30px;
     text-align: center;
 }
+
 .input label{
     display: block;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 3px 0;
+    font-size: 20px; /* tamaño de letra de los titulos de los cuadros de texto */
+    font-weight: bold; /*que la letra sea en negrilla*/
+    margin: 3px 0; /*el margen o distangia entre el titulo y la caja */
 }
 .input input{
     width: 100%;
     padding: 10px 16px;
-    border-radius: 5px;
+    border-radius: 5px; /* redondeado de bordes de los recuadros*/
     outline: none;
 }
 .input input[type="submit"]{
@@ -103,5 +116,43 @@ color: var(--blanco);
 }
 .input input[type="submit"]:hover{
     cursor: pointer;
-    background-color: var(--aculOscuro);
+    background-color: var(--azulOscuro);
 }
+
+/*#######################################################*/
+/**/
+
+.caja {
+    margin:20px auto 40px auto;	
+    border:1px solid #d9d9d9;
+    height:30px;
+    overflow: hidden;
+    width: 230px;
+    position:relative;
+  }
+  select {
+    background: var(--blanco);
+    border: none;
+    /* font-size: 16px; */
+    height: 35px;
+    padding: 10 px 16px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    
+  }
+  select:focus{ outline: none;}
+  
+  .caja::after{
+   content:"\025be";
+   display:table-cell;
+   padding-top:7px;
+   text-align:center;
+   width:30px;
+   height:30px;
+   background-color:#d9d9d9;
+   position:absolute;
+   top:0;
+   right:0px;	
+   pointer-events: none;
+   }
