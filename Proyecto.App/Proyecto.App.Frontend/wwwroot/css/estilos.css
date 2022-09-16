@@ -105,7 +105,7 @@ color: var(--blanco);
     border-radius: 5px; /* redondeado de bordes de los recuadros*/
     outline: none;
 }
-.input input[type="submit"]{
+.input input[type="submit"], .input input[type="reset"]{
     background-color: var(--azulGris);
     color: var(--blanco);
     font-size: 22px;
@@ -114,7 +114,7 @@ color: var(--blanco);
     margin-top: 20px;
     transition: backgraund-color .3s ease-in-out;
 }
-.input input[type="submit"]:hover{
+.input input[type="submit"]:hover, .input input[type="reset"]:hover{
     cursor: pointer;
     background-color: var(--azulOscuro);
 }
