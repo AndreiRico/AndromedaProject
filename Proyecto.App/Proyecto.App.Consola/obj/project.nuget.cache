@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WJA2fbVLojjMF1qBgNnfz7NTcG+GTo5HmmrZcd0laGLYRaDvlAQoJkZ7mcH3HWAeCGzHFqw6aWGRrwRXw3+vFg==",
+  "dgSpecHash": "64qCaMtrK8eqrFarhmT5TvaM+6JaSsXQkJzHDIieHMkre8wlcPj2OZYi0lLckv2JiYiaEhSovXL11RDIQJlQNQ==",
   "success": true,
-  "projectFilePath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Consola\\Proyecto.App.Consola.csproj",
+  "projectFilePath": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Consola\\Proyecto.App.Consola.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Leaf\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Leaf\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

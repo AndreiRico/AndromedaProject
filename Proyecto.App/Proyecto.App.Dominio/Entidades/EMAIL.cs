@@ -5,11 +5,10 @@ namespace Proyecto.App.Dominio
     public class Email
     {
         [Key]
-        [MaxLength(5)]
-        public int CodEmail { get; set; }
+        public int emailId { get; set; }
         [MaxLength(50)]
         public string descripcion { get; set; }
-        public List<EmailOperador> EmailOperador {get;set;}
+        //public List<EmailOperador> EmailOperador {get;set;}
 
     }
 }

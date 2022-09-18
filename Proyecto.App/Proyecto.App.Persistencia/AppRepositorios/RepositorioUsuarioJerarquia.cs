@@ -21,7 +21,7 @@ namespace Proyecto.App.Persistencia
         }
         void IRepositorioUsuarioJerarquia.DeleteUsuarioJerarquia(int del)
         {
-            var Encontrado = _appContext.usuarioJerarquia.FirstOrDefault(p => p.IdUsuarioJerarquia == del); //IdUsuarioJerarquia es la pk de USUARIO.cs
+            var Encontrado = _appContext.usuarioJerarquia.FirstOrDefault(p => p.usuarioJerarquiaId == del); //usuarioJerarquiaId es la pk de USUARIO.cs
             if (Encontrado == null)
                 return;
                 _appContext.usuarioJerarquia.Remove(Encontrado);
@@ -33,11 +33,11 @@ namespace Proyecto.App.Persistencia
         }
         UsuarioJerarquia IRepositorioUsuarioJerarquia.GetUsuarioJerarquia(int get)
         {
-            return _appContext.usuarioJerarquia.FirstOrDefault(p => p.IdUsuarioJerarquia == get);
+            return _appContext.usuarioJerarquia.FirstOrDefault(p => p.usuarioJerarquiaId == get);
         }
         UsuarioJerarquia IRepositorioUsuarioJerarquia.UpdateUsuarioJerarquia(UsuarioJerarquia up)
         {
-            var Encontrado = _appContext.usuarioJerarquia.FirstOrDefault(p => p.IdUsuarioJerarquia == up.IdUsuarioJerarquia);
+            var Encontrado = _appContext.usuarioJerarquia.FirstOrDefault(p => p.usuarioJerarquiaId == up.usuarioJerarquiaId);
             if (Encontrado != null)
             {
                 //Encontrado.Usuario = up.Usuario;

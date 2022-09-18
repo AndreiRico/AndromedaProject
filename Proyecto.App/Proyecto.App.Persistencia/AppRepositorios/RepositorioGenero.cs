@@ -21,7 +21,7 @@ namespace Proyecto.App.Persistencia
         }
         void IRepositorioGenero.DeleteGenero(int del)
         {
-            var Encontrado = _appContext.genero.FirstOrDefault(p => p.IdGenero == del); //IdGenero es la pk de USUARIO.cs
+            var Encontrado = _appContext.genero.FirstOrDefault(p => p.generoId == del); //generoId es la pk de USUARIO.cs
             if (Encontrado == null)
                 return;
             _appContext.genero.Remove(Encontrado);
@@ -33,11 +33,11 @@ namespace Proyecto.App.Persistencia
         }
         Genero IRepositorioGenero.GetGenero(int get)
         {
-            return _appContext.genero.FirstOrDefault(p => p.IdGenero == get);
+            return _appContext.genero.FirstOrDefault(p => p.generoId == get);
         }
         Genero IRepositorioGenero.UpdateGenero(Genero up)
         {
-            var Encontrado = _appContext.genero.FirstOrDefault(p => p.IdGenero == up.IdGenero);
+            var Encontrado = _appContext.genero.FirstOrDefault(p => p.generoId == up.generoId);
             if (Encontrado != null)
             {
                 Encontrado.descripcion = up.descripcion;

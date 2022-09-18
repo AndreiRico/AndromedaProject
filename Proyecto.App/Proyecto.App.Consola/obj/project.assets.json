@@ -6083,11 +6083,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Consola\\Proyecto.App.Consola.csproj",
+      "projectUniqueName": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Consola\\Proyecto.App.Consola.csproj",
       "projectName": "Proyecto.App.Consola",
-      "projectPath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Consola\\Proyecto.App.Consola.csproj",
+      "projectPath": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Consola\\Proyecto.App.Consola.csproj",
       "packagesPath": "C:\\Users\\Leaf\\.nuget\\packages\\",
-      "outputPath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Consola\\obj\\",
+      "outputPath": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Consola\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Leaf\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6102,11 +6102,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Dominio\\Proyecto.App.Dominio.csproj": {
-              "projectPath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Dominio\\Proyecto.App.Dominio.csproj"
+            "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Dominio\\Proyecto.App.Dominio.csproj": {
+              "projectPath": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Dominio\\Proyecto.App.Dominio.csproj"
             },
-            "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj": {
-              "projectPath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj"
+            "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj": {
+              "projectPath": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj"
             }
           }
         }

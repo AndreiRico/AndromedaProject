@@ -21,7 +21,7 @@ namespace Proyecto.App.Persistencia
         }
         void IRepositorioDepartamentoPais.DeleteDepartamentoPais(int del)
         {
-            var Encontrado = _appContext.departamentoPais.FirstOrDefault(p => p.IdDepartamentoPais == del); //Documento es la pk de USUARIO.cs
+            var Encontrado = _appContext.departamentoPais.FirstOrDefault(p => p.departamentoPaisIdId == del); //Documento es la pk de USUARIO.cs
             if (Encontrado == null)
                 return;
                 _appContext.departamentoPais.Remove(Encontrado);
@@ -33,15 +33,15 @@ namespace Proyecto.App.Persistencia
         }
         DepartamentoPais IRepositorioDepartamentoPais.GetDepartamentoPais(int get)
         {
-            return _appContext.departamentoPais.FirstOrDefault(p => p.IdDepartamentoPais == get);
+            return _appContext.departamentoPais.FirstOrDefault(p => p.departamentoPaisIdId == get);
         }
         DepartamentoPais IRepositorioDepartamentoPais.UpdateDepartamentoPais(DepartamentoPais up)
         {
-            var Encontrado = _appContext.departamentoPais.FirstOrDefault(p => p.IdDepartamentoPais == up.IdDepartamentoPais);
+            var Encontrado = _appContext.departamentoPais.FirstOrDefault(p => p.departamentoPaisIdId == up.departamentoPaisIdId);
             if (Encontrado != null)
             {
-                Encontrado.IdDepartamento = up.IdDepartamento;
-                Encontrado.IdPais = up.IdPais;
+                Encontrado.departamentoId = up.departamentoId;
+                Encontrado.PaisId = up.PaisId;
                 _appContext.SaveChanges();
             }
             return Encontrado;

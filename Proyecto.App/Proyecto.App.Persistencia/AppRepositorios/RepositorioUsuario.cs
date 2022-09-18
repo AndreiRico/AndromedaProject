@@ -6,38 +6,38 @@ using Proyecto.App.Dominio;
 
 namespace Proyecto.App.Persistencia
 {
-    public class RepositorioUser : IRepositorioUsuario
+    public class RepositorioUsuario : IRepositorioUsuario
     {
         private readonly AppContext _appContext;
-        public RepositorioUser(AppContext appContext)
+        public RepositorioUsuario(AppContext appContext)
         {
             _appContext = appContext;
         }
-        Usuarios IRepositorioUsuario.AddUser(Usuarios add)
+        Usuarios IRepositorioUsuario.AddUsuario(Usuarios add)
         {
             var UsuarioAdicionado = _appContext.usuarios.Add(add);
             _appContext.SaveChanges();
             return UsuarioAdicionado.Entity;
         }
-        void IRepositorioUsuario.DeleteUser(int del)
+        void IRepositorioUsuario.DeleteUsuario(int del)
         {
-            var Encontrado = _appContext.usuarios.FirstOrDefault(p => p.IdUsuarios == del); //Documento es la pk de USUARIO.cs
+            var Encontrado = _appContext.usuarios.FirstOrDefault(p => p.usuariosId == del); //Documento es la pk de USUARIO.cs
             if (Encontrado == null)
                 return;
                 _appContext.usuarios.Remove(Encontrado);
                 _appContext.SaveChanges();
         }
-        IEnumerable<Usuarios> IRepositorioUsuario.GetAllUser()
+        IEnumerable<Usuarios> IRepositorioUsuario.GetAllUsuario()
         {
             return _appContext.usuarios;
         }
-        Usuarios IRepositorioUsuario.GetUser(int get)
+        Usuarios IRepositorioUsuario.GetUsuario(int get)
         {
-            return _appContext.usuarios.FirstOrDefault(p => p.IdUsuarios == get);
+            return _appContext.usuarios.FirstOrDefault(p => p.usuariosId == get);
         }
-        Usuarios IRepositorioUsuario.UpdateUser(Usuarios up)
+        Usuarios IRepositorioUsuario.UpdateUsuario(Usuarios up)
         {
-            var Encontrado = _appContext.usuarios.FirstOrDefault(p => p.IdUsuarios == up.IdUsuarios);
+            var Encontrado = _appContext.usuarios.FirstOrDefault(p => p.usuariosId == up.usuariosId);
             if (Encontrado != null)
             {
                 //Encontrado.TipoDocumento = up.TipoDocumento;

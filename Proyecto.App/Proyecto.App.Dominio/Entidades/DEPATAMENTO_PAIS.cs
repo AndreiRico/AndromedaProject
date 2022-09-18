@@ -5,14 +5,13 @@ namespace Proyecto.App.Dominio
     public class DepartamentoPais
     {
         [Key]
-        [MaxLength(5)]
-        public int IdDepartamentoPais { get; set; }
+        public int departamentoPaisIdId { get; set; }
          [MaxLength(5)]
-        public int IdDepartamento { get; set; }
+        public int departamentoId { get; set; }
         [MaxLength(50)]
-        public int IdPais { get; set; }
+        public int PaisId { get; set; }
         //[MaxLength(50)]
-        //public string nombreDepartamento { get; set; } //innecesaria porque para eso usa IdDepartamento
+        //public string nombreDepartamento { get; set; } //innecesaria porque para eso usa departamentoId
 
     }
 }

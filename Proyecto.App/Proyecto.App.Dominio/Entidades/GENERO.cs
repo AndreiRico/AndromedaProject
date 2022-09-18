@@ -5,11 +5,10 @@ namespace Proyecto.App.Dominio
     public class Genero
     {
         [Key]
-        [MaxLength(5)]
-        public int IdGenero { get; set; }
+        public int generoId { get; set; }
         [MaxLength(30)]
         public string descripcion {get; set; }
-        public List<Usuarios> idUsuarios {get;set;}
+        public List<Usuarios> usuariosId {get;set;}
     }
 
 }

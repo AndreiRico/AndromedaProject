@@ -31,7 +31,7 @@ namespace Proyecto.App.Consola
          {
             Nombres nombreadd = new Nombres
             {
-                nombre = "Pepito"
+                nombre = "Pepito2222"
 
             };
             _repoNombre.AddNombre(nombreadd);

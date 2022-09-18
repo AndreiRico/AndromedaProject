@@ -21,7 +21,7 @@ namespace Proyecto.App.Persistencia
         }
         void IRepositorioDireccion.DeleteDireccion(int del)
         {
-            var Encontrado = _appContext.direccion.FirstOrDefault(p => p.IdDireccion == del); //IdDireccion es la pk de Direccion.cs
+            var Encontrado = _appContext.direccion.FirstOrDefault(p => p.direccionId == del); //direccionId es la pk de Direccion.cs
             if (Encontrado == null)
                 return;
             _appContext.direccion.Remove(Encontrado);
@@ -33,15 +33,15 @@ namespace Proyecto.App.Persistencia
         }
         Direccion IRepositorioDireccion.GetDireccion(int get)
         {
-            return _appContext.direccion.FirstOrDefault(p => p.IdDireccion == get);// p.Priamry_key_de_la_entidad
+            return _appContext.direccion.FirstOrDefault(p => p.direccionId == get);// p.Priamry_key_de_la_entidad
         }
         Direccion IRepositorioDireccion.UpdateDireccion(Direccion up)
         {
-            var Encontrado = _appContext.direccion.FirstOrDefault(p => p.IdDireccion == up.IdDireccion);
+            var Encontrado = _appContext.direccion.FirstOrDefault(p => p.direccionId == up.direccionId);
             if (Encontrado != null)
             {
                 Encontrado.direccion = up.direccion;
-                Encontrado.TipoVivienda = up.TipoVivienda;
+                Encontrado.tipoVivienda = up.tipoVivienda;
                 _appContext.SaveChanges();
             }
             return Encontrado;

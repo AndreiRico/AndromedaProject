@@ -6750,11 +6750,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Frontend\\Proyecto.App.Frontend.csproj",
+      "projectUniqueName": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Frontend\\Proyecto.App.Frontend.csproj",
       "projectName": "Proyecto.App.Frontend",
-      "projectPath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Frontend\\Proyecto.App.Frontend.csproj",
+      "projectPath": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Frontend\\Proyecto.App.Frontend.csproj",
       "packagesPath": "C:\\Users\\Leaf\\.nuget\\packages\\",
-      "outputPath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Frontend\\obj\\",
+      "outputPath": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Frontend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Leaf\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6769,11 +6769,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Dominio\\Proyecto.App.Dominio.csproj": {
-              "projectPath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Dominio\\Proyecto.App.Dominio.csproj"
+            "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Dominio\\Proyecto.App.Dominio.csproj": {
+              "projectPath": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Dominio\\Proyecto.App.Dominio.csproj"
             },
-            "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj": {
-              "projectPath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj"
+            "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj": {
+              "projectPath": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Persistencia\\Proyecto.App.Persistencia.csproj"
             }
           }
         }

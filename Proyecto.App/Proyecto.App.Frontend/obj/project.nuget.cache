@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vi/jtuZkVo/3tiRPsX/rW5f47dRJmzrO+Y8NXaSop78250847xQMCyjr30OYFADidPyTDlgYDQ/1L41NUT6oIA==",
+  "dgSpecHash": "89XU96DbxGoRITEzylHtqppUT5lQg/37rLlZQUH7p6Os39kiXm1DxfZ+UvEdO6k49AbS6T5Q1nH88ig45MVWfg==",
   "success": true,
-  "projectFilePath": "C:\\g\\AndromedaProyec\\Proyecto.App\\Proyecto.App.Frontend\\Proyecto.App.Frontend.csproj",
+  "projectFilePath": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Frontend\\Proyecto.App.Frontend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Leaf\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\6.0.9\\microsoft.aspnetcore.mvc.razor.extensions.6.0.9.nupkg.sha512",
     "C:\\Users\\Leaf\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\6.0.9\\microsoft.aspnetcore.mvc.razor.runtimecompilation.6.0.9.nupkg.sha512",

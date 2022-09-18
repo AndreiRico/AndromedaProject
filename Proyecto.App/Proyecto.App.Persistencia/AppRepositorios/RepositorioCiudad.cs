@@ -21,7 +21,7 @@ namespace Proyecto.App.Persistencia
         }
         void IRepositorioCiudad.DeleteCiudad(int del)
         {
-            var Encontrado = _appContext.ciudad.FirstOrDefault(p => p.IdCiudad == del); //Documento es la pk de USUARIO.cs
+            var Encontrado = _appContext.ciudad.FirstOrDefault(p => p.ciudadId == del); //Documento es la pk de USUARIO.cs
             if (Encontrado == null)
                 return;
                 _appContext.ciudad.Remove(Encontrado);
@@ -33,11 +33,11 @@ namespace Proyecto.App.Persistencia
         }
         Ciudad IRepositorioCiudad.GetCiudad(int get)
         {
-            return _appContext.ciudad.FirstOrDefault(p => p.IdCiudad == get);
+            return _appContext.ciudad.FirstOrDefault(p => p.ciudadId == get);
         }
         Ciudad IRepositorioCiudad.UpdateCiudad(Ciudad up)
         {
-            var Encontrado = _appContext.ciudad.FirstOrDefault(p => p.IdCiudad == up.IdCiudad);
+            var Encontrado = _appContext.ciudad.FirstOrDefault(p => p.ciudadId == up.ciudadId);
             if (Encontrado != null)
             {
                 Encontrado.nombreCiudad = up.nombreCiudad;

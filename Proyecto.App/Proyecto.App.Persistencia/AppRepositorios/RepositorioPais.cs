@@ -21,7 +21,7 @@ namespace Proyecto.App.Persistencia
         }
         void IRepositorioPais.DeletePais(int del)
         {
-            var Encontrado = _appContext.pais.FirstOrDefault(p => p.IdPais == del); //Documento es la pk de USUARIO.cs
+            var Encontrado = _appContext.pais.FirstOrDefault(p => p.PaisId == del); //Documento es la pk de USUARIO.cs
             if (Encontrado == null)
                 return;
                 _appContext.pais.Remove(Encontrado);
@@ -34,11 +34,11 @@ namespace Proyecto.App.Persistencia
             
         Pais IRepositorioPais.GetPais(int get)
         {
-            return _appContext.pais.FirstOrDefault(p => p.IdPais == get);
+            return _appContext.pais.FirstOrDefault(p => p.PaisId == get);
         }
         Pais IRepositorioPais.UpdatePais(Pais up)
         {
-            var Encontrado = _appContext.pais.FirstOrDefault(p => p.IdPais == up.IdPais);
+            var Encontrado = _appContext.pais.FirstOrDefault(p => p.PaisId == up.PaisId);
             if (Encontrado != null)
             {
                 Encontrado.nombrePais = up.nombrePais;

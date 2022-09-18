@@ -21,7 +21,7 @@ namespace Proyecto.App.Persistencia
         }
         void IRepositorioRH.DeleteRH(int del)
         {
-            var Encontrado = _appContext.rh.FirstOrDefault(p => p.IdRh == del); //Documento es la pk de USUARIO.cs
+            var Encontrado = _appContext.rh.FirstOrDefault(p => p.rhId == del); //Documento es la pk de USUARIO.cs
             if (Encontrado == null)
                 return;
                 _appContext.rh.Remove(Encontrado);
@@ -34,11 +34,11 @@ namespace Proyecto.App.Persistencia
             
         RH IRepositorioRH.GetRH(int get)
         {
-            return _appContext.rh.FirstOrDefault(p => p.IdRh == get);
+            return _appContext.rh.FirstOrDefault(p => p.rhId == get);
         }
         RH IRepositorioRH.UpdateRH(RH up)
         {
-            var Encontrado = _appContext.rh.FirstOrDefault(p => p.IdRh == up.IdRh);
+            var Encontrado = _appContext.rh.FirstOrDefault(p => p.rhId == up.rhId);
             if (Encontrado != null)
             {
                 Encontrado.descripcion = up.descripcion;

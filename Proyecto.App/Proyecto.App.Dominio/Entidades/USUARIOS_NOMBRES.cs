@@ -5,13 +5,12 @@ namespace Proyecto.App.Dominio
     public class UsuariosNombres
     {
         [Key]
-        [MaxLength(5)]
-        public int IdUsuariosNombres { get; set; }
-        //[MaxLength(5)]
-        //public int Usuario { get; set; }
-        //[MaxLength(5)]
-        //public int NombresId { get; set; }
-        //al hacer las relaciones se crean automaticamente
+        public int usuariosNombresId { get; set; }
+        public int? usuariosId { get; set; }
+        public Usuarios usuarios {get; set;}
+        public int? nombresId { get; set; }
+        public Nombres nombres {get; set;}
+
 
     }
 }

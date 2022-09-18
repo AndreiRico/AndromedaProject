@@ -21,7 +21,7 @@ namespace Proyecto.App.Persistencia
         }
         void IRepositorioUsuarioTelefono.DeleteUsuarioTelefono(int del)
         {
-            var Encontrado = _appContext.usuarioTelefono.FirstOrDefault(p => p.Contador == del); //Contador es la pk de USUARIO.cs
+            var Encontrado = _appContext.usuarioTelefono.FirstOrDefault(p => p.usuarioTelefonoId == del); //usuarioTelefonoId es la pk de USUARIO.cs
             if (Encontrado == null)
                 return;
                 _appContext.usuarioTelefono.Remove(Encontrado);
@@ -33,11 +33,11 @@ namespace Proyecto.App.Persistencia
         }
         UsuarioTelefono IRepositorioUsuarioTelefono.GetUsuarioTelefono(int usuarioTelefonoget)
         {
-            return _appContext.usuarioTelefono.FirstOrDefault(p => p.Contador == usuarioTelefonoget);
+            return _appContext.usuarioTelefono.FirstOrDefault(p => p.usuarioTelefonoId == usuarioTelefonoget);
         }
         UsuarioTelefono IRepositorioUsuarioTelefono.UpdateUsuarioTelefono(UsuarioTelefono usuarioTelefonoup)
         {
-            var Encontrado = _appContext.usuarioTelefono.FirstOrDefault(p => p.Contador == usuarioTelefonoup.Contador);
+            var Encontrado = _appContext.usuarioTelefono.FirstOrDefault(p => p.usuarioTelefonoId == usuarioTelefonoup.usuarioTelefonoId);
             if (Encontrado != null)
             {
                 //Encontrado.Usuario = usuarioTelefonoup.Usuario;

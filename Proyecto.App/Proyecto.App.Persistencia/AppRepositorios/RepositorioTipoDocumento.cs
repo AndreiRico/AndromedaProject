@@ -21,7 +21,7 @@ namespace Proyecto.App.Persistencia
         }
         void IRepositorioTipoDocumento.DeleteTipoDocumento(int del)
         {
-            var Encontrado = _appContext.tipoDocumento.FirstOrDefault(p => p.IdTipoDocumento == del); //Documento es la pk de USUARIO.cs
+            var Encontrado = _appContext.tipoDocumento.FirstOrDefault(p => p.tipoDocumentoId == del); //Documento es la pk de USUARIO.cs
             if (Encontrado == null)
                 return;
                 _appContext.tipoDocumento.Remove(Encontrado);
@@ -34,11 +34,11 @@ namespace Proyecto.App.Persistencia
             
         TipoDocumento IRepositorioTipoDocumento.GetTipoDocumento(int get)
         {
-            return _appContext.tipoDocumento.FirstOrDefault(p => p.IdTipoDocumento == get);
+            return _appContext.tipoDocumento.FirstOrDefault(p => p.tipoDocumentoId == get);
         }
         TipoDocumento IRepositorioTipoDocumento.UpdateTipoDocumento(TipoDocumento up)
         {
-            var Encontrado = _appContext.tipoDocumento.FirstOrDefault(p => p.IdTipoDocumento == up.IdTipoDocumento);
+            var Encontrado = _appContext.tipoDocumento.FirstOrDefault(p => p.tipoDocumentoId == up.tipoDocumentoId);
             if (Encontrado != null)
             {
                 Encontrado.Descripcion = up.Descripcion;

@@ -21,7 +21,7 @@ namespace Proyecto.App.Persistencia
         }
         void IRepositorioApellidos.DeleteApellidos(int del)
         {
-            var Encontrado = _appContext.apellidos.FirstOrDefault(p => p.IdApellidos == del); //Documento es la pk de USUARIO.cs
+            var Encontrado = _appContext.apellidos.FirstOrDefault(p => p.apellidosId == del); //Documento es la pk de USUARIO.cs
             if (Encontrado == null)
                 return;
                 _appContext.apellidos.Remove(Encontrado);
@@ -34,11 +34,11 @@ namespace Proyecto.App.Persistencia
             
         Apellidos IRepositorioApellidos.GetApellidos(int get)
         {
-            return _appContext.apellidos.FirstOrDefault(p => p.IdApellidos == get);
+            return _appContext.apellidos.FirstOrDefault(p => p.apellidosId == get);
         }
         Apellidos IRepositorioApellidos.UpdateApellidos(Apellidos up)
         {
-            var Encontrado = _appContext.apellidos.FirstOrDefault(p => p.IdApellidos == up.IdApellidos);
+            var Encontrado = _appContext.apellidos.FirstOrDefault(p => p.apellidosId == up.apellidosId);
             if (Encontrado != null)
             {
                 Encontrado.apellido = up.apellido;

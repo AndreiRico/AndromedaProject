@@ -5,11 +5,10 @@ namespace Proyecto.App.Dominio
     public class Apellidos
     {
         [Key]
-        [MaxLength(5)]
-        public int IdApellidos { get; set; }
+        public int apellidosId { get; set; }
         [MaxLength(50)]
         public string apellido { get; set; }
-        public List<UsuariosApellidos> IdUsuariosApellidos {get;set;}
+        public List<UsuariosApellidos> usuariosIdApellidos {get;set;}
     }
 
 }

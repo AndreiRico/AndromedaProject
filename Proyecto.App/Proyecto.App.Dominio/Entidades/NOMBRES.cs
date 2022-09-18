@@ -5,11 +5,10 @@ namespace Proyecto.App.Dominio
     public class Nombres 
     {
         [Key]
-        [MaxLength(5)]
-        public int IdNombres { get; set; }
-        [MaxLength(25)]
+        public int nombresId { get; set; }
+        [MaxLength(50)]
         public string nombre {get; set; }
-        public List<UsuariosNombres> idUsuariosNombres {get;set;}
+        public List<UsuariosNombres> usuariosNombresId {get;set;}
         
     }
 

@@ -5,12 +5,12 @@ namespace Proyecto.App.Dominio
     public class UsuarioTelefono
     {
         [Key]
-        [MaxLength(5)]
-        public int Contador { get; set; }
-        //[MaxLength(5)]
-        //public int Usuario { get; set; }
-        //[MaxLength(5)]
-        //public int Telefono { get; set; }
+        public int usuarioTelefonoId { get; set; }
+        public int? usuariosId { get; set; }
+        public Usuarios usuarios {get; set;}
+
+        public int? telefonoId { get; set; }
+        public Telefono telefono {get; set;}
 
 
     }

@@ -21,7 +21,7 @@ namespace Proyecto.App.Persistencia
         }
         void IRepositorioUsuariosEmail.DeleteUsuariosEmail(int del)
         {
-            var Encontrado = _appContext.usuariosEmail.FirstOrDefault(p => p.Contador == del); //Documento es la pk de USUARIO.cs
+            var Encontrado = _appContext.usuariosEmail.FirstOrDefault(p => p.usuariosEmailId == del); //Documento es la pk de USUARIO.cs
             if (Encontrado == null)
                 return;
                 _appContext.usuariosEmail.Remove(Encontrado);
@@ -33,17 +33,17 @@ namespace Proyecto.App.Persistencia
         }
         UsuariosEmail IRepositorioUsuariosEmail.GetUsuariosEmail(int get)
         {
-            return _appContext.usuariosEmail.FirstOrDefault(p => p.Contador == get);
+            return _appContext.usuariosEmail.FirstOrDefault(p => p.usuariosEmailId == get);
         }
         UsuariosEmail IRepositorioUsuariosEmail.UpdateUsuariosEmail(UsuariosEmail up)
         {
-            var Encontrado = _appContext.usuariosEmail.FirstOrDefault(p => p.Contador == up.Contador);
+            var Encontrado = _appContext.usuariosEmail.FirstOrDefault(p => p.usuariosEmailId == up.usuariosEmailId);
             if (Encontrado != null)
             {
                 //Encontrado.Usuarios = up.Usuarios;
-                Encontrado.Email = up.Email;
-                Encontrado.Fecha = up.Fecha;
-                Encontrado.Actual = up.Actual;
+                Encontrado.emailId = up.emailId;
+                // Encontrado.Fecha = up.Fecha;
+                // Encontrado.Actual = up.Actual;
                 _appContext.SaveChanges();
             }
             return Encontrado;
