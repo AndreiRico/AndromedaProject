@@ -193,3 +193,46 @@ color: var(--blanco);
     max-width: 100% !important;
     /* background-color: rgb(212, 57, 109) !important; */
 }
+
+.registro{
+    background-image: url('../img/home.jpg');
+}
+.bg-ingreso{
+    background-image: url('../img/bg2.jpg');;
+}
+
+/***************************************/
+h2{
+    color: #fff;
+}
+.input label{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 3px 0;
+}
+.input input{
+    width: 100%;
+    padding: 10px 16px;
+    outline: none;
+}
+.contenedor-perfil{
+    width: 50%;
+    padding: 50px;
+    background-color: rgba(19, 64, 116, .5);
+    margin: 0 auto;
+    max-width: 600px;
+    min-width: 25rem;
+    /* opacity: 0.9; */
+    /* flex: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    margin-bottom: 50px;
+
+}
+.btn-primary {
+    margin-top: 16px;
+}

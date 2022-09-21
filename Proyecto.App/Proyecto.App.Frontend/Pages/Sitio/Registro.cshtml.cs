@@ -13,7 +13,6 @@ namespace Proyecto.App.Frontend.Pages
     public class RegistroModel : PageModel
     {
         public Registro registro { get; set; }
-
         private IRepositorioNombre _repoNombre;
         [BindProperty]
         public Nombres nombres { get; set; }
@@ -118,7 +117,7 @@ namespace Proyecto.App.Frontend.Pages
 
 
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Sitio/Ingreso");
             // return Page();
             // if (ModelState.IsValid)
             // {

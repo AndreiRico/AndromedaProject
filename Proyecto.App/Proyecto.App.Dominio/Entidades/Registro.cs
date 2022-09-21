@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema; //necesario para Date
 namespace Proyecto.App.Dominio
 {
     public class Registro 
@@ -13,6 +14,7 @@ namespace Proyecto.App.Dominio
         public string direccion {get; set; }
         public string tipovivienda {get; set; }
         public string telefono {get; set; }
+        [Column(TypeName="Date")]//se asigna un tipo Date, para que solo guarde la fecha
         public DateTime nacimiento { get; set; }//YY,MM,DD
         public string genero { get; set; }
         

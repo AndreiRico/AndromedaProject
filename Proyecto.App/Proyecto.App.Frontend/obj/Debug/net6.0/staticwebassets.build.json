@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Xb+1XyWhVp0fRLXFVIqPVz7j69OlcojyXVr75xYMQ8A=",
+  "Hash": "t1WhM9ptJvxF4QPG3H9gAHq/Yrj9BRmDBo6MS+U731M=",
   "Source": "Proyecto.App.Frontend",
   "BasePath": "_content/Proyecto.App.Frontend",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\bg2.jpg"
+    },
+    {
+      "Identity": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Frontend\\wwwroot\\img\\home.jpg",
+      "SourceId": "Proyecto.App.Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Frontend\\wwwroot\\",
+      "BasePath": "_content/Proyecto.App.Frontend",
+      "RelativePath": "img/home.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\home.jpg"
     },
     {
       "Identity": "C:\\g\\AndromedaProject\\Proyecto.App\\Proyecto.App.Frontend\\wwwroot\\js\\site.js",

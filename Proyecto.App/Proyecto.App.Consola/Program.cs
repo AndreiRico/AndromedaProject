@@ -5,7 +5,7 @@ namespace Proyecto.App.Consola
 {
     class Program
     {
-        private static IRepositorioUsuario _repoUser = new RepositorioUser(new Persistencia.AppContext());
+        private static IRepositorioUsuario _repoUser = new RepositorioUsuario(new Persistencia.AppContext());
         private static IRepositorioNombre _repoNombre = new RepositorioNombre(new Persistencia.AppContext());
         static void Main(String[] args)
         {
@@ -24,7 +24,7 @@ namespace Proyecto.App.Consola
                 //Genero = 3
 
             };
-            _repoUser.AddUser(usuariosadd);
+            _repoUser.AddUsuario(usuariosadd);
 
          }
          private static void AddUnNombre()
