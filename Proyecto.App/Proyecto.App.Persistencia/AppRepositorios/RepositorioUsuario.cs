@@ -35,6 +35,11 @@ namespace Proyecto.App.Persistencia
         {
             return _appContext.usuarios.FirstOrDefault(p => p.usuariosId == get);
         }
+        Usuarios IRepositorioUsuario.GetUsuarioDocumento(string get)
+        {
+            var documento = _appContext.documento.Where(p => p.Descripcion == get).FirstOrDefault();
+            return _appContext.usuarios.FirstOrDefault(p => p.documentoId == documento.documentoId);
+        }
         Usuarios IRepositorioUsuario.UpdateUsuario(Usuarios up)
         {
             var Encontrado = _appContext.usuarios.FirstOrDefault(p => p.usuariosId == up.usuariosId);

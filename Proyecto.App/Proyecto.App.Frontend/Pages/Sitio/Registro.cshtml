@@ -2,103 +2,106 @@
 @model Proyecto.App.Frontend.Pages.RegistroModel
 @{
 }
-<body class="registro">
-    
 
-<div class="contenedor-formulario contenedor">
-    <div class="imagen-formulario">
-        <form class="formulario" method="post">
-            <div class="texto-formulario">
-                <h2> Formulario de registro</h2>
-                <p>Ingresa tus datos aquí:</p>
-            </div>
-            <div class="input">
-                <label asp-for="registro.tipodocumento" for="tipodocumento">Selecciona el tipo de documento</label>
-                <select asp-for="registro.tipodocumento" name="tipodocumento" type="text">
-                    <option>Cédula de ciudadanía</option>
-                    <option>Cédula de extranjería</option>
-                    <option>Tarjeta de identidad</option>
-                    <span asp-validation-for="registro.tipodocumento" class="text-danger"></span>
-                </select>
-            </div>
-            <div class="input">
-                <label asp-for="registro.documento" for="documento">Numero de documento</label>
-                <input asp-for="registro.documento" placeholder="Ingresa tu número documento" type="number"
-                    id="documento" name="documento">
-                <span asp-validation-for="registro.documento" class="text-danger"></span>
-            </div>
-            <div class="input">
-                <label asp-for="registro.nombre" for="nombre">Nombres</label>
-                <input asp-for="registro.nombre" placeholder="Ingresa tu nombre" type="text" id="nombre" name="nombre">
-                <span asp-validation-for="registro.nombre" class="text-danger"></span>
-            </div>
-            <div class="input">
-                <label asp-for="registro.apellidos" for="apellidos">Apellidos</label>
-                <input asp-for="registro.apellidos" placeholder="Ingresa tu primer apellido" type="text" id="apellidos"
-                    name="apellidos">
-                <span asp-validation-for="registro.apellidos" class="text-danger"></span>
-            </div>
-            <div class="input">
-                <label asp-for="registro.nacimiento" for="fechanacimiento">Fecha de nacimiento</label>
-                <input asp-for="registro.nacimiento" placeholder="Ingresa Fecha de nacimiento" type="date"
-                    id="fechanacimiento" name="fechanacimiento">
-                <span asp-validation-for="registro.nacimiento" class="text-danger"></span>
-            </div>
-            <div class="input">
-                <label asp-for="registro.genero" for="genero">Genero</label>
-                <select asp-for="registro.genero" name="genero" type="text">
-                    <option>Otro</option>
-                    <option>Masculino</option>
-                    <option>Femenino</option>
-                    <span asp-validation-for="registro.genero" class="text-danger"></span>
-                </select>
-            </div>
-            <div class="input">
-                <label asp-for="registro.email" for="email">Email</label>
-                <input asp-for="registro.email" placeholder="Ingresa tu Emal" type="email" id="email" name="email">
-                <span asp-validation-for="registro.email" class="text-danger"></span>
-            </div>
-            <div class="input">
-                <label asp-for="registro.rh" for="rh">RH</label>
-                <select asp-for="registro.rh" name="rh">
-                    <option>A+</option>
-                    <option>O+</option>
-                    <option>B+</option>
-                    <option>AB+</option>
-                    <option>A-</option>
-                    <option>O-</option>
-                    <option>B-</option>
-                    <option>AB-</option>
-                    <span asp-validation-for="registro.rh" class="text-danger"></span>
-                </select>
-                <!--<input placeholder="Selecciona tu RH" type="text" id="rh">-->
-            </div>
-            <div class="input">
-                <label asp-for="registro.direccion" for="direccion">Dirección</label>
-                <input asp-for="registro.direccion" placeholder="Ingresa tu direccion" type="text" id="direccion"
-                    name="direccion">
-                <span asp-validation-for="registro.direccion" class="text-danger"></span>
-            </div>
-            <div class="input">
+<body class="registro">
+
+
+    <div class="contenedor-formulario contenedor">
+        <div class="imagen-formulario">
+            <form class="formulario" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="texto-formulario">
+                    <h2> Formulario de registro</h2>
+                    <p>Ingresa tus datos aquí:</p>
+                </div>
                 <div class="input">
-                    <label asp-for="registro.tipovivienda" for="tipovivienda">Tipo Vivienda</label>
-                    <select asp-for="registro.tipovivienda" name="tipovivienda" type="text">
-                        <option>Casa</option>
-                        <option>Apartamento</option>
-                        <span asp-validation-for="registro.tipovivienda" class="text-danger"></span>
+                    <label asp-for="registro.tipodocumento" for="tipodocumento">Selecciona el tipo de documento</label>
+                    <select asp-for="registro.tipodocumento" name="tipodocumento" type="text">
+                        <option>Cédula de ciudadanía</option>
+                        <option>Cédula de extranjería</option>
+                        <option>Tarjeta de identidad</option>
+                        <span asp-validation-for="registro.tipodocumento" class="text-danger"></span>
                     </select>
                 </div>
-                <label asp-for="registro.telefono" for="telefono">Telefono</label>
-                <input asp-for="registro.telefono" placeholder="Ingresa tu telefono" type="text" id="telefono"
-                    name="telefono">
-                <span asp-validation-for="registro.telefono" class="text-danger"></span>
-            </div>
-            <div class="input">
-                <input type="submit" value="Agregar Usuario">
-                <input type="reset" value="Limpiar formulario">
-            </div>
-        </form>
-    </div>
+                <div class="input">
+                    <label asp-for="registro.documento" for="documento">Numero de documento</label>
+                    <input asp-for="registro.documento" placeholder="Ingresa tu número documento" type="number"
+                        id="documento" name="documento">
+                    <span asp-validation-for="registro.documento" class="text-danger"></span>
+                </div>
+                <div class="input">
+                    <label asp-for="registro.nombre" for="nombre">Nombres</label>
+                    <input asp-for="registro.nombre" placeholder="Ingresa tu nombre" type="text" id="nombre"
+                        name="nombre">
+                    <span asp-validation-for="registro.nombre" class="text-danger"></span>
+                </div>
+                <div class="input">
+                    <label asp-for="registro.apellidos" for="apellidos">Apellidos</label>
+                    <input asp-for="registro.apellidos" placeholder="Ingresa tu primer apellido" type="text"
+                        id="apellidos" name="apellidos">
+                    <span asp-validation-for="registro.apellidos" class="text-danger"></span>
+                </div>
+                <div class="input">
+                    <label asp-for="registro.nacimiento" for="nacimiento">Fecha de nacimiento</label>
+                    <input asp-for="registro.nacimiento" placeholder="Ingresa Fecha de nacimiento" type="date"
+                        id="nacimiento" name="nacimiento">
+                    <span asp-validation-for="registro.nacimiento" class="text-danger"></span>
+                </div>
+                <div class="input">
+                    <label asp-for="registro.genero" for="genero">Genero</label>
+                    <select asp-for="registro.genero" name="genero" type="text">
+                        <option>Otro</option>
+                        <option>Masculino</option>
+                        <option>Femenino</option>
+                        <span asp-validation-for="registro.genero" class="text-danger"></span>
+                    </select>
+                </div>
+                <div class="input">
+                    <label asp-for="registro.email" for="email">Email</label>
+                    <input asp-for="registro.email" placeholder="Ingresa tu Emal" type="email" id="email" name="email">
+                    <span asp-validation-for="registro.email" class="text-danger"></span>
+                </div>
+                <div class="input">
+                    <label asp-for="registro.rh" for="rh">RH</label>
+                    <select asp-for="registro.rh" name="rh">
+                        <option>A+</option>
+                        <option>O+</option>
+                        <option>B+</option>
+                        <option>AB+</option>
+                        <option>A-</option>
+                        <option>O-</option>
+                        <option>B-</option>
+                        <option>AB-</option>
+                        <span asp-validation-for="registro.rh" class="text-danger"></span>
+                    </select>
+                    <!--<input placeholder="Selecciona tu RH" type="text" id="rh">-->
+                </div>
+                <div class="input">
+                    <label asp-for="registro.direccion" for="direccion">Dirección</label>
+                    <input asp-for="registro.direccion" placeholder="Ingresa tu direccion" type="text" id="direccion"
+                        name="direccion">
+                    <span asp-validation-for="registro.direccion" class="text-danger"></span>
+                </div>
+                <div class="input">
+                    <div class="input">
+                        <label asp-for="registro.tipovivienda" for="tipovivienda">Tipo Vivienda</label>
+                        <select asp-for="registro.tipovivienda" name="tipovivienda" type="text">
+                            <option>Casa</option>
+                            <option>Apartamento</option>
+                            <span asp-validation-for="registro.tipovivienda" class="text-danger"></span>
+                        </select>
+                    </div>
+                    <label asp-for="registro.telefono" for="telefono">Telefono</label>
+                    <input asp-for="registro.telefono" placeholder="Ingresa tu telefono" type="text" id="telefono"
+                        name="telefono">
+                    <span asp-validation-for="registro.telefono" class="text-danger"></span>
+                </div>
+                <div class="input">
+                    <input type="submit" value="Agregar Usuario">
+                    <input type="reset" value="Limpiar formulario">
+                </div>
+            </form>
+        </div>
 
 </body>
 </div>

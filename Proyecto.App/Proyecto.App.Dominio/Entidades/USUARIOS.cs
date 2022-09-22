@@ -1,4 +1,5 @@
 using System;
+//using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema; //necesario para Date
 namespace Proyecto.App.Dominio
@@ -14,6 +15,8 @@ namespace Proyecto.App.Dominio
         public TipoDocumento tipoDocumento { get; set; }
         public int? rhId { get; set; }
         public RH Rh { get; set; }
+        //[Index(IsUnique=true)]
+        //[Index(nameof(documentoId), IsUnique = true)]
         public int? documentoId { get; set; }
         public Documento documento { get; set; }
         public int? generoId { get; set; }

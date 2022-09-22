@@ -22,15 +22,14 @@
     <form class="from-group" method="post">
             <div class="input">
                 <div class="input">
-                    <label for="tipodocumento">Tipo de documento</label>
-                    <!--combobox averiguar implementacion-->
-                    <input  type="text" id="tipodocumento">
+                    <label asp-for="tipoDocumento.Descripcion" for="tipodocumento">Tipo de documento</label>
+                    <input  asp-for="tipoDocumento.Descripcion" type="text" id="tipodocumento">
                 </div>
                 <label for="documento">Documento</label>
                 <input  type="text">
             </div>
             <div class="input">
-                <label for="nombre" >Nombre</label>
+                <label value="" for="nombre" >Nombre</label>
                 <input  type="text">
             </div>
             <div class="input">
@@ -43,9 +42,18 @@
                 <input  type="text">
             </div>
             <div class="input">
-                <label for="rh">RH</label>
-                <input  type="text">
+                <label asp-for="rh.descripcion" for="rh">RH</label>
+                <input  asp-for="rh.descripcion" type="text">
             </div>
+             <div class="input">
+                    <label asp-for="genero.descripcion" for="genero">Genero</label>
+                    <select asp-for="genero.descripcion" name="genero" type="text">
+                        <option>Otro</option>
+                        <option>Masculino</option>
+                        <option>Femenino</option>
+                        <span asp-validation-for="genero.descripcion" class="text-danger"></span>
+                    </select>
+                </div>
             <div class="input">
                 <label for="direccion">Dirección</label>
                 <input  type="text">

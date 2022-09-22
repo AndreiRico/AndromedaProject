@@ -29,6 +29,13 @@ namespace Proyecto.App.Persistencia
         public DbSet<UsuarioFuncionario> usuarioFuncionario { get; set; }
         public DbSet<UsuariosNombres> usuariosNombres { get; set; }
         public DbSet<Usuarios> usuarios { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Documento>().HasIndex(t => t.Descripcion ).IsUnique(true);
+            //modelBuilder.Entity<Email>().HasIndex(t => new { t.Descripcion }).IsUnique(true);
+            //modelBuilder.Entity<Paist>().HasIndex(t => new { t.Nombre }).IsUnique(true);
+          //HasOptional(x => x.Email).WithMany(x => x.EmailOperador).HasForeignKey(x => x.CodemailId);
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

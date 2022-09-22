@@ -9,5 +9,6 @@ namespace Proyecto.App.Persistencia
         Usuarios UpdateUsuario(Usuarios up);
         void DeleteUsuario(int del);
         Usuarios GetUsuario(int get);
+        Usuarios GetUsuarioDocumento(string get);
     }
 }

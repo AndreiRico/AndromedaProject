@@ -67,10 +67,12 @@ namespace Proyecto.App.Persistencia.Migrations
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("documentoId");
+
+                    b.HasIndex("Descripcion")
+                        .IsUnique();
 
                     b.ToTable("documento");
                 });

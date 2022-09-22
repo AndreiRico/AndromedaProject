@@ -10,7 +10,7 @@ using Proyecto.App.Persistencia;
 namespace Proyecto.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20220921030330_Inicial")]
+    [Migration("20220922141955_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,10 +69,12 @@ namespace Proyecto.App.Persistencia.Migrations
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("documentoId");
+
+                    b.HasIndex("Descripcion")
+                        .IsUnique();
 
                     b.ToTable("documento");
                 });

@@ -6,11 +6,16 @@ namespace Proyecto.App.Dominio
     public class Registro 
     {
         public string tipodocumento {get; set;}
+        [Required, StringLength(50)]
         public string documento {get; set;}
+        [Required, StringLength(50)]
         public string nombre {get; set; }
+        [Required, StringLength(50)]
         public string apellidos {get; set; }
+        [Required, StringLength(50)]
         public string email {get; set; }
         public string rh {get; set; }
+        [Required, StringLength(50)]
         public string direccion {get; set; }
         public string tipovivienda {get; set; }
         public string telefono {get; set; }

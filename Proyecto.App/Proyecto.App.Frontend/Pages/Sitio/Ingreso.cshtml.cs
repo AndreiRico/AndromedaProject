@@ -12,18 +12,20 @@ namespace Proyecto.App.Frontend.Pages
 {
     public class IngresoModel : PageModel
     {
+        [BindProperty]
         public Registro registro { get; set; }
         private IRepositorioDocumento _repoDocumento;
-        [BindProperty]
-        public Documento documento {get;set;}
+        //[BindProperty]
+        //public Documento documento { get; set; }
 
         private IRepositorioUsuario _repoUsuario;
         [BindProperty]
-        public Usuarios usuarios {get;set;}
+        public Usuarios usuarios { get; set; }
 
-        public IngresoModel(){
+        public IngresoModel()
+        {
             //this._repoDocumento = new RepositorioDocumento(new Proyecto.App.Persistencia.AppContext());//!!
-            //this._repoUsuario = new RepositorioDocumento(new Proyecto.App.Persistencia.AppContext());//!!
+            this._repoUsuario = new RepositorioUsuario(new Proyecto.App.Persistencia.AppContext());//!!
         }
 
         public void OnGet()
@@ -34,12 +36,14 @@ namespace Proyecto.App.Frontend.Pages
         {
 
             Console.WriteLine(registro.documento);
-           //int pkDocumento = _repoDocumento.AddDocumento(new Documento() { Descripcion = registro.documento }).documentoId;
-           //int pkDocumento = _repoUsuario.GetUsuario(new Usuarios() { Descripcion = registro.documento }).documentoId;
+            //int pkDocumento = _repoDocumento.AddDocumento(new Documento() { Descripcion = registro.documento }).documentoId;
+            var rusuario = _repoUsuario.GetUsuarioDocumento(registro.documento);
+            Console.WriteLine(rusuario.usuariosId);
 
 
 
-            return RedirectToPage("/Sitio/Ingreso");
+            //return RedirectToPage(Url.Page("/Sitio/Perfil?id="+rusuario.usuariosId));
+            return RedirectToPage("/Sitio/Perfil", new { id = rusuario.usuariosId } );
 
         }
     }
