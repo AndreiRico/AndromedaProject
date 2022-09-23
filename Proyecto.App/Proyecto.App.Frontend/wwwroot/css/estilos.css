@@ -1,28 +1,30 @@
-:root{
-    --azul:#134074;
-    --azulOscuro:#0b2545;
-    --azulGris:#8DA9C4;
-    --blanco:#fff;
+:root {
+    --azul: #134074;
+    --azulOscuro: #0b2545;
+    --azulGris: #8DA9C4;
+    --blanco: #fff;
     --fuente: 'Quicksand', sans-serif;
 }
 
 
 
-html{
+html {
     box-sizing: border-box;
 }
 
-*,*::after, *::before{
+*,
+*::after,
+*::before {
     box-sizing: inherit;
 }
 
-body{
+body {
     font-family: var(--fuente);
     /* background-color: var(--azulOscuro); */
     background-color: #bfdcff;
     /* display: flex; */
     align-items: center;
-    background-image: url('../img/bg.jpg');
+    background-image: url('../img/Home.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -30,118 +32,103 @@ body{
 }
 
 
-
-.imagen-formulario{
-    /* background-image: url('../img/bg.jpg');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed; */
-    /* height: auto;   
-    flex: auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.9; */
-
-    
-}
-
-
-/* .imagen-formulario::before{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to rigth,rgba(141,169,196,.5), rgba(19, 64, 116, .5));
-} */
-@media(min-width:1200px){
-    .imagen-formulario{
+@media(min-width:1200px) {
+    .imagen-formulario {
         background-position: center;
         margin: 0 auto;
     }
-    }
+}
 
-@media(min-width:768){
-    .imagen-formulario{
+@media(min-width:768) {
+    .imagen-formulario {
         height: auto;
         background-position: right;
         margin: 0 auto;
     }
 }
 
-@media(min-width:768px){
+@media(min-width:768px) {
     .contenedor-formulario {
         /* display: flex; */
         margin: 0 auto;
     }
 }
-@media(min-width:414px){
-    .formulario, .ingreso {
+
+@media(min-width:414px) {
+
+    .formulario,
+    .ingreso {
         /* display: flex; */
         margin: 0 auto;
         width: fit-content;
     }
 }
-.contenedor{
+
+.contenedor {
     margin: 0%;
-    
+
 }
 
 
-.formulario, .ingreso{
+.formulario,
+.ingreso {
     padding: 50px;
     background-color: rgba(19, 64, 116, .5);
     margin: 0 auto;
     max-width: 600px;
     min-width: 25rem;
-    /* opacity: 0.9; */
-    /* flex: auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
     margin-bottom: 50px;
 }
 
-.texto-formulario h2, .p, .input label, .texto-formulario p{
-color: var(--blanco);
+.texto-formulario h2,
+.p,
+.input label,
+.texto-formulario p {
+    color: var(--blanco);
 }
-.texto-formulario h2{
+
+.texto-formulario h2 {
     font-size: 45px;
     text-align: center;
 }
-.texto-formulario{
+
+.texto-formulario {
     font-size: 30px;
     text-align: center;
 }
 
-.input label{
+.input label {
     display: block;
-    font-size: 20px; /* tamaño de letra de los titulos de los cuadros de texto */
-    font-weight: bold; /*que la letra sea en negrilla*/
-    margin: 3px 0; /*el margen o distangia entre el titulo y la caja */
+    font-size: 20px;
+    /* tamaño de letra de los titulos de los cuadros de texto */
+    font-weight: bold;
+    /*que la letra sea en negrilla*/
+    margin: 3px 0;
+    /*el margen o distangia entre el titulo y la caja */
 }
-.input input{
+
+.input input {
     width: 100%;
     padding: 10px 16px;
-    border-radius: 5px; /* redondeado de bordes de los recuadros*/
+    border-radius: 5px;
+    /* redondeado de bordes de los recuadros*/
     outline: none;
 }
-.input input[type="submit"], .input input[type="reset"]{
+
+/* .input input[type="submit"],
+.input input[type="reset"] */
+.btn-andro {
     background-color: var(--azulGris);
     color: var(--blanco);
     font-size: 22px;
     font-weight: bold;
     border: none;
+    border-radius: 5px;
     margin-top: 20px;
     transition: backgraund-color .3s ease-in-out;
 }
-.input input[type="submit"]:hover, .input input[type="reset"]:hover{
+
+.btn-andro:hover {
     cursor: pointer;
     background-color: var(--azulOscuro);
 }
@@ -149,244 +136,143 @@ color: var(--blanco);
 /*#######################################################*/
 /**/
 
-/* .caja {
-    margin:20px auto 40px auto;	
-    border:1px solid #d9d9d9;
-    height:30px;
-    overflow: hidden;
-    width: 230px;
-    position:relative;
-  } */
-  select {
+select {
     background: var(--blanco);
     border: none;
-    /* font-size: 16px; */
     height: 35px;
     padding: 10 px 16px;
     width: 100%;
     cursor: pointer;
     border-radius: 5px;
-    
-  }
-  select:focus{ outline: none;}
-  
-  /* .caja::after{
-   content:"\025be";
-   display:table-cell;
-   padding-top:7px;
-   text-align:center;
-   width:30px;
-   height:30px;
-   background-color:#d9d9d9;
-   position:absolute;
-   top:0;
-   right:0px;	
-   pointer-events: none;
-   } */
+
+}
+
+select:focus {
+    outline: none;
+}
 
 /*#######################################################*/
 
 /*Limpiar estilos bootstrap*/
-.container,.pb-3{
+.container,
+.pb-3 {
     margin: 0%;
     padding: 0% !important;
     max-width: 100% !important;
     /* background-color: rgb(212, 57, 109) !important; */
 }
 
-.registro{
-    background-image: url('../img/home.jpg');
-}
-.bg-ingreso{
-    background-image: url('../img/bg2.jpg');;
+/*##############################################################*/
+
+.registro {
+    background-image: url('../img/bg.jpg');
 }
 
-/****************Andres***********************/
-h2{
-    color: #fff;
+.bg-ingreso {
+    background-image: url('../img/bg2.jpg');
+    ;
 }
-.input label{
-    display: block;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 3px 0;
-}
-.input input{
-    width: 100%;
-    padding: 10px 16px;
-    outline: none;
-}
-.contenedor-perfil{
+
+.contenedor-perfil {
     width: 50%;
     padding: 50px;
     background-color: rgba(19, 64, 116, .5);
     margin: 0 auto;
     max-width: 600px;
     min-width: 25rem;
-    /* opacity: 0.9; */
-    /* flex: auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
     margin-bottom: 50px;
-
 }
+
 .btn-primary {
     margin-top: 16px;
 }
 
-
-/******************Edi**************/
-
-
-* {
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: url('../img/Home.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    align-items: center;
-    justify-content: center;
-  }
-
-  footer {
-      background-color: #030f1d;
-      padding: 10px;
-      text-align: center;
-      color: white;
-      }
-
-  /*.contenedor-formulario{
-    margin: auto;
-    background-color:    #030f1d ;
-    background-position: center center;
-    
-    max-width: 120px; 
-    min-width: 50%; 
-  }  */
-  
-  /* .imagen-formulario::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0%;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to rigth,rgba(141,169,196,.5), rgba(19, 64, 116, .5));
-} */
-
-.imagen-formulario{
-  background-image: url('../img/Andromeda.png');
-  background-position: center center;
-  background-size: cover;
-  height: auto;   
-  flex: 0 0 calc(60%);
-
+footer {
+    background-color: #030f1d;
+    padding: 10px;
+    text-align: center;
+    color: white;
 }
 
 article {
- 
-padding: 10px;
-position: responsive;
-float: right;
-height: 490px;
-background-color: rgba(19, 64, 116, .5);
-width: 60%;
-top: 50px;
-border-radius: 20px;
-padding: 10px;
-margin: 10px;
-}
-.Enca{
-  color: white;
-  
-  text-align: center;
-  /* position: relative; */
-  /* display: flex; */
-  justify-content: space-between;
-  margin: 10px;
-  font-size: 40px;
-  padding: 60px;
+    padding: 10px;
+    /* position: responsive; */
+    height: 100%;
+    background-color: rgba(19, 64, 116, .5);
+    margin: 0 auto;
+    max-width: 600px;
+    min-width: 25rem;
+    top: 50px;
+    border-radius: 20px;
+    padding: 1rem;
+    margin: o auto;
 }
 
-.Parrafo{
-  
-  text-align: center;
-  color: rgb(255, 255, 255);
-  font-size: 21px;
-
-  font-weight: bold;
+.Encabezado {
+    color: white;
+    text-align: center;
 }
 
- .boton {
-  position: center center;
-  right: 50%;
-  margin-left: 50%;
-  transform: translateX(-50%);
+.Encabezado h2 {
+    margin: 10px;
+    font-size: 40px;
+    padding: 20px;
 }
 
-.ImagenAndromeda{
-position: relative;
-display: flex;
-/* justify-content: space-between; */
-height: 20px;
+.Encabezado p {
+    font-size: 21px;
+}
+
+.boton {
+    position: center center;
+    margin: 0 auto;
+    /* redondeado de bordes de los recuadros*/
+    outline: none;
+}
+
+.ImagenAndromeda {
+    position: relative;
+    display: flex;
+    height: 1.5rem;
+    margin: 0 1rem 0 2rem;
 
 }
 
-/* @media(min-width:768){
-    .imagen-formulario{
-        height: auto;
-        background-position: center;
-    }
-} */
 
-@media(min-width:300px){
-    .imagen-formulario{
-        background-position: center;
-    }
-    }
-
-
-@media(min-width:300px){
+@media(min-width:300px) {
     .contenedor-formulario {
         display: flex;
     }
 }
 
-
-      
-
-  ul {
+/* ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
       overflow: hidden;
-      /* background-color: #030f1d; */
-      }
-  
+      } */
 
- 
-  li {
-      float: right;
-      
-      }
-    
-  ul li:hover{
-  background-color: rgba(19, 64, 116, .5);
-  
-  }
+/* li.nav-item {
+    display: inline;
+    float: right;
 
+} */
 
-  li a {
-  display: block;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  }
+.navbar {
+    background-color: #030f1d;
+    border-bottom: 0;
+}
 
+ul li.nav-item {
+    transition: all 0.4s;
+}
+ul li.nav-item:hover {
+    background-color: rgba(19, 64, 116, .5);
+}
+
+li a {
+    /* display: block; */
+    color: white;
+    /* text-align: center; */
+    text-decoration: none;
+}
