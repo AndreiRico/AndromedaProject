@@ -36,7 +36,7 @@ namespace Proyecto.App.Frontend.Pages
         {
 
             Console.WriteLine(registro.documento);
-            //int pkDocumento = _repoDocumento.AddDocumento(new Documento() { Descripcion = registro.documento }).documentoId;
+            //int pkDocumento = _repoDocumento.AddDocumento(new Documento() { descripcion = registro.documento }).documentoId;
             var rusuario = _repoUsuario.GetUsuarioDocumento(registro.documento);
             Console.WriteLine(rusuario.usuariosId);
 

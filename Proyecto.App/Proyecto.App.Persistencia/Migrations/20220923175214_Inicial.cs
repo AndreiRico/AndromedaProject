@@ -40,7 +40,7 @@ namespace Proyecto.App.Persistencia.Migrations
                 {
                     documentoId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Descripcion = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    descripcion = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -118,7 +118,7 @@ namespace Proyecto.App.Persistencia.Migrations
                 {
                     tipoDocumentoId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -339,9 +339,9 @@ namespace Proyecto.App.Persistencia.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_documento_Descripcion",
+                name: "IX_documento_descripcion",
                 table: "documento",
-                column: "Descripcion",
+                column: "descripcion",
                 unique: true);
 
             migrationBuilder.CreateIndex(

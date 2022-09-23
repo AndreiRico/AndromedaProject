@@ -16,74 +16,42 @@ namespace Proyecto.App.Frontend.Pages
         [BindProperty]
         public Registro registro { get; set; }
         private IRepositorioNombre _repoNombre;
-        //[BindProperty]
-        public Nombres nombres { get; set; }
-
-
-        ///**********************************************************************////
-
+        // public Nombres nombres { get; set; }
         private IRepositorioTipoDocumento _repoTipoDocumento;
-        //[BindProperty]
-        public TipoDocumento tipoDocumento { get; set; }
-
+        // public TipoDocumento tipoDocumento { get; set; }
         private IRepositorioDocumento _repoDocumento;//?
-        //[BindProperty]
-        public Documento documento { get; set; }
-
+        // public Documento documento { get; set; }
         private IRepositorioApellidos _repoApellidos;
-        //[BindProperty]
-        public Apellidos apellidos { get; set; }
-
+        // public Apellidos apellidos { get; set; }
         private IRepositorioEmail _repoEmail;
-        //[BindProperty]
-        public Email email { get; set; }
-
+        // public Email email { get; set; }
         private IRepositorioRH _repoRH;
-        //[BindProperty]
-        public RH rh { get; set; }
-
+        // public RH rh { get; set; }
         private IRepositorioDireccion _repoDireccion;
-        //[BindProperty]
-        public Direccion direccion { get; set; }
-
+        // public Direccion direccion { get; set; }
         private IRepositorioTelefono _repoTelefono;
-        //[BindProperty]
-        public Telefono telefono { get; set; }
-
+        // public Telefono telefono { get; set; }
         private IRepositorioUsuario _repoUsuario;
-        //[BindProperty]
-        public Usuarios usuarios { get; set; }
+        // public Usuarios usuarios { get; set; }
         private IRepositorioGenero _repoGenero;
-        //[BindProperty]
-        public Genero genero { get; set; }
+        // public Genero genero { get; set; }
         private IRepositorioUsuariosNombres _repoUsuariosNombres;
-        //[BindProperty]
-        public UsuariosNombres usuariosNombres { get; set; }
+        // public UsuariosNombres usuariosNombres { get; set; }
         private IRepositorioUsuariosApellidos _repoUsuariosApellidos;
-        //[BindProperty]
-        public UsuariosApellidos usuariosApellidos { get; set; }
+        // public UsuariosApellidos usuariosApellidos { get; set; }
         private IRepositorioUsuariosEmail _repoUsuariosEmail;
-        //[BindProperty]
-        public UsuariosEmail usuariosEmail { get; set; }
+        // public UsuariosEmail usuariosEmail { get; set; }
         private IRepositorioUsuarioDireccion _repoUsuariosDireccion;
-        //[BindProperty]
-        public UsuarioDireccion usuarioDireccion { get; set; }
+        // public UsuarioDireccion usuarioDireccion { get; set; }
         private IRepositorioUsuarioTelefono _repoUsuarioTelefono;
-        //[BindProperty]
-        public UsuarioTelefono usuarioTelefono { get; set; }
-
-        //****************************************************************///////
-
-
+        // public UsuarioTelefono usuarioTelefono { get; set; }
 
         public RegistroModel()
         {
-            this._repoNombre = new RepositorioNombre(new Proyecto.App.Persistencia.AppContext());//!!!!!!!!
-
-            //***************************************************************************
+            this._repoNombre = new RepositorioNombre(new Proyecto.App.Persistencia.AppContext());
             this._repoUsuario = new RepositorioUsuario(new Proyecto.App.Persistencia.AppContext());
             this._repoTipoDocumento = new RepositorioTipoDocumento(new Proyecto.App.Persistencia.AppContext());
-            this._repoDocumento = new RepositorioDocumento(new Proyecto.App.Persistencia.AppContext());//???
+            this._repoDocumento = new RepositorioDocumento(new Proyecto.App.Persistencia.AppContext());
             this._repoApellidos = new RepositorioApellidos(new Proyecto.App.Persistencia.AppContext());
             this._repoEmail = new RepositorioEmail(new Proyecto.App.Persistencia.AppContext());
             this._repoRH = new RepositorioRH(new Proyecto.App.Persistencia.AppContext());
@@ -95,7 +63,6 @@ namespace Proyecto.App.Frontend.Pages
             this._repoUsuariosEmail = new RepositorioUsuariosEmail(new Proyecto.App.Persistencia.AppContext());
             this._repoUsuariosDireccion = new RepositorioUsuarioDireccion(new Proyecto.App.Persistencia.AppContext());    
             this._repoUsuarioTelefono = new RepositorioUsuarioTelefono(new Proyecto.App.Persistencia.AppContext());    
-            //*************************************************
         }
 
         public void OnGet()
@@ -120,8 +87,8 @@ namespace Proyecto.App.Frontend.Pages
                 Console.WriteLine("Entra al if");
                 try
                 {
-                    int pkDocumento = _repoDocumento.AddDocumento(new Documento() { Descripcion = registro.documento }).documentoId;
-                    int pkTipoDocumento = _repoTipoDocumento.AddTipoDocumento(new TipoDocumento() { Descripcion = registro.tipodocumento }).tipoDocumentoId;
+                    int pkDocumento = _repoDocumento.AddDocumento(new Documento() { descripcion = registro.documento }).documentoId;
+                    int pkTipoDocumento = _repoTipoDocumento.AddTipoDocumento(new TipoDocumento() { descripcion = registro.tipodocumento }).tipoDocumentoId;
 
                     int pkNombre = _repoNombre.AddNombre(new Nombres() { nombre = registro.nombre }).nombresId;
                     int pkApellido = _repoApellidos.AddApellidos(new Apellidos() { apellido = registro.apellidos }).apellidosId;

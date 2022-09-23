@@ -41,7 +41,7 @@ namespace Proyecto.App.Persistencia
             var Encontrado = _appContext.documento.FirstOrDefault(p => p.documentoId == up.documentoId);
             if (Encontrado != null)
             {
-                Encontrado.Descripcion = up.Descripcion;
+                Encontrado.descripcion = up.descripcion;
                 
                 _appContext.SaveChanges();
             }

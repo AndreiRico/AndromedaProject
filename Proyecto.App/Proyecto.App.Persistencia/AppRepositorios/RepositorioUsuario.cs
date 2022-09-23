@@ -37,7 +37,7 @@ namespace Proyecto.App.Persistencia
         }
         Usuarios IRepositorioUsuario.GetUsuarioDocumento(string get)
         {
-            var documento = _appContext.documento.Where(p => p.Descripcion == get).FirstOrDefault();
+            var documento = _appContext.documento.Where(p => p.descripcion == get).FirstOrDefault();
             return _appContext.usuarios.FirstOrDefault(p => p.documentoId == documento.documentoId);
         }
         Usuarios IRepositorioUsuario.UpdateUsuario(Usuarios up)

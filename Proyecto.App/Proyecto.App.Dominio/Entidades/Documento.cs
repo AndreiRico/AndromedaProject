@@ -6,7 +6,7 @@ namespace Proyecto.App.Dominio
     {
         [Key]
         public int documentoId { get; set; }
-        public string Descripcion {get; set; }
+        public string descripcion {get; set; }
         public List<Usuarios> Usuarios {get;set;}
     }
 

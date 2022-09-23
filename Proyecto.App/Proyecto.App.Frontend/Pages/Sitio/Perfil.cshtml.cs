@@ -16,72 +16,42 @@ namespace Proyecto.App.Frontend.Pages
     {
 
         private IRepositorioNombre _repoNombre;
-        //[BindProperty]
         public Nombres nombres { get; set; }
-
-
-        ///**********************************************************************////
-
         private IRepositorioTipoDocumento _repoTipoDocumento;
-        //[BindProperty]
         public TipoDocumento tipoDocumento { get; set; }
-
-        private IRepositorioDocumento _repoDocumento;//?
-        //[BindProperty]
+        private IRepositorioDocumento _repoDocumento;
         public Documento documento { get; set; }
-
         private IRepositorioApellidos _repoApellidos;
-        //[BindProperty]
         public Apellidos apellidos { get; set; }
-
         private IRepositorioEmail _repoEmail;
-        //[BindProperty]
         public Email email { get; set; }
-
         private IRepositorioRH _repoRH;
-        //[BindProperty]
         public RH rh { get; set; }
-
         private IRepositorioDireccion _repoDireccion;
-        //[BindProperty]
         public Direccion direccion { get; set; }
-
         private IRepositorioTelefono _repoTelefono;
-        //[BindProperty]
         public Telefono telefono { get; set; }
-
         private IRepositorioUsuario _repoUsuario;
-        //[BindProperty]
         public Usuarios usuarios { get; set; }
         private IRepositorioGenero _repoGenero;
-        //[BindProperty]
         public Genero genero { get; set; }
         private IRepositorioUsuariosNombres _repoUsuariosNombres;
-        //[BindProperty]
         public UsuariosNombres usuariosNombres { get; set; }
         private IRepositorioUsuariosApellidos _repoUsuariosApellidos;
-        //[BindProperty]
         public UsuariosApellidos usuariosApellidos { get; set; }
         private IRepositorioUsuariosEmail _repoUsuariosEmail;
-        //[BindProperty]
         public UsuariosEmail usuariosEmail { get; set; }
         private IRepositorioUsuarioDireccion _repoUsuarioDireccion;
-        //[BindProperty]
         public UsuarioDireccion usuarioDireccion { get; set; }
         private IRepositorioUsuarioTelefono _repoUsuarioTelefono;
-        //[BindProperty]
         public UsuarioTelefono usuarioTelefono { get; set; }
-        //*********//
-
 
         public PerfilModel()
         {
-            this._repoNombre = new RepositorioNombre(new Proyecto.App.Persistencia.AppContext());//!!!!!!!!
-
-            //***************************************************************************
+            this._repoNombre = new RepositorioNombre(new Proyecto.App.Persistencia.AppContext());
             this._repoUsuario = new RepositorioUsuario(new Proyecto.App.Persistencia.AppContext());
             this._repoTipoDocumento = new RepositorioTipoDocumento(new Proyecto.App.Persistencia.AppContext());
-            this._repoDocumento = new RepositorioDocumento(new Proyecto.App.Persistencia.AppContext());//???
+            this._repoDocumento = new RepositorioDocumento(new Proyecto.App.Persistencia.AppContext());
             this._repoApellidos = new RepositorioApellidos(new Proyecto.App.Persistencia.AppContext());
             this._repoEmail = new RepositorioEmail(new Proyecto.App.Persistencia.AppContext());
             this._repoRH = new RepositorioRH(new Proyecto.App.Persistencia.AppContext());
@@ -94,7 +64,6 @@ namespace Proyecto.App.Frontend.Pages
             this._repoUsuarioDireccion = new RepositorioUsuarioDireccion(new Proyecto.App.Persistencia.AppContext());
             this._repoUsuarioTelefono = new RepositorioUsuarioTelefono(new Proyecto.App.Persistencia.AppContext());    
         }
-
 
         public void OnGet(int? id)
         {

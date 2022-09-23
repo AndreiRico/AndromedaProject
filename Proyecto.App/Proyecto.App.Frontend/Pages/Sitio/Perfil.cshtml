@@ -22,21 +22,26 @@
                     <h2>@Model.nombres.nombre</h2>
                 </div>
         <form class="from-group" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="input">
                 <div class="input">
-                    <label asp-for="tipoDocumento.Descripcion" for="tipodocumento">Tipo de documento</label>
-                    <input asp-for="tipoDocumento.Descripcion" type="text" id="tipodocumento">
+                    <label asp-for="tipoDocumento.descripcion" for="tipodocumento">Tipo de documento</label>
+                    <input asp-for="tipoDocumento.descripcion" type="text" id="tipodocumento">
+                    <span asp-validation-for="tipoDocumento.descripcion" class="text-danger"></span>
                 </div>
-                <label asp-for="documento.Descripcion" for="documento">Documento</label>
-                <input asp-for="documento.Descripcion" type="text">
+                <label asp-for="documento.descripcion" for="documento">Documento</label>
+                <input asp-for="documento.descripcion" type="text">
+                <span asp-validation-for="documento.descripcion" class="text-danger"></span>
             </div>
             <div class="input">
                 <label asp-for="nombres.nombre" for="nombre">Nombre</label>
                 <input asp-for="nombres.nombre" type="text">
+                <span asp-validation-for="nombres.nombre" class="text-danger"></span>
             </div>
             <div class="input">
                 <label asp-for="apellidos.apellido" for="primerapellido">Apellidos</label>
                 <input asp-for="apellidos.apellido" type="text">
+                <span asp-validation-for="apellidos.apellido" class="text-danger"></span>
             </div>
             <div class="input">
                 <label asp-for="usuarios.Nacimiento" for="nacimiento">Fecha de nacimiento</label>
@@ -47,10 +52,12 @@
             <div class="input">
                 <label asp-for="email.descripcion" for="email">Email</label>
                 <input asp-for="email.descripcion" type="text">
+                <span asp-validation-for="email.descripcion" class="text-danger"></span>
             </div>
             <div class="input">
                 <label asp-for="rh.descripcion" for="rh">RH</label>
                 <input asp-for="rh.descripcion" type="text">
+                <span asp-validation-for="rh.descripcion" class="text-danger"></span>
             </div>
             <div class="input">
                 <label asp-for="genero.descripcion" for="genero">Genero</label>
@@ -64,6 +71,7 @@
             <div class="input">
                 <label asp-for="direccion.direccion" for="direccion">Dirección</label>
                 <input asp-for="direccion.direccion" type="text">
+                <span asp-validation-for="direccion.direccion" class="text-danger"></span>
             </div>
             <div class="input">
                         <label asp-for="direccion.tipoVivienda" for="tipovivienda">Tipo Vivienda</label>
@@ -76,6 +84,7 @@
             <div class="input">
                 <label asp-for="telefono.telefono" for="telefono">Telefono</label>
                 <input asp-for="telefono.telefono" type="text">
+                <span asp-validation-for="telefono.telefono" class="text-danger"></span>
             </div>
             <input type="submit" class="btn-andro" value="Guardar cambios">
         </form>

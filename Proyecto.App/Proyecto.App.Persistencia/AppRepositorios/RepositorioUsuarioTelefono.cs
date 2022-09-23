@@ -40,13 +40,13 @@ namespace Proyecto.App.Persistencia
             var usuarioTelefono = _appContext.usuarioTelefono.Where(p => p.usuariosId == get).FirstOrDefault();
             return _appContext.usuarioTelefono.FirstOrDefault(p => p.usuarioTelefonoId == usuarioTelefono.usuarioTelefonoId);
         }
-        UsuarioTelefono IRepositorioUsuarioTelefono.UpdateUsuarioTelefono(UsuarioTelefono usuarioTelefonoup)
+        UsuarioTelefono IRepositorioUsuarioTelefono.UpdateUsuarioTelefono(UsuarioTelefono up)
         {
-            var Encontrado = _appContext.usuarioTelefono.FirstOrDefault(p => p.usuarioTelefonoId == usuarioTelefonoup.usuarioTelefonoId);
+            var Encontrado = _appContext.usuarioTelefono.FirstOrDefault(p => p.usuarioTelefonoId == up.usuarioTelefonoId);
             if (Encontrado != null)
             {
-                //Encontrado.Usuario = usuarioTelefonoup.Usuario;
-                //Encontrado.Telefono = usuarioTelefonoup.Telefono;
+                Encontrado.usuariosId = up.usuariosId;
+                Encontrado.telefonoId = up.telefonoId;
                 _appContext.SaveChanges();
             }
             return Encontrado;
