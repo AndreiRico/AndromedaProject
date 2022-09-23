@@ -35,6 +35,11 @@ namespace Proyecto.App.Persistencia
         {
             return _appContext.usuariosEmail.FirstOrDefault(p => p.usuariosEmailId == get);
         }
+        UsuariosEmail IRepositorioUsuariosEmail.GetUsuariosEmailUid(int get)
+        {
+            var usuariosEmail = _appContext.usuariosEmail.Where(p => p.usuariosId == get).FirstOrDefault();
+            return _appContext.usuariosEmail.FirstOrDefault(p => p.usuariosEmailId == usuariosEmail.usuariosEmailId);
+        }
         UsuariosEmail IRepositorioUsuariosEmail.UpdateUsuariosEmail(UsuariosEmail up)
         {
             var Encontrado = _appContext.usuariosEmail.FirstOrDefault(p => p.usuariosEmailId == up.usuariosEmailId);

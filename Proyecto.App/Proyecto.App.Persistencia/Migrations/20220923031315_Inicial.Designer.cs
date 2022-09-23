@@ -10,7 +10,7 @@ using Proyecto.App.Persistencia;
 namespace Proyecto.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20220922141955_Inicial")]
+    [Migration("20220923031315_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -186,10 +186,6 @@ namespace Proyecto.App.Persistencia.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Fecha")
-                        .HasMaxLength(5)
-                        .HasColumnType("Date");
 
                     b.Property<int?>("direccionId")
                         .HasColumnType("int");

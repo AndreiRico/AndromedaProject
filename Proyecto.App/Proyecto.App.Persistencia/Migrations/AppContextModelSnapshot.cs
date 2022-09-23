@@ -185,10 +185,6 @@ namespace Proyecto.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("Fecha")
-                        .HasMaxLength(5)
-                        .HasColumnType("Date");
-
                     b.Property<int?>("direccionId")
                         .HasColumnType("int");
 

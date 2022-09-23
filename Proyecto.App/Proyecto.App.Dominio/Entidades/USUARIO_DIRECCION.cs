@@ -7,9 +7,9 @@ namespace Proyecto.App.Dominio
     {
         [Key]
         public int usuarioDireccionId { get; set; }
-        [MaxLength(5)]
-        [Column(TypeName = "Date")]//se asigna un tipo Date, para que solo guarde la fecha
-        public DateTime Fecha { get; set; }
+        // [MaxLength(5)]
+        // [Column(TypeName = "Date")]//se asigna un tipo Date, para que solo guarde la fecha
+        // public DateTime Fecha { get; set; }
         public int? usuariosId { get; set; }
         public Usuarios usuarios { get; set; }
         public int? direccionId { get; set; }

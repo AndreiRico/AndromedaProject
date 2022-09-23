@@ -35,6 +35,12 @@ namespace Proyecto.App.Persistencia
         {
             return _appContext.usuariosNombres.FirstOrDefault(p => p.usuariosNombresId == get);
         }
+        
+        UsuariosNombres IRepositorioUsuariosNombres.GetUsuariosNombresxid(int get)
+        {
+            var usuariosNombres = _appContext.usuariosNombres.Where(p => p.usuariosId == get).FirstOrDefault();
+            return _appContext.usuariosNombres.FirstOrDefault(p => p.usuariosNombresId == usuariosNombres.usuariosNombresId);
+        }
         UsuariosNombres IRepositorioUsuariosNombres.UpdateUsuariosNombres(UsuariosNombres up)
         {
             var Encontrado = _appContext.usuariosNombres.FirstOrDefault(p => p.usuariosNombresId == up.usuariosNombresId);

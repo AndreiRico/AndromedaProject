@@ -56,6 +56,21 @@ namespace Proyecto.App.Frontend.Pages
         private IRepositorioGenero _repoGenero;
         //[BindProperty]
         public Genero genero { get; set; }
+        private IRepositorioUsuariosNombres _repoUsuariosNombres;
+        //[BindProperty]
+        public UsuariosNombres usuariosNombres { get; set; }
+        private IRepositorioUsuariosApellidos _repoUsuariosApellidos;
+        //[BindProperty]
+        public UsuariosApellidos usuariosApellidos { get; set; }
+        private IRepositorioUsuariosEmail _repoUsuariosEmail;
+        //[BindProperty]
+        public UsuariosEmail usuariosEmail { get; set; }
+        private IRepositorioUsuarioDireccion _repoUsuariosDireccion;
+        //[BindProperty]
+        public UsuarioDireccion usuarioDireccion { get; set; }
+        private IRepositorioUsuarioTelefono _repoUsuarioTelefono;
+        //[BindProperty]
+        public UsuarioTelefono usuarioTelefono { get; set; }
 
         //****************************************************************///////
 
@@ -75,6 +90,11 @@ namespace Proyecto.App.Frontend.Pages
             this._repoDireccion = new RepositorioDireccion(new Proyecto.App.Persistencia.AppContext());
             this._repoTelefono = new RepositorioTelefono(new Proyecto.App.Persistencia.AppContext());
             this._repoGenero = new RepositorioGenero(new Proyecto.App.Persistencia.AppContext());
+            this._repoUsuariosNombres = new RepositorioUsuariosNombres(new Proyecto.App.Persistencia.AppContext());
+            this._repoUsuariosApellidos = new RepositorioUsuariosApellidos(new Proyecto.App.Persistencia.AppContext());
+            this._repoUsuariosEmail = new RepositorioUsuariosEmail(new Proyecto.App.Persistencia.AppContext());
+            this._repoUsuariosDireccion = new RepositorioUsuarioDireccion(new Proyecto.App.Persistencia.AppContext());    
+            this._repoUsuarioTelefono = new RepositorioUsuarioTelefono(new Proyecto.App.Persistencia.AppContext());    
             //*************************************************
         }
 
@@ -119,6 +139,31 @@ namespace Proyecto.App.Frontend.Pages
                         generoId = pkGenero,
                         documentoId = pkDocumento
                     }).usuariosId;
+                    _repoUsuariosNombres.AddUsuariosNombres(new UsuariosNombres()
+                    {
+                        usuariosId = pkUsuario,
+                        nombresId = pkNombre
+                    });
+                    _repoUsuariosApellidos.AddUsuariosApellidos(new UsuariosApellidos()
+                    {
+                        usuariosId = pkUsuario,
+                        apellidosId = pkApellido
+                    });
+                    _repoUsuariosEmail.AddUsuariosEmail(new UsuariosEmail()
+                    {
+                        usuariosId = pkUsuario,
+                        emailId = pkEmail
+                    });
+                    _repoUsuariosDireccion.AddUsuarioDireccion(new UsuarioDireccion()
+                    {
+                        usuariosId = pkUsuario,
+                        direccionId = pkDireccion
+                    });
+                    _repoUsuarioTelefono.AddUsuarioTelefono(new UsuarioTelefono()
+                    {
+                        usuariosId = pkUsuario,
+                        telefonoId = pkTelefono
+                    });
 
                 }
                 catch (Microsoft.EntityFrameworkCore.DbUpdateException sqlEx)//catch (SqlException sqlEx)

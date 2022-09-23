@@ -9,5 +9,6 @@ namespace Proyecto.App.Persistencia
         UsuariosApellidos UpdateUsuariosApellidos(UsuariosApellidos up);
         void DeleteUsuariosApellidos(int del);
         UsuariosApellidos GetUsuariosApellidos(int get);
+        UsuariosApellidos GetUsuariosApellidosUid(int get);
     }
 }

@@ -9,5 +9,6 @@ namespace Proyecto.App.Persistencia
         UsuariosNombres UpdateUsuariosNombres(UsuariosNombres up);
         void DeleteUsuariosNombres(int del);
         UsuariosNombres GetUsuariosNombres(int get);
+        UsuariosNombres GetUsuariosNombresxid(int get);
     }
 }

@@ -9,5 +9,6 @@ namespace Proyecto.App.Persistencia
         UsuariosEmail UpdateUsuariosEmail(UsuariosEmail up);
         void DeleteUsuariosEmail(int del);
         UsuariosEmail GetUsuariosEmail(int get);
+        UsuariosEmail GetUsuariosEmailUid(int get);
     }
 }

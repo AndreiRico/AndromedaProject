@@ -172,7 +172,6 @@ namespace Proyecto.App.Persistencia.Migrations
                 {
                     usuarioDireccionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Fecha = table.Column<DateTime>(type: "Date", maxLength: 5, nullable: false),
                     usuariosId = table.Column<int>(type: "int", nullable: true),
                     direccionId = table.Column<int>(type: "int", nullable: true)
                 },

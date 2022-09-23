@@ -9,5 +9,6 @@ namespace Proyecto.App.Persistencia
         UsuarioTelefono UpdateUsuarioTelefono(UsuarioTelefono up);
         void DeleteUsuarioTelefono(int del);
         UsuarioTelefono GetUsuarioTelefono(int get);
+        UsuarioTelefono GetUsuarioTelefonoUid(int get);
     }
 }
