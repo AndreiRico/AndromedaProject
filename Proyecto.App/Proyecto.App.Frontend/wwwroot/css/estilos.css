@@ -143,6 +143,7 @@ select {
     width: 100%;
     cursor: pointer;
     border-radius: 5px;
+    padding-left: 10px
 
 }
 

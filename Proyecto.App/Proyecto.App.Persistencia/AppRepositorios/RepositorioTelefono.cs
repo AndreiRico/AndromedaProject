@@ -41,7 +41,7 @@ namespace Proyecto.App.Persistencia
             var Encontrado = _appContext.telefono.FirstOrDefault(p => p.telefonoId == up.telefonoId);
             if (Encontrado != null)
             {
-                //Encontrado.telefono = up.telefono;
+                Encontrado.telefono = up.telefono;
                 //Encontrado.Cuenta = up.Cuenta;
                 
                 _appContext.SaveChanges();

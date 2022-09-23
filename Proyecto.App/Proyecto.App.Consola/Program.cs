@@ -11,7 +11,8 @@ namespace Proyecto.App.Consola
         {
             Console.WriteLine("Hola Mundo");
             //AddUserx();
-            AddUnNombre();
+            //AddUnNombre();
+            UupdateNombre();
 
         }
          private static void AddUserx()
@@ -35,6 +36,20 @@ namespace Proyecto.App.Consola
 
             };
             _repoNombre.AddNombre(nombreadd);
+            //Nombres pri = _repoNombre.GetNombre(1);
+            //Console.WriteLine(pri.nombre);
+
+         }
+         private static void UupdateNombre()
+         {
+            //_repoNombre.UpdateNombre(unom);
+            Nombres nombreadd = new Nombres
+            {
+                nombresId = 1,
+                nombre = "Pepito2222"
+
+            };
+            _repoNombre.UpdateNombre(nombreadd);
             //Nombres pri = _repoNombre.GetNombre(1);
             //Console.WriteLine(pri.nombre);
 
