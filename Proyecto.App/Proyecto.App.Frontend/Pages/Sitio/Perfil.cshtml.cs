@@ -12,6 +12,7 @@ using Microsoft.Data.SqlClient;
 
 namespace Proyecto.App.Frontend.Pages
 {
+
     public class PerfilModel : PageModel
     {
         [BindProperty]
@@ -34,8 +35,6 @@ namespace Proyecto.App.Frontend.Pages
         private IRepositorioTelefono _repoTelefono;
         public Telefono telefono { get; set; }
         private IRepositorioUsuario _repoUsuario;
-        // public Usuarios usuarios { get; set; }
-        public Usuarios usuarios = new Usuarios();
         private IRepositorioGenero _repoGenero;
         public Genero genero { get; set; }
         private IRepositorioUsuariosNombres _repoUsuariosNombres;
@@ -47,13 +46,12 @@ namespace Proyecto.App.Frontend.Pages
         private IRepositorioUsuarioDireccion _repoUsuarioDireccion;
         public UsuarioDireccion usuarioDireccion { get; set; }
         private IRepositorioUsuarioTelefono _repoUsuarioTelefono;
+        public Usuarios usuarios { get; set; }//!!!!
         public UsuarioTelefono usuarioTelefono { get; set; }
 
         public PerfilModel()
         {
             this.registro = new Registro();
-            this.documento = new Documento();
-            // this.usuarios = new Usuarios();
             this._repoNombre = new RepositorioNombre(new Proyecto.App.Persistencia.AppContext());
             this._repoUsuario = new RepositorioUsuario(new Proyecto.App.Persistencia.AppContext());
             this._repoTipoDocumento = new RepositorioTipoDocumento(new Proyecto.App.Persistencia.AppContext());
@@ -68,7 +66,7 @@ namespace Proyecto.App.Frontend.Pages
             this._repoUsuariosApellidos = new RepositorioUsuariosApellidos(new Proyecto.App.Persistencia.AppContext());
             this._repoUsuariosEmail = new RepositorioUsuariosEmail(new Proyecto.App.Persistencia.AppContext());
             this._repoUsuarioDireccion = new RepositorioUsuarioDireccion(new Proyecto.App.Persistencia.AppContext());
-            this._repoUsuarioTelefono = new RepositorioUsuarioTelefono(new Proyecto.App.Persistencia.AppContext());    
+            this._repoUsuarioTelefono = new RepositorioUsuarioTelefono(new Proyecto.App.Persistencia.AppContext());
         }
 
         // public void OnGet(int? id)
@@ -93,71 +91,110 @@ namespace Proyecto.App.Frontend.Pages
         // }
         public void OnGet(int? id)
         {
-            this.usuarios = _repoUsuario.GetUsuario(id.Value);
-            Console.WriteLine(usuarios.usuariosId+"\n----");
-            Console.WriteLine(usuarios.tipoDocumentoId);
-            this.registro.tipodocumento = _repoTipoDocumento.GetTipoDocumento(usuarios.tipoDocumentoId.Value).descripcion;
-            this.registro.rh = _repoRH.GetRH(usuarios.rhId.Value).descripcion;
-            this.registro.genero = _repoGenero.GetGenero(usuarios.generoId.Value).descripcion;
-            this.registro.documento = _repoDocumento.GetDocumento(usuarios.documentoId.Value).descripcion;
+            usuarios = _repoUsuario.GetUsuario(id.Value);
+            registro.tipodocumento = _repoTipoDocumento.GetTipoDocumento(usuarios.tipoDocumentoId.Value).descripcion;
+            registro.rh = _repoRH.GetRH(usuarios.rhId.Value).descripcion;
+            registro.genero = _repoGenero.GetGenero(usuarios.generoId.Value).descripcion;
+            registro.documento = _repoDocumento.GetDocumento(usuarios.documentoId.Value).descripcion;
             usuariosNombres = _repoUsuariosNombres.GetUsuariosNombresxid(usuarios.documentoId.Value);
-            this.registro.nombre = _repoNombre.GetNombre(usuariosNombres.nombresId.Value).nombre;
+            registro.nombre = _repoNombre.GetNombre(usuariosNombres.nombresId.Value).nombre;
             usuariosApellidos = _repoUsuariosApellidos.GetUsuariosApellidosUid(usuarios.documentoId.Value);
-            this.registro.apellidos = _repoApellidos.GetApellidos(usuariosApellidos.apellidosId.Value).apellido;
+            registro.apellidos = _repoApellidos.GetApellidos(usuariosApellidos.apellidosId.Value).apellido;
             usuariosEmail = _repoUsuariosEmail.GetUsuariosEmailUid(usuarios.documentoId.Value);
-            this.registro.email = _repoEmail.GetEmail(usuariosEmail.emailId.Value).descripcion;
+            registro.email = _repoEmail.GetEmail(usuariosEmail.emailId.Value).descripcion;
             usuarioDireccion = _repoUsuarioDireccion.GetUsuarioDireccionUid(usuarios.documentoId.Value);
-            this.registro.direccion = _repoDireccion.GetDireccion(usuarioDireccion.direccionId.Value).direccion;
+            registro.direccion = _repoDireccion.GetDireccion(usuarioDireccion.direccionId.Value).direccion;
             usuarioTelefono = _repoUsuarioTelefono.GetUsuarioTelefonoUid(usuarios.documentoId.Value);
-            this.registro.telefono = _repoTelefono.GetTelefono(usuarioTelefono.telefonoId.Value).telefono;
+            registro.telefono = _repoTelefono.GetTelefono(usuarioTelefono.telefonoId.Value).telefono;
+            //Por problemas se estan guardando las pk en unos atributos de registro
+            registro.usuariosId = usuarios.usuariosId;
+            registro.tipoDocumentoId = usuarios.tipoDocumentoId.Value;
+            registro.documentoId = usuarios.documentoId.Value;
+            registro.rhId = usuarios.rhId.Value;
+            registro.generoId = usuarios.generoId.Value;
+            registro.nacimiento = usuarios.Nacimiento;
+            registro.nombresId = _repoNombre.GetNombre(usuariosNombres.nombresId.Value).nombresId;
+            registro.apellidosId = _repoApellidos.GetApellidos(usuariosApellidos.apellidosId.Value).apellidosId;
+            registro.generoId = _repoGenero.GetGenero(usuarios.generoId.Value).generoId;
+            registro.emailId = _repoEmail.GetEmail(usuariosEmail.emailId.Value).emailId;
+            registro.direccionId = _repoDireccion.GetDireccion(usuarioDireccion.direccionId.Value).direccionId;
+            registro.telefonoId = _repoTelefono.GetTelefono(usuarioTelefono.telefonoId.Value).telefonoId;
 
         }
-//----------------------------
-public IActionResult OnPost(Registro registro)
+        //----------------------------
+        public IActionResult OnPost(Registro registro)
         {
-            // Console.WriteLine(registro.nombre);
-            // Console.WriteLine(registro.apellidos);
-            // Console.WriteLine(registro.nacimiento);
-            // Console.WriteLine(registro.genero);
-            // Console.WriteLine(registro.email);
-            // Console.WriteLine(registro.direccion);
-            // Console.WriteLine(registro.telefono);
-            // Console.WriteLine(registro.rh);
-            Console.WriteLine(registro.tipodocumento);
-            // Console.WriteLine(registro.documento);
-            // Console.WriteLine(registro.tipovivienda);
 
             if (ModelState.IsValid)
             {
                 Console.WriteLine("Entra al if");
                 try
                 {
-                    //---------------
-                    // Nombres nombreadd = new Nombres{
-                    //     nombresId = 1,
-                    //     nombre = "Pepito2222"
-                    // };
-                    // _repoNombre.UpdateNombre(nombreadd);
-                    //----------------
-                    Console.WriteLine(usuarios.tipoDocumentoId);
-                    _repoTipoDocumento.UpdateTipoDocumento(new TipoDocumento() { 
-                        tipoDocumentoId = usuarios.tipoDocumentoId.Value,
-                        descripcion = registro.tipodocumento });
-                    _repoDocumento.UpdateDocumento(new Documento() { descripcion = registro.documento });
-                    // int pkDocumento = this._repoDocumento.UpdateDocumento(new Documento() { descripcion = registro.documento }).documentoId;
-                    Console.WriteLine(registro.nombre);
-                    Nombres unom = new Nombres();
-                    unom.nombre = registro.nombre;
-                    _repoNombre.UpdateNombre(unom);
-                    _repoApellidos.UpdateApellidos(new Apellidos() { apellido = registro.apellidos });
-                    _repoEmail.UpdateEmail(new Email() { descripcion = registro.email });
-                    _repoRH.UpdateRH(new RH() { descripcion = registro.rh });//
-                    _repoDireccion.UpdateDireccion(new Direccion() { direccion = registro.direccion, tipoVivienda = registro.tipovivienda });
-                    _repoTelefono.UpdateTelefono(new Telefono() { telefono = registro.telefono });
-                    _repoGenero.UpdateGenero(new Genero() { descripcion = registro.genero });
-
+                    // Console.WriteLine("----" + registro.tipoDocumentoId + "----");
+                    // Console.WriteLine("----" + registro.documentoId + "----");
+                    // Console.WriteLine("----" + registro.rhId + "----");
+                    // Console.WriteLine("----" + registro.generoId + "----");
+                    // Console.WriteLine("----" + registro.nacimiento + "----");
+                    // Console.WriteLine("----" + registro.nombresId + "----");
+                    // Console.WriteLine("----" + registro.apellidosId + "----");
+                    // Console.WriteLine("----" + registro.generoId + "----");
+                    // Console.WriteLine("----" + registro.emailId + "----");
+                    // Console.WriteLine("----" + registro.direccionId + "----");
+                    // Console.WriteLine("----" + registro.telefonoId + "----");
+                    // Console.WriteLine("----" + registro.tipodocumento + "----");
+                    _repoTipoDocumento.UpdateTipoDocumento(new TipoDocumento()
+                    {
+                        tipoDocumentoId = registro.tipoDocumentoId,
+                        descripcion = registro.tipodocumento
+                    });
+                    _repoDocumento.UpdateDocumento(new Documento()
+                    {
+                        documentoId = registro.documentoId,
+                        descripcion = registro.documento
+                    });
+                    _repoNombre.UpdateNombre(new Nombres()
+                    {
+                        nombresId = registro.nombresId,
+                        nombre = registro.nombre
+                    });
+                    _repoApellidos.UpdateApellidos(new Apellidos()
+                    {
+                        apellidosId = registro.apellidosId,
+                        apellido = registro.apellidos
+                    });
                     _repoUsuario.UpdateUsuario(new Usuarios()
-                    {Nacimiento = registro.nacimiento});
+                    {
+                        usuariosId = registro.usuariosId,
+                        Nacimiento = registro.nacimiento
+                    });
+                    _repoGenero.UpdateGenero(new Genero()
+                    {
+                        generoId = registro.generoId,
+                        descripcion = registro.genero
+                    });
+                    _repoEmail.UpdateEmail(new Email()
+                    {
+                        emailId = registro.emailId,
+                        descripcion = registro.email
+                    });
+                    _repoRH.UpdateRH(new RH()
+                    {
+                        rhId = registro.rhId,
+                        descripcion = registro.rh
+                    });
+                    _repoDireccion.UpdateDireccion(new Direccion()
+                    {
+                        direccionId = registro.direccionId,
+                        direccion = registro.direccion,
+                        tipoVivienda = registro.tipovivienda
+                    });
+                    _repoTelefono.UpdateTelefono(new Telefono()
+                    {
+                        telefonoId = registro.telefonoId,
+                        telefono = registro.telefono
+                    });
+
+                    //-------------------------------------------------------------------
                     // _repoUsuario.UpdateUsuario(new Usuarios()
                     // {
                     //     rhId = pkRh,
@@ -195,9 +232,9 @@ public IActionResult OnPost(Registro registro)
                 }
                 catch (Microsoft.EntityFrameworkCore.DbUpdateException sqlEx)
                 {
-                    Console.WriteLine("ERROOR\n\n");
-                    Console.WriteLine(sqlEx.Message+"\n\n\n");
-                    Console.WriteLine(sqlEx+"\n\n");
+                    Console.WriteLine("ERROR\n\n");
+                    Console.WriteLine(sqlEx.Message + "\n\n\n");
+                    Console.WriteLine(sqlEx + "\n\n");
                     return Page();
                 }//catch (SqlException sqlEx)
                 return RedirectToPage("/Sitio/Ingreso");

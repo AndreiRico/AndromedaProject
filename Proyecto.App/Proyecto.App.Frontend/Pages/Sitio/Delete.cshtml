@@ -1,0 +1,12 @@
+﻿@page
+@model Proyecto.App.Frontend.Pages.DeleteModel
+@{
+}
+<h1>Borrar Usuario</h1>
+<form method='post'>
+    <!-- Asignar Id del cliente a borrar -->
+    <input type="hidden" asp-for="registro.usuariosId" />
+    <h3>¿ Está seguro de borrar el cliente @Model.registro.nombre @Model.registro.apellidos ?</h3>
+
+    <input type="submit" value="Borrar" class="btn btn-danger" /> 
+</form>
