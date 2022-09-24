@@ -127,7 +127,7 @@ namespace Proyecto.App.Frontend.Pages
 
             if (ModelState.IsValid)
             {
-                Console.WriteLine("Entra al if");
+                Console.WriteLine("Entra al if perfil");
                 try
                 {
                     // Console.WriteLine("----" + registro.tipoDocumentoId + "----");

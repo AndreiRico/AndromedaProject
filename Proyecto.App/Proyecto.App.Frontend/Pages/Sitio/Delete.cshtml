@@ -6,6 +6,7 @@
 <form method='post'>
     <!-- Asignar Id del cliente a borrar -->
     <input type="hidden" asp-for="registro.usuariosId" />
+    <input type="hidden" asp-for="registro.tipoDocumentoId" />
     <h3>¿ Está seguro de borrar el cliente @Model.registro.nombre @Model.registro.apellidos ?</h3>
 
     <input type="submit" value="Borrar" class="btn btn-danger" /> 
