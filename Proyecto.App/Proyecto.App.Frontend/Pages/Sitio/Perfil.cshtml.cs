@@ -46,7 +46,7 @@ namespace Proyecto.App.Frontend.Pages
         private IRepositorioUsuarioDireccion _repoUsuarioDireccion;
         public UsuarioDireccion usuarioDireccion { get; set; }
         private IRepositorioUsuarioTelefono _repoUsuarioTelefono;
-        public Usuarios usuarios { get; set; }//!!!!
+        public static Usuarios usuarios { get; set; }//!!!!
         public UsuarioTelefono usuarioTelefono { get; set; }
 
         public PerfilModel()
@@ -69,26 +69,6 @@ namespace Proyecto.App.Frontend.Pages
             this._repoUsuarioTelefono = new RepositorioUsuarioTelefono(new Proyecto.App.Persistencia.AppContext());
         }
 
-        // public void OnGet(int? id)
-        // {
-        //     usuarios = _repoUsuario.GetUsuario(id.Value);
-        //     Console.WriteLine(usuarios.usuariosId);
-        //     tipoDocumento = _repoTipoDocumento.GetTipoDocumento(usuarios.tipoDocumentoId.Value);
-        //     rh = _repoRH.GetRH(usuarios.rhId.Value);
-        //     genero = _repoGenero.GetGenero(usuarios.generoId.Value);
-        //     documento = _repoDocumento.GetDocumento(usuarios.documentoId.Value);
-        //     usuariosNombres = _repoUsuariosNombres.GetUsuariosNombresxid(usuarios.documentoId.Value);
-        //     nombres = _repoNombre.GetNombre(usuariosNombres.nombresId.Value);
-        //     usuariosApellidos = _repoUsuariosApellidos.GetUsuariosApellidosUid(usuarios.documentoId.Value);
-        //     apellidos = _repoApellidos.GetApellidos(usuariosApellidos.apellidosId.Value);
-        //     usuariosEmail = _repoUsuariosEmail.GetUsuariosEmailUid(usuarios.documentoId.Value);
-        //     email = _repoEmail.GetEmail(usuariosEmail.emailId.Value);
-        //     usuarioDireccion = _repoUsuarioDireccion.GetUsuarioDireccionUid(usuarios.documentoId.Value);
-        //     direccion = _repoDireccion.GetDireccion(usuarioDireccion.direccionId.Value);
-        //     usuarioTelefono = _repoUsuarioTelefono.GetUsuarioTelefonoUid(usuarios.documentoId.Value);
-        //     telefono = _repoTelefono.GetTelefono(usuarioTelefono.telefonoId.Value);
-
-        // }
         public void OnGet(int? id)
         {
             usuarios = _repoUsuario.GetUsuario(id.Value);
@@ -108,14 +88,14 @@ namespace Proyecto.App.Frontend.Pages
             registro.telefono = _repoTelefono.GetTelefono(usuarioTelefono.telefonoId.Value).telefono;
             //Por problemas se estan guardando las pk en unos atributos de registro
             registro.usuariosId = usuarios.usuariosId;
-            registro.tipoDocumentoId = usuarios.tipoDocumentoId.Value;
-            registro.documentoId = usuarios.documentoId.Value;
-            registro.rhId = usuarios.rhId.Value;
-            registro.generoId = usuarios.generoId.Value;
+            //registro.tipoDocumentoId = usuarios.tipoDocumentoId.Value;
+            //registro.documentoId = usuarios.documentoId.Value;
+            //registro.rhId = usuarios.rhId.Value;
+            //registro.generoId = usuarios.generoId.Value;
             registro.nacimiento = usuarios.Nacimiento;
             registro.nombresId = _repoNombre.GetNombre(usuariosNombres.nombresId.Value).nombresId;
             registro.apellidosId = _repoApellidos.GetApellidos(usuariosApellidos.apellidosId.Value).apellidosId;
-            registro.generoId = _repoGenero.GetGenero(usuarios.generoId.Value).generoId;
+            //registro.generoId = _repoGenero.GetGenero(usuarios.generoId.Value).generoId;
             registro.emailId = _repoEmail.GetEmail(usuariosEmail.emailId.Value).emailId;
             registro.direccionId = _repoDireccion.GetDireccion(usuarioDireccion.direccionId.Value).direccionId;
             registro.telefonoId = _repoTelefono.GetTelefono(usuarioTelefono.telefonoId.Value).telefonoId;
@@ -144,12 +124,12 @@ namespace Proyecto.App.Frontend.Pages
                     // Console.WriteLine("----" + registro.tipodocumento + "----");
                     _repoTipoDocumento.UpdateTipoDocumento(new TipoDocumento()
                     {
-                        tipoDocumentoId = registro.tipoDocumentoId,
+                        tipoDocumentoId = usuarios.tipoDocumentoId.Value,
                         descripcion = registro.tipodocumento
                     });
                     _repoDocumento.UpdateDocumento(new Documento()
                     {
-                        documentoId = registro.documentoId,
+                        documentoId = usuarios.documentoId.Value,
                         descripcion = registro.documento
                     });
                     _repoNombre.UpdateNombre(new Nombres()
@@ -169,7 +149,7 @@ namespace Proyecto.App.Frontend.Pages
                     });
                     _repoGenero.UpdateGenero(new Genero()
                     {
-                        generoId = registro.generoId,
+                        generoId = usuarios.generoId.Value,
                         descripcion = registro.genero
                     });
                     _repoEmail.UpdateEmail(new Email()
@@ -179,7 +159,7 @@ namespace Proyecto.App.Frontend.Pages
                     });
                     _repoRH.UpdateRH(new RH()
                     {
-                        rhId = registro.rhId,
+                        rhId = usuarios.rhId.Value,
                         descripcion = registro.rh
                     });
                     _repoDireccion.UpdateDireccion(new Direccion()
@@ -193,41 +173,6 @@ namespace Proyecto.App.Frontend.Pages
                         telefonoId = registro.telefonoId,
                         telefono = registro.telefono
                     });
-
-                    //-------------------------------------------------------------------
-                    // _repoUsuario.UpdateUsuario(new Usuarios()
-                    // {
-                    //     rhId = pkRh,
-                    //     tipoDocumentoId = pkTipoDocumento,
-                    //     Nacimiento = registro.nacimiento
-                    //     generoId = pkGenero,
-                    //     documentoId = pkDocumento
-                    // });
-                    // _repoUsuariosNombres.AddUsuariosNombres(new UsuariosNombres()
-                    // {
-                    //     usuariosId = pkUsuario,
-                    //     nombresId = pkNombre
-                    // });
-                    // _repoUsuariosApellidos.AddUsuariosApellidos(new UsuariosApellidos()
-                    // {
-                    //     usuariosId = pkUsuario,
-                    //     apellidosId = pkApellido
-                    // });
-                    // _repoUsuariosEmail.AddUsuariosEmail(new UsuariosEmail()
-                    // {
-                    //     usuariosId = pkUsuario,
-                    //     emailId = pkEmail
-                    // });
-                    // _repoUsuarioDireccion.AddUsuarioDireccion(new UsuarioDireccion()
-                    // {
-                    //     usuariosId = pkUsuario,
-                    //     direccionId = pkDireccion
-                    // });
-                    // _repoUsuarioTelefono.AddUsuarioTelefono(new UsuarioTelefono()
-                    // {
-                    //     usuariosId = pkUsuario,
-                    //     telefonoId = pkTelefono
-                    // });
 
                 }
                 catch (Microsoft.EntityFrameworkCore.DbUpdateException sqlEx)
