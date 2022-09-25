@@ -36,16 +36,17 @@ namespace Proyecto.App.Frontend.Pages
         private IRepositorioGenero _repoGenero;
         public Genero genero { get; set; }
         private IRepositorioUsuariosNombres _repoUsuariosNombres;
-        public UsuariosNombres usuariosNombres { get; set; }
+        public static UsuariosNombres usuariosNombres { get; set; }
         private IRepositorioUsuariosApellidos _repoUsuariosApellidos;
-        public UsuariosApellidos usuariosApellidos { get; set; }
+        public static UsuariosApellidos usuariosApellidos { get; set; }
         private IRepositorioUsuariosEmail _repoUsuariosEmail;
-        public UsuariosEmail usuariosEmail { get; set; }
+        public static UsuariosEmail usuariosEmail { get; set; }
         private IRepositorioUsuarioDireccion _repoUsuarioDireccion;
-        public UsuarioDireccion usuarioDireccion { get; set; }
+        public static UsuarioDireccion usuarioDireccion { get; set; }
         private IRepositorioUsuarioTelefono _repoUsuarioTelefono;
-        public Usuarios usuarios { get; set; }//!!!!
-        public UsuarioTelefono usuarioTelefono { get; set; }
+        public static Usuarios usuarios { get; set; }//!!!!
+        public static UsuarioTelefono usuarioTelefono { get; set; }
+        //------
         public DeleteModel()
         {
             this.registro = new Registro();
@@ -100,10 +101,26 @@ namespace Proyecto.App.Frontend.Pages
         public IActionResult OnPost(Registro registro)
         {
 
+
+            Console.WriteLine("Prueba2" + usuarios.Nacimiento);
             Console.WriteLine("Eliminar algo" + registro.usuariosId);
             Console.WriteLine("tdoc"+registro.tipoDocumentoId);
             // _repoTipoDocumento.DeleteTipoDocumento(registro.tipoDocumentoId);
-            _repoUsuario.DeleteUsuario(registro.usuariosId);
+            _repoUsuarioDireccion.DeleteUsuarioDireccion(usuarioDireccion.usuarioDireccionId);
+            _repoDireccion.DeleteDireccion(usuarioDireccion.direccionId.Value);
+            _repoUsuariosApellidos.DeleteUsuariosApellidos(usuariosApellidos.usuariosApellidosId);
+            _repoApellidos.DeleteApellidos(usuariosApellidos.apellidosId.Value);
+            _repoUsuariosEmail.DeleteUsuariosEmail(usuariosEmail.usuariosEmailId);
+            _repoEmail.DeleteEmail(usuariosEmail.emailId.Value);
+            _repoUsuarioTelefono.DeleteUsuarioTelefono(usuarioTelefono.usuarioTelefonoId);
+            _repoTelefono.DeleteTelefono(usuarioTelefono.telefonoId.Value);
+            _repoUsuariosNombres.DeleteUsuariosNombres(usuariosNombres.usuariosNombresId);
+            _repoNombre.DeleteNombre(usuariosNombres.nombresId.Value);
+            _repoUsuario.DeleteUsuario(usuarios.usuariosId);
+            _repoTipoDocumento.DeleteTipoDocumento(usuarios.tipoDocumentoId.Value);
+            _repoRH.DeleteRH(usuarios.rhId.Value);
+            _repoDocumento.DeleteDocumento(usuarios.documentoId.Value);
+            _repoGenero.DeleteGenero(usuarios.generoId.Value);
             return Page();
             //*************
             if (ModelState.IsValid)
