@@ -115,8 +115,11 @@
                     <span asp-validation-for="registro.telefono" class="text-danger"></span>
                 </div>
 
-                    <input class="btn-andro" type="submit" value="Actualizar">
-                    <a class="btn btn-danger"  asp-page=".\Delete" asp-route-id="@Model.registro.usuariosId">Eliminar perfil</a>
+                    <div>
+                    <input class="btn btn-primary" type="submit" value="Actualizar">
+                    <a class="btn btn-danger"  asp-page=".\Delete" asp-route-id="@Model.registro.usuariosId">Eliminar perfil</a>                        
+                    </div>
+
 
             </form>
     </div>

@@ -183,9 +183,7 @@ select:focus {
     margin-bottom: 50px;
 }
 
-.btn-primary {
-    margin-top: 16px;
-}
+
 
 footer {
     background-color: #030f1d;
@@ -275,4 +273,9 @@ li a {
     color: white;
     /* text-align: center; */
     text-decoration: none;
+}
+
+
+.btn{
+    margin-top: 1rem;
 }

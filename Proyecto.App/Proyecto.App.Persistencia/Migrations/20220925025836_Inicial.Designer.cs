@@ -10,7 +10,7 @@ using Proyecto.App.Persistencia;
 namespace Proyecto.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20220923175214_Inicial")]
+    [Migration("20220925025836_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

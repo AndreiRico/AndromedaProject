@@ -14,7 +14,7 @@ namespace Proyecto.App.Frontend.Pages
     public class DeleteModel : PageModel
     {
 
-        [BindProperty]
+        // [BindProperty]
         public Registro registro { get; set; }
         private IRepositorioNombre _repoNombre;
         public Nombres nombres { get; set; }
@@ -44,9 +44,9 @@ namespace Proyecto.App.Frontend.Pages
         private IRepositorioUsuarioDireccion _repoUsuarioDireccion;
         public static UsuarioDireccion usuarioDireccion { get; set; }
         private IRepositorioUsuarioTelefono _repoUsuarioTelefono;
-        public static Usuarios usuarios { get; set; }//!!!!
+        public static Usuarios usuarios { get; set; }
         public static UsuarioTelefono usuarioTelefono { get; set; }
-        //------
+
         public DeleteModel()
         {
             this.registro = new Registro();
@@ -69,86 +69,51 @@ namespace Proyecto.App.Frontend.Pages
         public void OnGet(int? id)
         {
             usuarios = _repoUsuario.GetUsuario(id.Value);
-            registro.tipodocumento = _repoTipoDocumento.GetTipoDocumento(usuarios.tipoDocumentoId.Value).descripcion;
-            registro.rh = _repoRH.GetRH(usuarios.rhId.Value).descripcion;
-            registro.genero = _repoGenero.GetGenero(usuarios.generoId.Value).descripcion;
-            registro.documento = _repoDocumento.GetDocumento(usuarios.documentoId.Value).descripcion;
             usuariosNombres = _repoUsuariosNombres.GetUsuariosNombresxid(usuarios.documentoId.Value);
-            registro.nombre = _repoNombre.GetNombre(usuariosNombres.nombresId.Value).nombre;
             usuariosApellidos = _repoUsuariosApellidos.GetUsuariosApellidosUid(usuarios.documentoId.Value);
-            registro.apellidos = _repoApellidos.GetApellidos(usuariosApellidos.apellidosId.Value).apellido;
             usuariosEmail = _repoUsuariosEmail.GetUsuariosEmailUid(usuarios.documentoId.Value);
-            registro.email = _repoEmail.GetEmail(usuariosEmail.emailId.Value).descripcion;
             usuarioDireccion = _repoUsuarioDireccion.GetUsuarioDireccionUid(usuarios.documentoId.Value);
-            registro.direccion = _repoDireccion.GetDireccion(usuarioDireccion.direccionId.Value).direccion;
             usuarioTelefono = _repoUsuarioTelefono.GetUsuarioTelefonoUid(usuarios.documentoId.Value);
-            registro.telefono = _repoTelefono.GetTelefono(usuarioTelefono.telefonoId.Value).telefono;
-            //Por problemas se estan guardando las pk en unos atributos de registro
-            registro.usuariosId = usuarios.usuariosId;
-            registro.tipoDocumentoId = usuarios.tipoDocumentoId.Value;
-            registro.documentoId = usuarios.documentoId.Value;
-            registro.rhId = usuarios.rhId.Value;
-            registro.generoId = usuarios.generoId.Value;
-            registro.nacimiento = usuarios.Nacimiento;
-            registro.nombresId = _repoNombre.GetNombre(usuariosNombres.nombresId.Value).nombresId;
-            registro.apellidosId = _repoApellidos.GetApellidos(usuariosApellidos.apellidosId.Value).apellidosId;
-            registro.generoId = _repoGenero.GetGenero(usuarios.generoId.Value).generoId;
-            registro.emailId = _repoEmail.GetEmail(usuariosEmail.emailId.Value).emailId;
-            registro.direccionId = _repoDireccion.GetDireccion(usuarioDireccion.direccionId.Value).direccionId;
-            registro.telefonoId = _repoTelefono.GetTelefono(usuarioTelefono.telefonoId.Value).telefonoId;
         }
 
-        public IActionResult OnPost(Registro registro)
+        public IActionResult OnPost()
         {
-
-
-            Console.WriteLine("Prueba2" + usuarios.Nacimiento);
-            Console.WriteLine("Eliminar algo" + registro.usuariosId);
-            Console.WriteLine("tdoc"+registro.tipoDocumentoId);
-            // _repoTipoDocumento.DeleteTipoDocumento(registro.tipoDocumentoId);
-            _repoUsuarioDireccion.DeleteUsuarioDireccion(usuarioDireccion.usuarioDireccionId);
-            _repoDireccion.DeleteDireccion(usuarioDireccion.direccionId.Value);
-            _repoUsuariosApellidos.DeleteUsuariosApellidos(usuariosApellidos.usuariosApellidosId);
-            _repoApellidos.DeleteApellidos(usuariosApellidos.apellidosId.Value);
-            _repoUsuariosEmail.DeleteUsuariosEmail(usuariosEmail.usuariosEmailId);
-            _repoEmail.DeleteEmail(usuariosEmail.emailId.Value);
-            _repoUsuarioTelefono.DeleteUsuarioTelefono(usuarioTelefono.usuarioTelefonoId);
-            _repoTelefono.DeleteTelefono(usuarioTelefono.telefonoId.Value);
-            _repoUsuariosNombres.DeleteUsuariosNombres(usuariosNombres.usuariosNombresId);
-            _repoNombre.DeleteNombre(usuariosNombres.nombresId.Value);
-            _repoUsuario.DeleteUsuario(usuarios.usuariosId);
-            _repoTipoDocumento.DeleteTipoDocumento(usuarios.tipoDocumentoId.Value);
-            _repoRH.DeleteRH(usuarios.rhId.Value);
-            _repoDocumento.DeleteDocumento(usuarios.documentoId.Value);
-            _repoGenero.DeleteGenero(usuarios.generoId.Value);
-            return Page();
-            //*************
             if (ModelState.IsValid)
             {
                 Console.WriteLine("Entra al if");
-                // try
-                // {
-                //     Console.WriteLine("Eliminar algo" + registro.usuariosId);
-                //     _repoTipoDocumento.UpdateTipoDocumento(new TipoDocumento()
-                //     {
-                //         tipoDocumentoId = registro.tipoDocumentoId,
-                //         descripcion = registro.tipodocumento
-                //     });
-                //     return Page();
-                // }
-                // catch (Microsoft.EntityFrameworkCore.DbUpdateException sqlEx)
-                // {
-                //     Console.WriteLine("ERROR\n\n");
-                //     Console.WriteLine(sqlEx.Message + "\n\n\n");
-                //     Console.WriteLine(sqlEx + "\n\n");
-                //     return Page();
-                // }//catch (SqlException sqlEx)
-                // return RedirectToPage("/Sitio/Ingreso");
+                try
+                {
+                    _repoUsuarioDireccion.DeleteUsuarioDireccion(usuarioDireccion.usuarioDireccionId);
+                    _repoDireccion.DeleteDireccion(usuarioDireccion.direccionId.Value);
+                    _repoUsuariosApellidos.DeleteUsuariosApellidos(usuariosApellidos.usuariosApellidosId);
+                    _repoApellidos.DeleteApellidos(usuariosApellidos.apellidosId.Value);
+                    _repoUsuariosEmail.DeleteUsuariosEmail(usuariosEmail.usuariosEmailId);
+                    _repoEmail.DeleteEmail(usuariosEmail.emailId.Value);
+                    _repoUsuarioTelefono.DeleteUsuarioTelefono(usuarioTelefono.usuarioTelefonoId);
+                    _repoTelefono.DeleteTelefono(usuarioTelefono.telefonoId.Value);
+                    _repoUsuariosNombres.DeleteUsuariosNombres(usuariosNombres.usuariosNombresId);
+                    _repoNombre.DeleteNombre(usuariosNombres.nombresId.Value);
+                    _repoUsuario.DeleteUsuario(usuarios.usuariosId);
+                    _repoTipoDocumento.DeleteTipoDocumento(usuarios.tipoDocumentoId.Value);
+                    _repoRH.DeleteRH(usuarios.rhId.Value);
+                    _repoDocumento.DeleteDocumento(usuarios.documentoId.Value);
+                    _repoGenero.DeleteGenero(usuarios.generoId.Value);
+                    return RedirectToPage("/Sitio/Ingreso");
+
+                }
+                catch (Microsoft.EntityFrameworkCore.DbUpdateException sqlEx)
+                {
+                    Console.WriteLine("ERROR\n\n");
+                    Console.WriteLine(sqlEx.Message + "\n\n\n");
+                    Console.WriteLine(sqlEx + "\n\n");
+                    return Page();
+                }//catch (SqlException sqlEx)
+                return RedirectToPage("/Index");
 
             }
             else
             {
-                Console.WriteLine("No graba nada");
+                Console.WriteLine("ERROR: No Elimino al usuario");
                 return Page();
             }
         }
