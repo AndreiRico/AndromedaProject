@@ -9,7 +9,6 @@ using Proyecto.App.Dominio;
 using Proyecto.App.Persistencia;
 using Microsoft.Data.SqlClient;
 
-
 namespace Proyecto.App.Frontend.Pages
 {
 
@@ -38,16 +37,16 @@ namespace Proyecto.App.Frontend.Pages
         private IRepositorioGenero _repoGenero;
         public Genero genero { get; set; }
         private IRepositorioUsuariosNombres _repoUsuariosNombres;
-        public UsuariosNombres usuariosNombres { get; set; }
+        public static UsuariosNombres usuariosNombres { get; set; }
         private IRepositorioUsuariosApellidos _repoUsuariosApellidos;
-        public UsuariosApellidos usuariosApellidos { get; set; }
+        public static UsuariosApellidos usuariosApellidos { get; set; }
         private IRepositorioUsuariosEmail _repoUsuariosEmail;
-        public UsuariosEmail usuariosEmail { get; set; }
+        public static UsuariosEmail usuariosEmail { get; set; }
         private IRepositorioUsuarioDireccion _repoUsuarioDireccion;
-        public UsuarioDireccion usuarioDireccion { get; set; }
+        public static UsuarioDireccion usuarioDireccion { get; set; }
         private IRepositorioUsuarioTelefono _repoUsuarioTelefono;
         public static Usuarios usuarios { get; set; }//!!!!
-        public UsuarioTelefono usuarioTelefono { get; set; }
+        public static UsuarioTelefono usuarioTelefono { get; set; }
 
         public PerfilModel()
         {
@@ -84,6 +83,7 @@ namespace Proyecto.App.Frontend.Pages
             registro.email = _repoEmail.GetEmail(usuariosEmail.emailId.Value).descripcion;
             usuarioDireccion = _repoUsuarioDireccion.GetUsuarioDireccionUid(usuarios.documentoId.Value);
             registro.direccion = _repoDireccion.GetDireccion(usuarioDireccion.direccionId.Value).direccion;
+            registro.tipovivienda = _repoDireccion.GetDireccion(usuarioDireccion.direccionId.Value).tipoVivienda;
             usuarioTelefono = _repoUsuarioTelefono.GetUsuarioTelefonoUid(usuarios.documentoId.Value);
             registro.telefono = _repoTelefono.GetTelefono(usuarioTelefono.telefonoId.Value).telefono;
             //Por problemas se estan guardando las pk en unos atributos de registro
@@ -93,35 +93,25 @@ namespace Proyecto.App.Frontend.Pages
             //registro.rhId = usuarios.rhId.Value;
             //registro.generoId = usuarios.generoId.Value;
             registro.nacimiento = usuarios.Nacimiento;
-            registro.nombresId = _repoNombre.GetNombre(usuariosNombres.nombresId.Value).nombresId;
-            registro.apellidosId = _repoApellidos.GetApellidos(usuariosApellidos.apellidosId.Value).apellidosId;
+            //registro.nombresId = _repoNombre.GetNombre(usuariosNombres.nombresId.Value).nombresId;
+            //registro.apellidosId = _repoApellidos.GetApellidos(usuariosApellidos.apellidosId.Value).apellidosId;
             //registro.generoId = _repoGenero.GetGenero(usuarios.generoId.Value).generoId;
-            registro.emailId = _repoEmail.GetEmail(usuariosEmail.emailId.Value).emailId;
-            registro.direccionId = _repoDireccion.GetDireccion(usuarioDireccion.direccionId.Value).direccionId;
-            registro.telefonoId = _repoTelefono.GetTelefono(usuarioTelefono.telefonoId.Value).telefonoId;
+            //registro.emailId = _repoEmail.GetEmail(usuariosEmail.emailId.Value).emailId;
+            //registro.direccionId = _repoDireccion.GetDireccion(usuarioDireccion.direccionId.Value).direccionId;
+            //registro.telefonoId = _repoTelefono.GetTelefono(usuarioTelefono.telefonoId.Value).telefonoId;
 
         }
         //----------------------------
         public IActionResult OnPost(Registro registro)
         {
+            // Console.WriteLine(usuarios.tipoDocumentoId.Value);
+            // return Page();
 
             if (ModelState.IsValid)
             {
                 Console.WriteLine("Entra al if perfil");
                 try
                 {
-                    // Console.WriteLine("----" + registro.tipoDocumentoId + "----");
-                    // Console.WriteLine("----" + registro.documentoId + "----");
-                    // Console.WriteLine("----" + registro.rhId + "----");
-                    // Console.WriteLine("----" + registro.generoId + "----");
-                    // Console.WriteLine("----" + registro.nacimiento + "----");
-                    // Console.WriteLine("----" + registro.nombresId + "----");
-                    // Console.WriteLine("----" + registro.apellidosId + "----");
-                    // Console.WriteLine("----" + registro.generoId + "----");
-                    // Console.WriteLine("----" + registro.emailId + "----");
-                    // Console.WriteLine("----" + registro.direccionId + "----");
-                    // Console.WriteLine("----" + registro.telefonoId + "----");
-                    // Console.WriteLine("----" + registro.tipodocumento + "----");
                     _repoTipoDocumento.UpdateTipoDocumento(new TipoDocumento()
                     {
                         tipoDocumentoId = usuarios.tipoDocumentoId.Value,
@@ -134,17 +124,17 @@ namespace Proyecto.App.Frontend.Pages
                     });
                     _repoNombre.UpdateNombre(new Nombres()
                     {
-                        nombresId = registro.nombresId,
+                        nombresId = _repoNombre.GetNombre(usuariosNombres.nombresId.Value).nombresId,
                         nombre = registro.nombre
                     });
                     _repoApellidos.UpdateApellidos(new Apellidos()
                     {
-                        apellidosId = registro.apellidosId,
+                        apellidosId = _repoApellidos.GetApellidos(usuariosApellidos.apellidosId.Value).apellidosId,
                         apellido = registro.apellidos
                     });
                     _repoUsuario.UpdateUsuario(new Usuarios()
                     {
-                        usuariosId = registro.usuariosId,
+                        usuariosId = usuarios.usuariosId,
                         Nacimiento = registro.nacimiento
                     });
                     _repoGenero.UpdateGenero(new Genero()
@@ -154,7 +144,7 @@ namespace Proyecto.App.Frontend.Pages
                     });
                     _repoEmail.UpdateEmail(new Email()
                     {
-                        emailId = registro.emailId,
+                        emailId = _repoEmail.GetEmail(usuariosEmail.emailId.Value).emailId,
                         descripcion = registro.email
                     });
                     _repoRH.UpdateRH(new RH()
@@ -164,29 +154,29 @@ namespace Proyecto.App.Frontend.Pages
                     });
                     _repoDireccion.UpdateDireccion(new Direccion()
                     {
-                        direccionId = registro.direccionId,
+                        direccionId = _repoDireccion.GetDireccion(usuarioDireccion.direccionId.Value).direccionId,
                         direccion = registro.direccion,
                         tipoVivienda = registro.tipovivienda
                     });
                     _repoTelefono.UpdateTelefono(new Telefono()
                     {
-                        telefonoId = registro.telefonoId,
+                        telefonoId = _repoTelefono.GetTelefono(usuarioTelefono.telefonoId.Value).telefonoId,
                         telefono = registro.telefono
                     });
 
                 }
                 catch (Microsoft.EntityFrameworkCore.DbUpdateException sqlEx)
                 {
-                    Console.WriteLine("ERROR\n\n");
-                    Console.WriteLine(sqlEx.Message + "\n\n\n");
-                    Console.WriteLine(sqlEx + "\n\n");
+                    Console.WriteLine("ERROR:\n");
+                    Console.WriteLine(sqlEx.Message + "n");
+                    Console.WriteLine(sqlEx + "\n");
                     return Page();
                 }//catch (SqlException sqlEx)
                 return RedirectToPage("/Sitio/Ingreso");
             }
             else
             {
-                Console.WriteLine("No graba nada");
+                Console.WriteLine("No entra al perfil");
                 return Page();
             }
 

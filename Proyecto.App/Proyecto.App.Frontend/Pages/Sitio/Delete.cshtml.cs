@@ -80,7 +80,7 @@ namespace Proyecto.App.Frontend.Pages
         {
             if (ModelState.IsValid)
             {
-                Console.WriteLine("Entra al if");
+                //Console.WriteLine("Entra al if");
                 try
                 {
                     _repoUsuarioDireccion.DeleteUsuarioDireccion(usuarioDireccion.usuarioDireccionId);
